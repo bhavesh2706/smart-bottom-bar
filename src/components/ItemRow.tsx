@@ -8,11 +8,13 @@ export function ItemRow({
   items,
   compact,
   vertical,
+  noShrink,
 }: {
   engine: BarEngine;
   items: readonly BottomBarItem[];
   compact?: boolean;
   vertical?: boolean;
+  noShrink?: boolean;
 }) {
   const ordered = maybeReverse(items, engine.rtl && !vertical);
 
@@ -30,6 +32,7 @@ export function ItemRow({
             labelPosition={engine.labelPosition}
             compact={compact}
             vertical={vertical}
+            noShrink={noShrink}
             onPress={() => engine.handlePress(item.key)}
             onLongPress={() => engine.handleLongPress(item.key)}
             style={engine.style}

@@ -24,6 +24,7 @@ export function BarItem({
   labelPosition,
   compact,
   vertical,
+  noShrink,
   onPress,
   onLongPress,
   style,
@@ -37,6 +38,8 @@ export function BarItem({
   labelPosition: LabelPosition;
   compact?: boolean;
   vertical?: boolean;
+  /** Keep full hit width (side pods with few items). */
+  noShrink?: boolean;
   onPress: () => void;
   onLongPress?: () => void;
   style?: BottomBarStyle;
@@ -109,7 +112,11 @@ export function BarItem({
       testID={testID ?? item.testID ?? `smart-bottom-bar-item-${item.key}`}
       style={({ pressed }) => [
         styles.hit,
-        vertical ? styles.hitVertical : styles.hitHorizontal,
+        vertical
+          ? styles.hitVertical
+          : noShrink
+            ? styles.hitHorizontalFixed
+            : styles.hitHorizontal,
         style?.item,
         item.disabled ? styles.disabled : null,
         pressed && !item.disabled ? styles.pressed : null,
@@ -133,6 +140,12 @@ const styles = StyleSheet.create({
   },
   hitHorizontal: {
     flexBasis: 0,
+    flexShrink: 1,
+  },
+  hitHorizontalFixed: {
+    flexBasis: 0,
+    flexShrink: 0,
+    flexGrow: 1,
   },
   hitVertical: {
     flexGrow: 0,

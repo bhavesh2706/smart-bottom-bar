@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import {
+  LogBox,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -17,6 +18,10 @@ import {
   type BottomBarItem,
   type BottomBarVariant,
 } from 'react-native-smart-bottom-bars';
+
+// Keep the demo bar visible on device (LogBox banner covers the tab bar).
+LogBox.ignoreLogs(['Open debugger to view warnings']);
+LogBox.ignoreAllLogs(true);
 
 const VARIANTS: BottomBarVariant[] = [
   'flat',

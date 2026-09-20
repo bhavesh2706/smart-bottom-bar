@@ -4,11 +4,16 @@
   "version": "0.0.0",
   "orientation": "portrait",
   "userInterfaceStyle": "automatic",
-  "platforms": ["ios", "android", "web"],
+  "platforms": [
+    "ios",
+    "android",
+    "web"
+  ],
   "ios": {
     "supportsTablet": true
   },
   "android": {
-    "softwareKeyboardLayoutMode": "resize"
+    "softwareKeyboardLayoutMode": "resize",
+    "package": "com.anonymous.smartbottombarsexample"
   }
 }

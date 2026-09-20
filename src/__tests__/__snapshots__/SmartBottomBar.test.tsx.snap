@@ -65,7 +65,6 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
         style={
           {
             "alignItems": "center",
-            "flex": 1,
             "flexDirection": "row",
           }
         }
@@ -125,6 +124,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                 },
                 {
                   "flexBasis": 0,
+                  "flexShrink": 1,
                 },
                 undefined,
                 null,
@@ -280,6 +280,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                 },
                 {
                   "flexBasis": 0,
+                  "flexShrink": 1,
                 },
                 undefined,
                 null,
@@ -406,6 +407,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                 },
                 {
                   "flexBasis": 0,
+                  "flexShrink": 1,
                 },
                 undefined,
                 null,
@@ -542,6 +544,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                 },
                 {
                   "flexBasis": 0,
+                  "flexShrink": 1,
                 },
                 undefined,
                 null,
@@ -615,6 +618,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
             "alignItems": "center",
             "alignSelf": "center",
             "position": "absolute",
+            "zIndex": 3,
           },
           {
             "top": 0,
@@ -815,6 +819,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
             },
             {
               "flexBasis": 0,
+              "flexShrink": 1,
             },
             undefined,
             null,
@@ -970,6 +975,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
             },
             {
               "flexBasis": 0,
+              "flexShrink": 1,
             },
             undefined,
             null,
@@ -1079,6 +1085,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
             },
             {
               "flexBasis": 0,
+              "flexShrink": 1,
             },
             undefined,
             null,
@@ -1188,6 +1195,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
             },
             {
               "flexBasis": 0,
+              "flexShrink": 1,
             },
             undefined,
             null,
@@ -1324,6 +1332,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
             },
             {
               "flexBasis": 0,
+              "flexShrink": 1,
             },
             undefined,
             null,
@@ -1493,6 +1502,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
             },
             {
               "flexBasis": 0,
+              "flexShrink": 1,
             },
             undefined,
             null,
@@ -1648,6 +1658,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
             },
             {
               "flexBasis": 0,
+              "flexShrink": 1,
             },
             undefined,
             null,
@@ -1757,6 +1768,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
             },
             {
               "flexBasis": 0,
+              "flexShrink": 1,
             },
             undefined,
             null,
@@ -1866,6 +1878,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
             },
             {
               "flexBasis": 0,
+              "flexShrink": 1,
             },
             undefined,
             null,
@@ -2002,6 +2015,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
             },
             {
               "flexBasis": 0,
+              "flexShrink": 1,
             },
             undefined,
             null,
@@ -2097,7 +2111,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
           "overflow": "visible",
         },
         {
-          "height": 80.4,
+          "height": 81.52,
           "marginBottom": 12,
           "marginHorizontal": 12,
         },
@@ -2106,16 +2120,9 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
   >
     <View
       style={
-        [
-          {
-            "alignItems": "stretch",
-            "flexDirection": "row",
-          },
-          {
-            "height": 58,
-            "marginTop": 22.400000000000002,
-          },
-        ]
+        {
+          "marginTop": 23.52,
+        }
       }
     >
       <View
@@ -2133,7 +2140,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
             },
             [
               {
-                "flex": 1,
+                "height": 58,
               },
               undefined,
             ],
@@ -2179,80 +2186,82 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
         />
         <View
           style={
-            {
-              "alignItems": "center",
-              "flex": 1,
-              "flexDirection": "row",
-            }
+            [
+              {
+                "alignItems": "center",
+                "flex": 1,
+                "flexDirection": "row",
+                "paddingHorizontal": 4,
+              },
+              {
+                "height": 58,
+              },
+            ]
           }
         >
           <View
-            accessibilityLabel="Home, 3 notifications"
-            accessibilityRole="tab"
-            accessibilityState={
-              {
-                "busy": undefined,
-                "checked": undefined,
-                "disabled": false,
-                "expanded": undefined,
-                "selected": true,
-              }
-            }
-            accessibilityValue={
-              {
-                "max": undefined,
-                "min": undefined,
-                "now": undefined,
-                "text": undefined,
-              }
-            }
-            accessible={true}
-            collapsable={false}
-            focusable={true}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
             style={
-              [
-                {
-                  "alignItems": "center",
-                  "flexGrow": 1,
-                  "flexShrink": 1,
-                  "justifyContent": "center",
-                  "minHeight": 44,
-                  "minWidth": 44,
-                  "paddingHorizontal": 4,
-                  "paddingVertical": 4,
-                },
-                {
-                  "flexBasis": 0,
-                },
-                undefined,
-                null,
-                null,
-              ]
+              {
+                "alignItems": "center",
+                "flex": 1,
+                "flexDirection": "row",
+              }
             }
-            testID="smart-bottom-bar-item-home"
           >
             <View
+              accessibilityLabel="Home, 3 notifications"
+              accessibilityRole="tab"
+              accessibilityState={
+                {
+                  "busy": undefined,
+                  "checked": undefined,
+                  "disabled": false,
+                  "expanded": undefined,
+                  "selected": true,
+                }
+              }
+              accessibilityValue={
+                {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
                 [
                   {
                     "alignItems": "center",
+                    "flexGrow": 1,
+                    "flexShrink": 1,
                     "justifyContent": "center",
+                    "minHeight": 44,
+                    "minWidth": 44,
+                    "paddingHorizontal": 4,
+                    "paddingVertical": 4,
                   },
                   {
-                    "flexDirection": "column",
+                    "flexBasis": 0,
+                    "flexShrink": 1,
                   },
+                  undefined,
+                  null,
                   null,
                 ]
               }
+              testID="smart-bottom-bar-item-home"
             >
               <View
                 style={
@@ -2260,154 +2269,155 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                     {
                       "alignItems": "center",
                       "justifyContent": "center",
-                      "minHeight": 24,
-                      "minWidth": 24,
-                      "position": "relative",
                     },
-                    undefined,
+                    {
+                      "flexDirection": "column",
+                    },
+                    null,
                   ]
                 }
               >
-                <Text>
-                  H
-                </Text>
                 <View
-                  accessibilityElementsHidden={true}
-                  importantForAccessibility="no-hide-descendants"
                   style={
                     [
                       {
                         "alignItems": "center",
                         "justifyContent": "center",
-                        "minHeight": 8,
-                        "minWidth": 8,
-                        "position": "absolute",
-                        "right": -8,
-                        "top": -4,
-                        "zIndex": 2,
-                      },
-                      {
-                        "borderRadius": 8,
-                        "height": 16,
-                        "minWidth": 16,
-                        "paddingHorizontal": 4,
-                      },
-                      {
-                        "backgroundColor": "#FF3B30",
+                        "minHeight": 24,
+                        "minWidth": 24,
+                        "position": "relative",
                       },
                       undefined,
                     ]
                   }
                 >
-                  <Text
+                  <Text>
+                    H
+                  </Text>
+                  <View
+                    accessibilityElementsHidden={true}
+                    importantForAccessibility="no-hide-descendants"
                     style={
                       [
                         {
-                          "fontSize": 10,
-                          "fontWeight": "700",
-                          "lineHeight": 12,
+                          "alignItems": "center",
+                          "justifyContent": "center",
+                          "minHeight": 8,
+                          "minWidth": 8,
+                          "position": "absolute",
+                          "right": -8,
+                          "top": -4,
+                          "zIndex": 2,
                         },
                         {
-                          "color": "#FFFFFF",
+                          "borderRadius": 8,
+                          "height": 16,
+                          "minWidth": 16,
+                          "paddingHorizontal": 4,
+                        },
+                        {
+                          "backgroundColor": "#FF3B30",
                         },
                         undefined,
                       ]
                     }
                   >
-                    3
-                  </Text>
+                    <Text
+                      style={
+                        [
+                          {
+                            "fontSize": 10,
+                            "fontWeight": "700",
+                            "lineHeight": 12,
+                          },
+                          {
+                            "color": "#FFFFFF",
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                      3
+                    </Text>
+                  </View>
                 </View>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "fontSize": 11,
+                        "fontWeight": "500",
+                        "marginTop": 2,
+                        "maxWidth": 88,
+                        "textAlign": "center",
+                      },
+                      {
+                        "color": "#007AFF",
+                      },
+                      null,
+                      undefined,
+                    ]
+                  }
+                >
+                  Home
+                </Text>
               </View>
-              <Text
-                numberOfLines={1}
-                style={
-                  [
-                    {
-                      "fontSize": 11,
-                      "fontWeight": "500",
-                      "marginTop": 2,
-                      "maxWidth": 88,
-                      "textAlign": "center",
-                    },
-                    {
-                      "color": "#007AFF",
-                    },
-                    null,
-                    undefined,
-                  ]
-                }
-              >
-                Home
-              </Text>
             </View>
-          </View>
-          <View
-            accessibilityLabel="Search"
-            accessibilityRole="tab"
-            accessibilityState={
-              {
-                "busy": undefined,
-                "checked": undefined,
-                "disabled": false,
-                "expanded": undefined,
-                "selected": false,
-              }
-            }
-            accessibilityValue={
-              {
-                "max": undefined,
-                "min": undefined,
-                "now": undefined,
-                "text": undefined,
-              }
-            }
-            accessible={true}
-            collapsable={false}
-            focusable={true}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              [
-                {
-                  "alignItems": "center",
-                  "flexGrow": 1,
-                  "flexShrink": 1,
-                  "justifyContent": "center",
-                  "minHeight": 44,
-                  "minWidth": 44,
-                  "paddingHorizontal": 4,
-                  "paddingVertical": 4,
-                },
-                {
-                  "flexBasis": 0,
-                },
-                undefined,
-                null,
-                null,
-              ]
-            }
-            testID="smart-bottom-bar-item-search"
-          >
             <View
+              accessibilityLabel="Search"
+              accessibilityRole="tab"
+              accessibilityState={
+                {
+                  "busy": undefined,
+                  "checked": undefined,
+                  "disabled": false,
+                  "expanded": undefined,
+                  "selected": false,
+                }
+              }
+              accessibilityValue={
+                {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
                 [
                   {
                     "alignItems": "center",
+                    "flexGrow": 1,
+                    "flexShrink": 1,
                     "justifyContent": "center",
+                    "minHeight": 44,
+                    "minWidth": 44,
+                    "paddingHorizontal": 4,
+                    "paddingVertical": 4,
                   },
                   {
-                    "flexDirection": "column",
+                    "flexBasis": 0,
+                    "flexShrink": 1,
                   },
+                  undefined,
+                  null,
                   null,
                 ]
               }
+              testID="smart-bottom-bar-item-search"
             >
               <View
                 style={
@@ -2415,399 +2425,126 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                     {
                       "alignItems": "center",
                       "justifyContent": "center",
-                      "minHeight": 24,
-                      "minWidth": 24,
-                      "position": "relative",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <Text>
-                  S
-                </Text>
-              </View>
-              <Text
-                numberOfLines={1}
-                style={
-                  [
-                    {
-                      "fontSize": 11,
-                      "fontWeight": "500",
-                      "marginTop": 2,
-                      "maxWidth": 88,
-                      "textAlign": "center",
                     },
                     {
-                      "color": "#8E8E93",
+                      "flexDirection": "column",
                     },
                     null,
-                    undefined,
                   ]
                 }
               >
-                Search
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
-        style={
-          [
-            {
-              "overflow": "visible",
-            },
-            {
-              "backgroundColor": "#F2F2F7",
-              "height": 58,
-              "width": 72,
-            },
-          ]
-        }
-      >
-        <View
-          style={
-            [
-              {
-                "overflow": "hidden",
-                "position": "absolute",
-                "top": 0,
-              },
-              {
-                "backgroundColor": "#F2F2F7",
-                "height": 36,
-                "left": -36,
-                "width": 36,
-              },
-            ]
-          }
-        >
-          <View
-            style={
-              [
-                {
-                  "position": "absolute",
-                },
-                {
-                  "backgroundColor": "transparent",
-                  "borderRadius": 36,
-                  "bottom": 0,
-                  "height": 72,
-                  "right": 0,
-                  "width": 72,
-                },
-              ]
-            }
-          />
-        </View>
-        <View
-          style={
-            [
-              {
-                "overflow": "hidden",
-                "position": "absolute",
-                "top": 0,
-              },
-              {
-                "backgroundColor": "#F2F2F7",
-                "height": 36,
-                "right": -36,
-                "width": 36,
-              },
-            ]
-          }
-        >
-          <View
-            style={
-              [
-                {
-                  "position": "absolute",
-                },
-                {
-                  "backgroundColor": "transparent",
-                  "borderRadius": 36,
-                  "bottom": 0,
-                  "height": 72,
-                  "left": 0,
-                  "width": 72,
-                },
-              ]
-            }
-          />
-        </View>
-      </View>
-      <View
-        style={
-          [
-            {
-              "borderColor": "rgba(255,255,255,0.28)",
-              "borderWidth": 0.5,
-              "overflow": "hidden",
-            },
-            {
-              "backgroundColor": "rgba(255, 255, 255, 0.72)",
-              "borderRadius": 28,
-              "opacity": 0.72,
-            },
-            [
-              {
-                "flex": 1,
-              },
-              undefined,
-            ],
-          ]
-        }
-      >
-        <View
-          pointerEvents="none"
-          style={
-            [
-              {
-                "height": 1.5,
-                "left": 0,
-                "opacity": 0.85,
-                "position": "absolute",
-                "right": 0,
-                "top": 0,
-              },
-              {
-                "backgroundColor": "rgba(255, 255, 255, 0.55)",
-              },
-            ]
-          }
-        />
-        <View
-          collapsable={false}
-          pointerEvents="none"
-          style={
-            {
-              "backgroundColor": "rgba(255,255,255,0.55)",
-              "bottom": 0,
-              "opacity": 0,
-              "position": "absolute",
-              "top": 0,
-              "transform": [
-                {
-                  "translateX": -80,
-                },
-              ],
-              "width": 56,
-            }
-          }
-        />
-        <View
-          style={
-            {
-              "alignItems": "center",
-              "flex": 1,
-              "flexDirection": "row",
-            }
-          }
-        >
-          <View
-            accessibilityLabel="Alerts, new notifications"
-            accessibilityRole="tab"
-            accessibilityState={
-              {
-                "busy": undefined,
-                "checked": undefined,
-                "disabled": false,
-                "expanded": undefined,
-                "selected": false,
-              }
-            }
-            accessibilityValue={
-              {
-                "max": undefined,
-                "min": undefined,
-                "now": undefined,
-                "text": undefined,
-              }
-            }
-            accessible={true}
-            collapsable={false}
-            focusable={true}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              [
-                {
-                  "alignItems": "center",
-                  "flexGrow": 1,
-                  "flexShrink": 1,
-                  "justifyContent": "center",
-                  "minHeight": 44,
-                  "minWidth": 44,
-                  "paddingHorizontal": 4,
-                  "paddingVertical": 4,
-                },
-                {
-                  "flexBasis": 0,
-                },
-                undefined,
-                null,
-                null,
-              ]
-            }
-            testID="smart-bottom-bar-item-alerts"
-          >
-            <View
-              style={
-                [
-                  {
-                    "alignItems": "center",
-                    "justifyContent": "center",
-                  },
-                  {
-                    "flexDirection": "column",
-                  },
-                  null,
-                ]
-              }
-            >
-              <View
-                style={
-                  [
-                    {
-                      "alignItems": "center",
-                      "justifyContent": "center",
-                      "minHeight": 24,
-                      "minWidth": 24,
-                      "position": "relative",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <Text>
-                  A
-                </Text>
                 <View
-                  accessibilityElementsHidden={true}
-                  importantForAccessibility="no-hide-descendants"
                   style={
                     [
                       {
                         "alignItems": "center",
                         "justifyContent": "center",
-                        "minHeight": 8,
-                        "minWidth": 8,
-                        "position": "absolute",
-                        "right": -8,
-                        "top": -4,
-                        "zIndex": 2,
-                      },
-                      {
-                        "borderRadius": 4,
-                        "height": 8,
-                        "width": 8,
-                      },
-                      {
-                        "backgroundColor": "#FF3B30",
+                        "minHeight": 24,
+                        "minWidth": 24,
+                        "position": "relative",
                       },
                       undefined,
                     ]
                   }
-                />
+                >
+                  <Text>
+                    S
+                  </Text>
+                </View>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "fontSize": 11,
+                        "fontWeight": "500",
+                        "marginTop": 2,
+                        "maxWidth": 88,
+                        "textAlign": "center",
+                      },
+                      {
+                        "color": "#8E8E93",
+                      },
+                      null,
+                      undefined,
+                    ]
+                  }
+                >
+                  Search
+                </Text>
               </View>
-              <Text
-                numberOfLines={1}
-                style={
-                  [
-                    {
-                      "fontSize": 11,
-                      "fontWeight": "500",
-                      "marginTop": 2,
-                      "maxWidth": 88,
-                      "textAlign": "center",
-                    },
-                    {
-                      "color": "#8E8E93",
-                    },
-                    null,
-                    undefined,
-                  ]
-                }
-              >
-                Alerts
-              </Text>
             </View>
           </View>
           <View
-            accessibilityLabel="Profile"
-            accessibilityRole="tab"
-            accessibilityState={
-              {
-                "busy": undefined,
-                "checked": undefined,
-                "disabled": false,
-                "expanded": undefined,
-                "selected": false,
-              }
-            }
-            accessibilityValue={
-              {
-                "max": undefined,
-                "min": undefined,
-                "now": undefined,
-                "text": undefined,
-              }
-            }
-            accessible={true}
-            collapsable={false}
-            focusable={true}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
             style={
-              [
-                {
-                  "alignItems": "center",
-                  "flexGrow": 1,
-                  "flexShrink": 1,
-                  "justifyContent": "center",
-                  "minHeight": 44,
-                  "minWidth": 44,
-                  "paddingHorizontal": 4,
-                  "paddingVertical": 4,
-                },
-                {
-                  "flexBasis": 0,
-                },
-                undefined,
-                null,
-                null,
-              ]
+              {
+                "width": 68,
+              }
             }
-            testID="smart-bottom-bar-item-profile"
+          />
+          <View
+            style={
+              {
+                "alignItems": "center",
+                "flex": 1,
+                "flexDirection": "row",
+              }
+            }
           >
             <View
+              accessibilityLabel="Alerts, new notifications"
+              accessibilityRole="tab"
+              accessibilityState={
+                {
+                  "busy": undefined,
+                  "checked": undefined,
+                  "disabled": false,
+                  "expanded": undefined,
+                  "selected": false,
+                }
+              }
+              accessibilityValue={
+                {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
                 [
                   {
                     "alignItems": "center",
+                    "flexGrow": 1,
+                    "flexShrink": 1,
                     "justifyContent": "center",
+                    "minHeight": 44,
+                    "minWidth": 44,
+                    "paddingHorizontal": 4,
+                    "paddingVertical": 4,
                   },
                   {
-                    "flexDirection": "column",
+                    "flexBasis": 0,
+                    "flexShrink": 1,
                   },
+                  undefined,
+                  null,
                   null,
                 ]
               }
+              testID="smart-bottom-bar-item-alerts"
             >
               <View
                 style={
@@ -2815,39 +2552,191 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                     {
                       "alignItems": "center",
                       "justifyContent": "center",
-                      "minHeight": 24,
-                      "minWidth": 24,
-                      "position": "relative",
                     },
-                    undefined,
+                    {
+                      "flexDirection": "column",
+                    },
+                    null,
                   ]
                 }
               >
-                <Text>
-                  P
+                <View
+                  style={
+                    [
+                      {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                        "minHeight": 24,
+                        "minWidth": 24,
+                        "position": "relative",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  <Text>
+                    A
+                  </Text>
+                  <View
+                    accessibilityElementsHidden={true}
+                    importantForAccessibility="no-hide-descendants"
+                    style={
+                      [
+                        {
+                          "alignItems": "center",
+                          "justifyContent": "center",
+                          "minHeight": 8,
+                          "minWidth": 8,
+                          "position": "absolute",
+                          "right": -8,
+                          "top": -4,
+                          "zIndex": 2,
+                        },
+                        {
+                          "borderRadius": 4,
+                          "height": 8,
+                          "width": 8,
+                        },
+                        {
+                          "backgroundColor": "#FF3B30",
+                        },
+                        undefined,
+                      ]
+                    }
+                  />
+                </View>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "fontSize": 11,
+                        "fontWeight": "500",
+                        "marginTop": 2,
+                        "maxWidth": 88,
+                        "textAlign": "center",
+                      },
+                      {
+                        "color": "#8E8E93",
+                      },
+                      null,
+                      undefined,
+                    ]
+                  }
+                >
+                  Alerts
                 </Text>
               </View>
-              <Text
-                numberOfLines={1}
+            </View>
+            <View
+              accessibilityLabel="Profile"
+              accessibilityRole="tab"
+              accessibilityState={
+                {
+                  "busy": undefined,
+                  "checked": undefined,
+                  "disabled": false,
+                  "expanded": undefined,
+                  "selected": false,
+                }
+              }
+              accessibilityValue={
+                {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "justifyContent": "center",
+                    "minHeight": 44,
+                    "minWidth": 44,
+                    "paddingHorizontal": 4,
+                    "paddingVertical": 4,
+                  },
+                  {
+                    "flexBasis": 0,
+                    "flexShrink": 1,
+                  },
+                  undefined,
+                  null,
+                  null,
+                ]
+              }
+              testID="smart-bottom-bar-item-profile"
+            >
+              <View
                 style={
                   [
                     {
-                      "fontSize": 11,
-                      "fontWeight": "500",
-                      "marginTop": 2,
-                      "maxWidth": 88,
-                      "textAlign": "center",
+                      "alignItems": "center",
+                      "justifyContent": "center",
                     },
                     {
-                      "color": "#8E8E93",
+                      "flexDirection": "column",
                     },
                     null,
-                    undefined,
                   ]
                 }
               >
-                Profile
-              </Text>
+                <View
+                  style={
+                    [
+                      {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                        "minHeight": 24,
+                        "minWidth": 24,
+                        "position": "relative",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  <Text>
+                    P
+                  </Text>
+                </View>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    [
+                      {
+                        "fontSize": 11,
+                        "fontWeight": "500",
+                        "marginTop": 2,
+                        "maxWidth": 88,
+                        "textAlign": "center",
+                      },
+                      {
+                        "color": "#8E8E93",
+                      },
+                      null,
+                      undefined,
+                    ]
+                  }
+                >
+                  Profile
+                </Text>
+              </View>
             </View>
           </View>
         </View>
@@ -2859,10 +2748,12 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
           {
             "alignItems": "center",
             "alignSelf": "center",
+            "elevation": 8,
             "position": "absolute",
+            "zIndex": 3,
           },
           {
-            "top": 2.8000000000000043,
+            "top": 2.2399999999999984,
             "width": 56,
           },
         ]
@@ -3036,6 +2927,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
           },
           {
             "flexBasis": 0,
+            "flexShrink": 1,
           },
           undefined,
           null,
@@ -3191,6 +3083,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
           },
           {
             "flexBasis": 0,
+            "flexShrink": 1,
           },
           undefined,
           null,
@@ -3300,6 +3193,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
           },
           {
             "flexBasis": 0,
+            "flexShrink": 1,
           },
           undefined,
           null,
@@ -3409,6 +3303,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
           },
           {
             "flexBasis": 0,
+            "flexShrink": 1,
           },
           undefined,
           null,
@@ -3545,6 +3440,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
           },
           {
             "flexBasis": 0,
+            "flexShrink": 1,
           },
           undefined,
           null,
@@ -3635,7 +3531,8 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
   <View
     style={
       {
-        "height": 78.4,
+        "height": 79.52,
+        "overflow": "visible",
       }
     }
   >
@@ -3643,100 +3540,112 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
       style={
         [
           {
-            "alignItems": "center",
-            "flex": 1,
-            "flexDirection": "row",
+            "justifyContent": "flex-end",
+            "overflow": "hidden",
           },
           {
-            "alignItems": "stretch",
+            "backgroundColor": "#FFFFFF",
             "height": 56,
-            "marginTop": 22.400000000000002,
+            "marginTop": 23.52,
           },
+          undefined,
         ]
       }
     >
+      <View
+        pointerEvents="none"
+        style={
+          [
+            {
+              "alignSelf": "center",
+              "position": "absolute",
+            },
+            {
+              "backgroundColor": "#F2F2F7",
+              "borderRadius": 33,
+              "height": 66,
+              "top": -33,
+              "width": 66,
+            },
+          ]
+        }
+      />
       <View
         style={
           [
             {
               "alignItems": "center",
-              "flex": 1,
               "flexDirection": "row",
             },
             {
-              "backgroundColor": "#FFFFFF",
+              "height": 56,
             },
-            undefined,
           ]
         }
       >
         <View
-          accessibilityLabel="Home, 3 notifications"
-          accessibilityRole="tab"
-          accessibilityState={
-            {
-              "busy": undefined,
-              "checked": undefined,
-              "disabled": false,
-              "expanded": undefined,
-              "selected": true,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
-            [
-              {
-                "alignItems": "center",
-                "flexGrow": 1,
-                "flexShrink": 1,
-                "justifyContent": "center",
-                "minHeight": 44,
-                "minWidth": 44,
-                "paddingHorizontal": 4,
-                "paddingVertical": 4,
-              },
-              {
-                "flexBasis": 0,
-              },
-              undefined,
-              null,
-              null,
-            ]
+            {
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+            }
           }
-          testID="smart-bottom-bar-item-home"
         >
           <View
+            accessibilityLabel="Home, 3 notifications"
+            accessibilityRole="tab"
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": false,
+                "expanded": undefined,
+                "selected": true,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               [
                 {
                   "alignItems": "center",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
                   "justifyContent": "center",
+                  "minHeight": 44,
+                  "minWidth": 44,
+                  "paddingHorizontal": 4,
+                  "paddingVertical": 4,
                 },
                 {
-                  "flexDirection": "column",
+                  "flexBasis": 0,
+                  "flexShrink": 1,
                 },
+                undefined,
+                null,
                 null,
               ]
             }
+            testID="smart-bottom-bar-item-home"
           >
             <View
               style={
@@ -3744,154 +3653,155 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                   {
                     "alignItems": "center",
                     "justifyContent": "center",
-                    "minHeight": 24,
-                    "minWidth": 24,
-                    "position": "relative",
                   },
-                  undefined,
+                  {
+                    "flexDirection": "column",
+                  },
+                  null,
                 ]
               }
             >
-              <Text>
-                H
-              </Text>
               <View
-                accessibilityElementsHidden={true}
-                importantForAccessibility="no-hide-descendants"
                 style={
                   [
                     {
                       "alignItems": "center",
                       "justifyContent": "center",
-                      "minHeight": 8,
-                      "minWidth": 8,
-                      "position": "absolute",
-                      "right": -8,
-                      "top": -4,
-                      "zIndex": 2,
-                    },
-                    {
-                      "borderRadius": 8,
-                      "height": 16,
-                      "minWidth": 16,
-                      "paddingHorizontal": 4,
-                    },
-                    {
-                      "backgroundColor": "#FF3B30",
+                      "minHeight": 24,
+                      "minWidth": 24,
+                      "position": "relative",
                     },
                     undefined,
                   ]
                 }
               >
-                <Text
+                <Text>
+                  H
+                </Text>
+                <View
+                  accessibilityElementsHidden={true}
+                  importantForAccessibility="no-hide-descendants"
                   style={
                     [
                       {
-                        "fontSize": 10,
-                        "fontWeight": "700",
-                        "lineHeight": 12,
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                        "minHeight": 8,
+                        "minWidth": 8,
+                        "position": "absolute",
+                        "right": -8,
+                        "top": -4,
+                        "zIndex": 2,
                       },
                       {
-                        "color": "#FFFFFF",
+                        "borderRadius": 8,
+                        "height": 16,
+                        "minWidth": 16,
+                        "paddingHorizontal": 4,
+                      },
+                      {
+                        "backgroundColor": "#FF3B30",
                       },
                       undefined,
                     ]
                   }
                 >
-                  3
-                </Text>
+                  <Text
+                    style={
+                      [
+                        {
+                          "fontSize": 10,
+                          "fontWeight": "700",
+                          "lineHeight": 12,
+                        },
+                        {
+                          "color": "#FFFFFF",
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    3
+                  </Text>
+                </View>
               </View>
+              <Text
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "marginTop": 2,
+                      "maxWidth": 88,
+                      "textAlign": "center",
+                    },
+                    {
+                      "color": "#007AFF",
+                    },
+                    null,
+                    undefined,
+                  ]
+                }
+              >
+                Home
+              </Text>
             </View>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "fontSize": 11,
-                    "fontWeight": "500",
-                    "marginTop": 2,
-                    "maxWidth": 88,
-                    "textAlign": "center",
-                  },
-                  {
-                    "color": "#007AFF",
-                  },
-                  null,
-                  undefined,
-                ]
-              }
-            >
-              Home
-            </Text>
           </View>
-        </View>
-        <View
-          accessibilityLabel="Search"
-          accessibilityRole="tab"
-          accessibilityState={
-            {
-              "busy": undefined,
-              "checked": undefined,
-              "disabled": false,
-              "expanded": undefined,
-              "selected": false,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            [
-              {
-                "alignItems": "center",
-                "flexGrow": 1,
-                "flexShrink": 1,
-                "justifyContent": "center",
-                "minHeight": 44,
-                "minWidth": 44,
-                "paddingHorizontal": 4,
-                "paddingVertical": 4,
-              },
-              {
-                "flexBasis": 0,
-              },
-              undefined,
-              null,
-              null,
-            ]
-          }
-          testID="smart-bottom-bar-item-search"
-        >
           <View
+            accessibilityLabel="Search"
+            accessibilityRole="tab"
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": false,
+                "expanded": undefined,
+                "selected": false,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               [
                 {
                   "alignItems": "center",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
                   "justifyContent": "center",
+                  "minHeight": 44,
+                  "minWidth": 44,
+                  "paddingHorizontal": 4,
+                  "paddingVertical": 4,
                 },
                 {
-                  "flexDirection": "column",
+                  "flexBasis": 0,
+                  "flexShrink": 1,
                 },
+                undefined,
+                null,
                 null,
               ]
             }
+            testID="smart-bottom-bar-item-search"
           >
             <View
               style={
@@ -3899,345 +3809,126 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                   {
                     "alignItems": "center",
                     "justifyContent": "center",
-                    "minHeight": 24,
-                    "minWidth": 24,
-                    "position": "relative",
-                  },
-                  undefined,
-                ]
-              }
-            >
-              <Text>
-                S
-              </Text>
-            </View>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "fontSize": 11,
-                    "fontWeight": "500",
-                    "marginTop": 2,
-                    "maxWidth": 88,
-                    "textAlign": "center",
                   },
                   {
-                    "color": "#8E8E93",
+                    "flexDirection": "column",
                   },
                   null,
-                  undefined,
                 ]
               }
             >
-              Search
-            </Text>
-          </View>
-        </View>
-      </View>
-      <View
-        style={
-          [
-            {
-              "overflow": "visible",
-            },
-            {
-              "backgroundColor": "#F2F2F7",
-              "height": 56,
-              "width": 72,
-            },
-          ]
-        }
-      >
-        <View
-          style={
-            [
-              {
-                "overflow": "hidden",
-                "position": "absolute",
-                "top": 0,
-              },
-              {
-                "backgroundColor": "#F2F2F7",
-                "height": 36,
-                "left": -36,
-                "width": 36,
-              },
-            ]
-          }
-        >
-          <View
-            style={
-              [
-                {
-                  "position": "absolute",
-                },
-                {
-                  "backgroundColor": "#FFFFFF",
-                  "borderRadius": 36,
-                  "bottom": 0,
-                  "height": 72,
-                  "right": 0,
-                  "width": 72,
-                },
-              ]
-            }
-          />
-        </View>
-        <View
-          style={
-            [
-              {
-                "overflow": "hidden",
-                "position": "absolute",
-                "top": 0,
-              },
-              {
-                "backgroundColor": "#F2F2F7",
-                "height": 36,
-                "right": -36,
-                "width": 36,
-              },
-            ]
-          }
-        >
-          <View
-            style={
-              [
-                {
-                  "position": "absolute",
-                },
-                {
-                  "backgroundColor": "#FFFFFF",
-                  "borderRadius": 36,
-                  "bottom": 0,
-                  "height": 72,
-                  "left": 0,
-                  "width": 72,
-                },
-              ]
-            }
-          />
-        </View>
-      </View>
-      <View
-        style={
-          [
-            {
-              "alignItems": "center",
-              "flex": 1,
-              "flexDirection": "row",
-            },
-            {
-              "backgroundColor": "#FFFFFF",
-            },
-            undefined,
-          ]
-        }
-      >
-        <View
-          accessibilityLabel="Alerts, new notifications"
-          accessibilityRole="tab"
-          accessibilityState={
-            {
-              "busy": undefined,
-              "checked": undefined,
-              "disabled": false,
-              "expanded": undefined,
-              "selected": false,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            [
-              {
-                "alignItems": "center",
-                "flexGrow": 1,
-                "flexShrink": 1,
-                "justifyContent": "center",
-                "minHeight": 44,
-                "minWidth": 44,
-                "paddingHorizontal": 4,
-                "paddingVertical": 4,
-              },
-              {
-                "flexBasis": 0,
-              },
-              undefined,
-              null,
-              null,
-            ]
-          }
-          testID="smart-bottom-bar-item-alerts"
-        >
-          <View
-            style={
-              [
-                {
-                  "alignItems": "center",
-                  "justifyContent": "center",
-                },
-                {
-                  "flexDirection": "column",
-                },
-                null,
-              ]
-            }
-          >
-            <View
-              style={
-                [
-                  {
-                    "alignItems": "center",
-                    "justifyContent": "center",
-                    "minHeight": 24,
-                    "minWidth": 24,
-                    "position": "relative",
-                  },
-                  undefined,
-                ]
-              }
-            >
-              <Text>
-                A
-              </Text>
               <View
-                accessibilityElementsHidden={true}
-                importantForAccessibility="no-hide-descendants"
                 style={
                   [
                     {
                       "alignItems": "center",
                       "justifyContent": "center",
-                      "minHeight": 8,
-                      "minWidth": 8,
-                      "position": "absolute",
-                      "right": -8,
-                      "top": -4,
-                      "zIndex": 2,
-                    },
-                    {
-                      "borderRadius": 4,
-                      "height": 8,
-                      "width": 8,
-                    },
-                    {
-                      "backgroundColor": "#FF3B30",
+                      "minHeight": 24,
+                      "minWidth": 24,
+                      "position": "relative",
                     },
                     undefined,
                   ]
                 }
-              />
+              >
+                <Text>
+                  S
+                </Text>
+              </View>
+              <Text
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "marginTop": 2,
+                      "maxWidth": 88,
+                      "textAlign": "center",
+                    },
+                    {
+                      "color": "#8E8E93",
+                    },
+                    null,
+                    undefined,
+                  ]
+                }
+              >
+                Search
+              </Text>
             </View>
-            <Text
-              numberOfLines={1}
-              style={
-                [
-                  {
-                    "fontSize": 11,
-                    "fontWeight": "500",
-                    "marginTop": 2,
-                    "maxWidth": 88,
-                    "textAlign": "center",
-                  },
-                  {
-                    "color": "#8E8E93",
-                  },
-                  null,
-                  undefined,
-                ]
-              }
-            >
-              Alerts
-            </Text>
           </View>
         </View>
         <View
-          accessibilityLabel="Profile"
-          accessibilityRole="tab"
-          accessibilityState={
-            {
-              "busy": undefined,
-              "checked": undefined,
-              "disabled": false,
-              "expanded": undefined,
-              "selected": false,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
-            [
-              {
-                "alignItems": "center",
-                "flexGrow": 1,
-                "flexShrink": 1,
-                "justifyContent": "center",
-                "minHeight": 44,
-                "minWidth": 44,
-                "paddingHorizontal": 4,
-                "paddingVertical": 4,
-              },
-              {
-                "flexBasis": 0,
-              },
-              undefined,
-              null,
-              null,
-            ]
+            {
+              "width": 66,
+            }
           }
-          testID="smart-bottom-bar-item-profile"
+        />
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
         >
           <View
+            accessibilityLabel="Alerts, new notifications"
+            accessibilityRole="tab"
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": false,
+                "expanded": undefined,
+                "selected": false,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               [
                 {
                   "alignItems": "center",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
                   "justifyContent": "center",
+                  "minHeight": 44,
+                  "minWidth": 44,
+                  "paddingHorizontal": 4,
+                  "paddingVertical": 4,
                 },
                 {
-                  "flexDirection": "column",
+                  "flexBasis": 0,
+                  "flexShrink": 1,
                 },
+                undefined,
+                null,
                 null,
               ]
             }
+            testID="smart-bottom-bar-item-alerts"
           >
             <View
               style={
@@ -4245,39 +3936,191 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                   {
                     "alignItems": "center",
                     "justifyContent": "center",
-                    "minHeight": 24,
-                    "minWidth": 24,
-                    "position": "relative",
                   },
-                  undefined,
+                  {
+                    "flexDirection": "column",
+                  },
+                  null,
                 ]
               }
             >
-              <Text>
-                P
+              <View
+                style={
+                  [
+                    {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "minHeight": 24,
+                      "minWidth": 24,
+                      "position": "relative",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text>
+                  A
+                </Text>
+                <View
+                  accessibilityElementsHidden={true}
+                  importantForAccessibility="no-hide-descendants"
+                  style={
+                    [
+                      {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                        "minHeight": 8,
+                        "minWidth": 8,
+                        "position": "absolute",
+                        "right": -8,
+                        "top": -4,
+                        "zIndex": 2,
+                      },
+                      {
+                        "borderRadius": 4,
+                        "height": 8,
+                        "width": 8,
+                      },
+                      {
+                        "backgroundColor": "#FF3B30",
+                      },
+                      undefined,
+                    ]
+                  }
+                />
+              </View>
+              <Text
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "marginTop": 2,
+                      "maxWidth": 88,
+                      "textAlign": "center",
+                    },
+                    {
+                      "color": "#8E8E93",
+                    },
+                    null,
+                    undefined,
+                  ]
+                }
+              >
+                Alerts
               </Text>
             </View>
-            <Text
-              numberOfLines={1}
+          </View>
+          <View
+            accessibilityLabel="Profile"
+            accessibilityRole="tab"
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": false,
+                "expanded": undefined,
+                "selected": false,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "justifyContent": "center",
+                  "minHeight": 44,
+                  "minWidth": 44,
+                  "paddingHorizontal": 4,
+                  "paddingVertical": 4,
+                },
+                {
+                  "flexBasis": 0,
+                  "flexShrink": 1,
+                },
+                undefined,
+                null,
+                null,
+              ]
+            }
+            testID="smart-bottom-bar-item-profile"
+          >
+            <View
               style={
                 [
                   {
-                    "fontSize": 11,
-                    "fontWeight": "500",
-                    "marginTop": 2,
-                    "maxWidth": 88,
-                    "textAlign": "center",
+                    "alignItems": "center",
+                    "justifyContent": "center",
                   },
                   {
-                    "color": "#8E8E93",
+                    "flexDirection": "column",
                   },
                   null,
-                  undefined,
                 ]
               }
             >
-              Profile
-            </Text>
+              <View
+                style={
+                  [
+                    {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "minHeight": 24,
+                      "minWidth": 24,
+                      "position": "relative",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text>
+                  P
+                </Text>
+              </View>
+              <Text
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "marginTop": 2,
+                      "maxWidth": 88,
+                      "textAlign": "center",
+                    },
+                    {
+                      "color": "#8E8E93",
+                    },
+                    null,
+                    undefined,
+                  ]
+                }
+              >
+                Profile
+              </Text>
+            </View>
           </View>
         </View>
       </View>
@@ -4289,9 +4132,10 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
             "alignItems": "center",
             "alignSelf": "center",
             "position": "absolute",
+            "zIndex": 3,
           },
           {
-            "top": 2.8000000000000043,
+            "top": 1.1199999999999974,
             "width": 56,
           },
         ]
@@ -4482,6 +4326,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
               },
               {
                 "flexBasis": 0,
+                "flexShrink": 1,
               },
               undefined,
               null,
@@ -4655,6 +4500,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
               },
               {
                 "flexBasis": 0,
+                "flexShrink": 1,
               },
               undefined,
               null,
@@ -4782,6 +4628,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
               },
               {
                 "flexBasis": 0,
+                "flexShrink": 1,
               },
               undefined,
               null,
@@ -4909,6 +4756,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
               },
               {
                 "flexBasis": 0,
+                "flexShrink": 1,
               },
               undefined,
               null,
@@ -5063,6 +4911,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
               },
               {
                 "flexBasis": 0,
+                "flexShrink": 1,
               },
               undefined,
               null,
@@ -5948,6 +5797,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
               },
               {
                 "flexBasis": 0,
+                "flexShrink": 1,
               },
               undefined,
               null,
@@ -6082,6 +5932,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
               },
               {
                 "flexBasis": 0,
+                "flexShrink": 1,
               },
               undefined,
               null,
@@ -6170,6 +6021,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
               },
               {
                 "flexBasis": 0,
+                "flexShrink": 1,
               },
               undefined,
               null,
@@ -6258,6 +6110,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
               },
               {
                 "flexBasis": 0,
+                "flexShrink": 1,
               },
               undefined,
               null,
@@ -6373,6 +6226,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
               },
               {
                 "flexBasis": 0,
+                "flexShrink": 1,
               },
               undefined,
               null,
