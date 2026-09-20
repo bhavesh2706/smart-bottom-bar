@@ -10,7 +10,13 @@ export { SegmentedBottomBar } from './segmented';
 export { SidebarBottomBar } from './sidebar';
 
 export { toNativeTabConfig, fallbackInsets, mergeInsets } from './utils';
-export { lightPalette, darkPalette, paletteFor } from './theme';
+export {
+  lightPalette,
+  darkPalette,
+  paletteFor,
+  defaultShadow,
+  barShadowStyle,
+} from './theme';
 
 export type {
   SmartBottomBarProps,

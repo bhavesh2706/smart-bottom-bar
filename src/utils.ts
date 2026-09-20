@@ -181,7 +181,7 @@ export function runBarAnimation(
 }
 
 export function glassOpacity(intensity: 'clear' | 'regular'): number {
-  return intensity === 'clear' ? 0.42 : 0.72;
+  return intensity === 'clear' ? 0.22 : 0.34;
 }
 
 export function formatBadge(badge: number | string | boolean): string {

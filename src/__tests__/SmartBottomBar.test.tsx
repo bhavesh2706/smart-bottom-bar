@@ -148,6 +148,34 @@ describe('SmartBottomBar', () => {
     });
     expect(getByText('CustomSearch')).toBeTruthy();
   });
+
+  it('honors shadow true/false on floating', () => {
+    const on = render(
+      <SmartBottomBar
+        variant="floating"
+        items={items}
+        shadow
+        testID="shadow-on"
+      />
+    );
+    const off = render(
+      <SmartBottomBar
+        variant="floating"
+        items={items}
+        shadow={false}
+        testID="shadow-off"
+      />
+    );
+    expect(on.getByTestId('shadow-on')).toBeTruthy();
+    expect(off.getByTestId('shadow-off')).toBeTruthy();
+  });
+
+  it('renders center FAB chrome on flat when an item has fab', () => {
+    const { getByLabelText } = renderBar({ variant: 'flat' });
+    expect(getByLabelText('Add')).toBeTruthy();
+    expect(getByLabelText('Home, 3 notifications')).toBeTruthy();
+    expect(getByLabelText('Profile')).toBeTruthy();
+  });
 });
 
 const variants: BottomBarVariant[] = [

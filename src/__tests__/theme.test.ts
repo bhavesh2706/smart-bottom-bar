@@ -8,7 +8,7 @@ describe('paletteFor', () => {
 
   it('uses iOS-like tokens for other variants', () => {
     expect(paletteFor('light', 'flat').active).toBe('#007AFF');
-    expect(paletteFor('dark', 'liquidGlass').active).toBe('#0A84FF');
+    expect(paletteFor('dark', 'liquidGlass').active).toBe('#64D2FF');
     expect(paletteFor('dark', 'flat').bar).toBe('#1C1C1E');
   });
 });

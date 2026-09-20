@@ -1,21 +1,23 @@
-import { StyleSheet, View } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
 import type { BarEngine } from '../hooks/useBarEngine';
 import { BarShell } from '../components/BarShell';
-import { FabButton } from '../components/FabButton';
+import { FabSlot, FabSplitRow } from '../components/FabChrome';
 import { GlassSurface } from '../components/GlassSurface';
 import { ItemRow } from '../components/ItemRow';
-import { FLOATING_MARGIN } from '../theme';
+import { FLOATING_MARGIN, barShadowStyle } from '../theme';
 
 /**
- * Liquid glass is a floating translucent pill. With a FAB we keep one continuous
- * glass surface and leave a center spacer — split pods clipped side items on
- * narrow phones.
+ * Liquid glass — floating frosted pill.
+ * Safe-area: BarShell pads the home-indicator; we keep a small float gap so the
+ * pill never sits under the system gesture bar (iOS + Android).
+ * FAB: one continuous glass surface + center spacer (no split pods).
  */
 export function LiquidGlassLayout({ engine }: { engine: BarEngine }) {
   const withFab = engine.wantsFab && Boolean(engine.fab);
-  const radius = engine.glass.cornerRadius ?? 28;
-  const extra = withFab ? engine.fabSize * 0.42 : 0;
-  const gap = engine.fabSize + 12;
+  const radius = engine.glass.cornerRadius ?? 30;
+  const extra = withFab ? engine.fabExtra : 0;
+  // Float clearance above the shell's safe-area padding (never collapse to 0).
+  const floatGap = Math.max(FLOATING_MARGIN, Platform.OS === 'ios' ? 12 : 10);
 
   return (
     <BarShell engine={engine} extraHeight={extra}>
@@ -24,8 +26,8 @@ export function LiquidGlassLayout({ engine }: { engine: BarEngine }) {
           styles.wrap,
           {
             marginHorizontal: FLOATING_MARGIN,
-            marginBottom: FLOATING_MARGIN,
-            height: engine.barHeight + extra,
+            marginBottom: floatGap,
+            minHeight: engine.barHeight + extra,
           },
         ]}
       >
@@ -37,20 +39,22 @@ export function LiquidGlassLayout({ engine }: { engine: BarEngine }) {
             reduceMotion={engine.reduceMotion}
             sweepKey={engine.active.activeKey}
             cornerRadius={radius}
-            style={[{ height: engine.barHeight }, engine.style?.bar]}
+            shadowStyle={barShadowStyle(engine.shadow, 'raised')}
+            showShadow={engine.shadow}
+            style={[{ minHeight: engine.barHeight }, engine.style?.bar]}
             renderGlassSurface={engine.renderGlassSurface}
           >
-            <View style={[styles.row, { height: engine.barHeight }]}>
+            <View
+              style={[
+                styles.row,
+                {
+                  minHeight: engine.barHeight,
+                  paddingVertical: Platform.OS === 'ios' ? 2 : 0,
+                },
+              ]}
+            >
               {withFab ? (
-                <>
-                  <View style={styles.side}>
-                    <ItemRow engine={engine} items={engine.split.left} />
-                  </View>
-                  <View style={{ width: gap }} />
-                  <View style={styles.side}>
-                    <ItemRow engine={engine} items={engine.split.right} />
-                  </View>
-                </>
+                <FabSplitRow engine={engine} />
               ) : (
                 <ItemRow engine={engine} items={engine.shown} />
               )}
@@ -58,23 +62,8 @@ export function LiquidGlassLayout({ engine }: { engine: BarEngine }) {
           </GlassSurface>
         </View>
 
-        {withFab && engine.fab ? (
-          <View
-            style={[
-              styles.fabSlot,
-              { top: extra - engine.fabSize * 0.38, width: engine.fabSize },
-            ]}
-          >
-            <FabButton
-              item={engine.fab}
-              active={engine.fab.key === engine.active.activeKey}
-              size={engine.fabSize}
-              colors={engine.colors}
-              onPress={() => engine.handlePress(engine.fab!.key)}
-              onLongPress={() => engine.handleLongPress(engine.fab!.key)}
-              style={engine.style}
-            />
-          </View>
+        {withFab ? (
+          <FabSlot engine={engine} top={extra - engine.fabSize * 0.38} />
         ) : null}
       </View>
     </BarShell>
@@ -86,21 +75,10 @@ const styles = StyleSheet.create({
     overflow: 'visible',
   },
   row: {
-    flex: 1,
+    flexGrow: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 4,
-  },
-  side: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  fabSlot: {
-    position: 'absolute',
-    alignSelf: 'center',
-    alignItems: 'center',
-    zIndex: 3,
-    elevation: 8,
+    justifyContent: 'center',
+    paddingHorizontal: 6,
   },
 });

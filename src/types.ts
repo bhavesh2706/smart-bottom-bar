@@ -109,9 +109,8 @@ export interface BottomBarItem {
   disabled?: boolean;
   hidden?: boolean;
   /**
-   * Marks this item as the raised center action for `curved` / `notchedFab`
-   * (and optional FAB on `liquidGlass` / `wave`). If omitted, those variants
-   * use the middle visible item.
+   * Marks this item as the raised center FAB. When any item has `fab` (or
+   * `fabKey` is set), every horizontal variant renders 2+2 sides + center FAB.
    */
   fab?: boolean;
   accessibilityLabel?: string;
@@ -198,6 +197,12 @@ export interface SmartBottomBarProps {
   sceneColor?: string;
   materialMode?: MaterialMode;
   placement?: BarPlacement;
+  /**
+   * Elevation / drop shadow under the bar. Default depends on variant
+   * (`true` for floating / liquidGlass / material / curved / notchedFab;
+   * `false` for flat / segmented / sidebar). Pass `true` | `false` to force.
+   */
+  shadow?: boolean;
   sidebarWidth?: number;
   testID?: string;
   renderItem?: (params: RenderItemParams) => ReactNode;

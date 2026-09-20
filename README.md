@@ -103,7 +103,8 @@ Curves and waves are layered `View`s, not SVG. They will not match a true Bézie
 | `materialMode` | `'fixed'` | `'shifting'` hides inactive labels |
 | `glass` | `{ intensity: 'regular', tint: 'auto' }` | Built-in liquid-glass fallback |
 | `renderGlassSurface` | — | Pass `@callstack/liquid-glass` / `expo-glass-effect` |
-| `fabKey` / `fabSize` | middle item / `56` | Center action |
+| `fabKey` / `fabSize` | middle item / `56` | Center FAB — when set (or `item.fab`), **every** horizontal variant uses 2+2 sides + raised center FAB |
+| `shadow` | per-variant | `true` \| `false` — elevation under the bar. Defaults: on for floating / liquidGlass / material / curved / notchedFab / wave; off for flat / segmented / sidebar |
 | `sceneColor` | theme scene | Match the screen for notched cutouts |
 | `style` | — | `{ container, bar, item, icon, label, badge, badgeText, indicator, fab }` |
 | `renderItem` | — | Override every item |
@@ -220,7 +221,7 @@ For nested stacks that hide the tab bar, keep it mounted:
 
 ### Liquid Glass
 
-The built-in `liquidGlass` variant is a **zero-dependency approximation** (translucent fill, top highlight, specular sweep). It is not Apple's refractive `UIGlassEffect`. Combine with a center FAB via `fabKey` or `item.fab`.
+The built-in `liquidGlass` variant is a **zero-dependency approximation** (frosted stack, specular rim, soft blob highlight, light sweep on tab change). It is not Apple's refractive `UIGlassEffect`. Use `shadow` to lift the pill; combine with a center FAB via `fabKey` or `item.fab` — the same **2 left + FAB + 2 right** chrome is available on every horizontal variant.
 
 Respects **Reduce Transparency** automatically (solid bar, no sweep), including when you pass a native surface.
 

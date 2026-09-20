@@ -45,6 +45,7 @@ export function BarShell({
       style={[
         overlay ? styles.overlay : styles.docked,
         {
+          // Home indicator / gesture inset — host should pass useSafeAreaInsets().
           paddingBottom: engine.insets.bottom,
           paddingLeft: engine.insets.left,
           paddingRight: engine.insets.right,

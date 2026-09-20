@@ -1,56 +1,42 @@
 import { StyleSheet, View } from 'react-native';
 import type { BarEngine } from '../hooks/useBarEngine';
 import { BarShell } from '../components/BarShell';
-import { FabButton } from '../components/FabButton';
+import { FabSlot, FabSplitRow } from '../components/FabChrome';
 import { ItemRow } from '../components/ItemRow';
 import { CurveBump, NotchBite } from '../components/shapes';
+import { barShadowStyle } from '../theme';
 
 export function CurvedLayout({ engine }: { engine: BarEngine }) {
   const bump = engine.fabSize + 20;
-  const extra = engine.fabSize * 0.45;
+  const extra = engine.fabExtra || engine.fabSize * 0.45;
+  const withFab = engine.wantsFab && Boolean(engine.fab);
 
   return (
-    <BarShell engine={engine} extraHeight={extra}>
-      <View style={{ height: engine.barHeight + extra }}>
+    <BarShell engine={engine} extraHeight={withFab ? extra : 0}>
+      <View style={{ height: engine.barHeight + (withFab ? extra : 0) }}>
         <View
           style={[
             styles.bar,
             {
-              marginTop: extra,
+              marginTop: withFab ? extra : 0,
               height: engine.barHeight,
               backgroundColor: engine.colors.bar,
             },
+            barShadowStyle(engine.shadow, 'soft'),
             engine.style?.bar,
           ]}
         >
-          <CurveBump color={engine.colors.bar} size={bump} />
+          {withFab ? <CurveBump color={engine.colors.bar} size={bump} /> : null}
           <View style={styles.row}>
-            <View style={styles.side}>
-              <ItemRow engine={engine} items={engine.split.left} />
-            </View>
-            <View style={{ width: engine.fabSize + 8 }} />
-            <View style={styles.side}>
-              <ItemRow engine={engine} items={engine.split.right} />
-            </View>
+            {withFab ? (
+              <FabSplitRow engine={engine} />
+            ) : (
+              <ItemRow engine={engine} items={engine.shown} />
+            )}
           </View>
         </View>
-        {engine.fab ? (
-          <View
-            style={[
-              styles.fabSlot,
-              { top: extra - engine.fabSize * 0.45, width: engine.fabSize },
-            ]}
-          >
-            <FabButton
-              item={engine.fab}
-              active={engine.fab.key === engine.active.activeKey}
-              size={engine.fabSize}
-              colors={engine.colors}
-              onPress={() => engine.handlePress(engine.fab!.key)}
-              onLongPress={() => engine.handleLongPress(engine.fab!.key)}
-              style={engine.style}
-            />
-          </View>
+        {withFab ? (
+          <FabSlot engine={engine} top={extra - engine.fabSize * 0.45} />
         ) : null}
       </View>
     </BarShell>
@@ -63,55 +49,56 @@ export function CurvedLayout({ engine }: { engine: BarEngine }) {
  * a scene-colored circular bite from the top that keeps a solid bottom edge.
  */
 export function NotchedFabLayout({ engine }: { engine: BarEngine }) {
-  const gap = engine.fabSize + 10;
-  const extra = engine.fabSize * 0.42;
-  // Diameter just larger than the FAB; positioned so ~40% of the circle sits
-  // in the bar (visible crescent) while the bottom ~half of the bar stays solid.
+  const extra = engine.fabExtra || engine.fabSize * 0.42;
   const bite = engine.fabSize + 10;
+  const withFab = engine.wantsFab && Boolean(engine.fab);
 
   return (
-    <BarShell engine={engine} extraHeight={extra}>
-      <View style={{ height: engine.barHeight + extra, overflow: 'visible' }}>
+    <BarShell engine={engine} extraHeight={withFab ? extra : 0}>
+      <View
+        style={{
+          height: engine.barHeight + (withFab ? extra : 0),
+          overflow: 'visible',
+        }}
+      >
         <View
           style={[
-            styles.notchedBar,
             {
-              marginTop: extra,
-              height: engine.barHeight,
-              backgroundColor: engine.colors.bar,
+              marginTop: withFab ? extra : 0,
+              borderRadius: 0,
             },
-            engine.style?.bar,
+            barShadowStyle(engine.shadow, 'soft'),
           ]}
         >
-          <NotchBite sceneColor={engine.sceneColor} size={bite} topRatio={0.5} />
-          <View style={[styles.row, { height: engine.barHeight }]}>
-            <View style={styles.side}>
-              <ItemRow engine={engine} items={engine.split.left} />
-            </View>
-            <View style={{ width: gap }} />
-            <View style={styles.side}>
-              <ItemRow engine={engine} items={engine.split.right} />
+          <View
+            style={[
+              styles.notchedBar,
+              {
+                height: engine.barHeight,
+                backgroundColor: engine.colors.bar,
+              },
+              engine.style?.bar,
+            ]}
+          >
+            {withFab ? (
+              <NotchBite
+                sceneColor={engine.sceneColor}
+                size={bite}
+                topRatio={0.5}
+              />
+            ) : null}
+            <View style={[styles.row, { height: engine.barHeight }]}>
+              {withFab ? (
+                <FabSplitRow engine={engine} />
+              ) : (
+                <ItemRow engine={engine} items={engine.shown} />
+              )}
             </View>
           </View>
         </View>
 
-        {engine.fab ? (
-          <View
-            style={[
-              styles.fabSlot,
-              { top: extra - engine.fabSize * 0.4, width: engine.fabSize },
-            ]}
-          >
-            <FabButton
-              item={engine.fab}
-              active={engine.fab.key === engine.active.activeKey}
-              size={engine.fabSize}
-              colors={engine.colors}
-              onPress={() => engine.handlePress(engine.fab!.key)}
-              onLongPress={() => engine.handleLongPress(engine.fab!.key)}
-              style={engine.style}
-            />
-          </View>
+        {withFab ? (
+          <FabSlot engine={engine} top={extra - engine.fabSize * 0.4} />
         ) : null}
       </View>
     </BarShell>
@@ -128,18 +115,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  side: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  fabSlot: {
-    position: 'absolute',
-    alignSelf: 'center',
-    alignItems: 'center',
-    zIndex: 3,
   },
 });

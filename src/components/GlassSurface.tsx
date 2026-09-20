@@ -1,6 +1,7 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import {
   Animated,
+  Platform,
   StyleSheet,
   View,
   type StyleProp,
@@ -17,14 +18,23 @@ function resolveTint(
     return colors.glassTint;
   }
   if (tint === 'light') {
-    return 'rgba(255, 255, 255, 0.72)';
+    return 'rgba(255, 255, 255, 0.55)';
   }
   if (tint === 'dark') {
-    return 'rgba(20, 20, 22, 0.72)';
+    return 'rgba(30, 30, 32, 0.58)';
   }
   return tint;
 }
 
+/**
+ * Liquid-glass (zero native blur).
+ *
+ * Hard rules from device QA:
+ * - No top specular strip (reads as a hairline on the pill)
+ * - No opaque under-plates (reads as a solid grey blob in light mode)
+ * - No Android elevation on translucent fills (system draws a hard grey oval)
+ * - Rim is a soft edge only — never a thick stroke
+ */
 export function GlassSurface({
   colors,
   glass,
@@ -35,6 +45,7 @@ export function GlassSurface({
   style,
   children,
   renderGlassSurface,
+  showShadow,
 }: {
   colors: ResolvedPalette;
   glass: {
@@ -49,11 +60,15 @@ export function GlassSurface({
   style?: StyleProp<ViewStyle>;
   children?: ReactNode;
   renderGlassSurface?: (props: GlassSurfaceProps) => ReactNode;
+  shadowStyle?: StyleProp<ViewStyle>;
+  showShadow?: boolean;
 }) {
   const radius = glass.cornerRadius ?? cornerRadius;
   const tint = resolveTint(glass.tint, colors);
-  const opacity = reduceTransparency ? 1 : glassOpacity(glass.intensity);
+  const fillOpacity = reduceTransparency ? 1 : glassOpacity(glass.intensity);
   const sweep = useRef(new Animated.Value(0)).current;
+  const isDark = colors.scheme === 'dark';
+  const shadowOn = showShadow === true;
 
   useEffect(() => {
     if (reduceMotion || reduceTransparency) {
@@ -63,7 +78,7 @@ export function GlassSurface({
     sweep.setValue(0);
     Animated.timing(sweep, {
       toValue: 1,
-      duration: 700,
+      duration: 860,
       useNativeDriver: true,
     }).start();
   }, [reduceMotion, reduceTransparency, sweep, sweepKey]);
@@ -76,80 +91,130 @@ export function GlassSurface({
     children,
   };
 
+  // iOS can soft-shadow translucent views. Android elevation cannot —
+  // it paints an opaque grey oval under glass (the “big shadow” bug).
+  const iosLift: ViewStyle | null =
+    shadowOn && Platform.OS === 'ios'
+      ? {
+          shadowColor: '#000',
+          shadowOpacity: isDark ? 0.4 : 0.1,
+          shadowRadius: isDark ? 12 : 8,
+          shadowOffset: { width: 0, height: isDark ? 5 : 3 },
+        }
+      : null;
+
   if (renderGlassSurface && !reduceTransparency) {
-    return <>{renderGlassSurface(surfaceProps)}</>;
+    return (
+      <View style={[{ borderRadius: radius }, iosLift]}>
+        {renderGlassSurface(surfaceProps)}
+      </View>
+    );
   }
 
-  const bg = reduceTransparency
+  const solid = reduceTransparency
     ? colors.bar
     : isHexOrNamedColor(tint)
       ? tint
       : colors.glassTint;
 
   return (
-    <View
-      style={[
-        styles.surface,
-        {
-          backgroundColor: bg,
-          opacity: reduceTransparency ? 1 : opacity,
-          borderRadius: radius,
-        },
-        style,
-      ]}
-    >
-      {!reduceTransparency ? (
+    <View style={[styles.outer, { borderRadius: radius }, iosLift]}>
+      {/*
+        Android cannot elevation-shadow translucent glass (grey oval blob).
+        Light: no under-shade — user QA flagged any bottom plate as a big issue.
+        Dark: tiny contact shade only (invisible as a blob on black).
+      */}
+      {shadowOn && Platform.OS === 'android' && isDark ? (
         <View
           pointerEvents="none"
-          style={[styles.highlight, { backgroundColor: colors.glassHighlight }]}
-        />
-      ) : null}
-      {!reduceTransparency && !reduceMotion ? (
-        <Animated.View
-          pointerEvents="none"
           style={[
-            styles.sweep,
+            styles.androidSoftShade,
             {
-              opacity: sweep.interpolate({
-                inputRange: [0, 0.4, 1],
-                outputRange: [0, 0.35, 0],
-              }),
-              transform: [
-                {
-                  translateX: sweep.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [-80, 280],
-                  }),
-                },
-              ],
+              borderRadius: radius,
+              backgroundColor: 'rgba(0,0,0,0.4)',
             },
           ]}
         />
       ) : null}
-      {children}
+
+      {/*
+        No stroke rim — hairline borders on a capsule read as a hard top/bottom
+        “view line” on device (especially dark). Edge definition comes from frost.
+      */}
+      <View
+        style={[
+          styles.shell,
+          {
+            borderRadius: radius,
+            overflow: 'hidden',
+          },
+          style,
+        ]}
+      >
+        <View
+          pointerEvents="none"
+          style={[
+            StyleSheet.absoluteFill,
+            {
+              borderRadius: radius,
+              backgroundColor: solid,
+              opacity: fillOpacity,
+            },
+          ]}
+        />
+        {!reduceTransparency && !reduceMotion ? (
+          <Animated.View
+            pointerEvents="none"
+            style={[
+              styles.sweep,
+              {
+                backgroundColor: isDark
+                  ? 'rgba(255,255,255,0.08)'
+                  : 'rgba(255,255,255,0.22)',
+                opacity: sweep.interpolate({
+                  inputRange: [0, 0.28, 1],
+                  outputRange: [0, 0.18, 0],
+                }),
+                transform: [
+                  {
+                    translateX: sweep.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [-100, 320],
+                    }),
+                  },
+                ],
+              },
+            ]}
+          />
+        ) : null}
+        <View style={styles.content}>{children}</View>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  surface: {
-    overflow: 'hidden',
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: 'rgba(255,255,255,0.28)',
+  outer: {
+    position: 'relative',
   },
-  highlight: {
+  androidSoftShade: {
     position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    height: 1.5,
-    opacity: 0.85,
+    left: 10,
+    right: 10,
+    bottom: -3,
+    height: 6,
+    opacity: 0.55,
+  },
+  shell: {
+    backgroundColor: 'transparent',
   },
   sweep: {
     position: 'absolute',
     top: 0,
     bottom: 0,
-    width: 56,
-    backgroundColor: 'rgba(255,255,255,0.55)',
+    width: 40,
+  },
+  content: {
+    zIndex: 2,
   },
 });

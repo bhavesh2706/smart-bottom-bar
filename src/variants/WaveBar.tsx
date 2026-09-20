@@ -3,14 +3,16 @@ import { Animated, StyleSheet, View } from 'react-native';
 import type { BarEngine } from '../hooks/useBarEngine';
 import { BarShell } from '../components/BarShell';
 import { FabButton } from '../components/FabButton';
+import { FabSlot, FabSplitRow } from '../components/FabChrome';
 import { ItemRow } from '../components/ItemRow';
-import { WAVE_BUBBLE } from '../theme';
+import { WAVE_BUBBLE, barShadowStyle } from '../theme';
 import { runBarAnimation } from '../utils';
 
 export function WaveLayout({ engine }: { engine: BarEngine }) {
   const [width, setWidth] = useState(0);
   const tx = useRef(new Animated.Value(0)).current;
-  const extra = WAVE_BUBBLE * 0.38;
+  const withFab = engine.wantsFab && Boolean(engine.fab);
+  const extra = withFab ? engine.fabExtra : WAVE_BUBBLE * 0.38;
   const count = Math.max(engine.shown.length, 1);
   const tabWidth = width / count;
   const visualIndex = engine.rtl
@@ -19,14 +21,38 @@ export function WaveLayout({ engine }: { engine: BarEngine }) {
   const target = tabWidth * visualIndex + (tabWidth - WAVE_BUBBLE) / 2;
 
   useEffect(() => {
-    if (width === 0) {
+    if (width === 0 || withFab) {
       return;
     }
     runBarAnimation(tx, target, engine.animation, engine.reduceMotion).start();
-  }, [engine.animation, engine.reduceMotion, target, tx, width]);
+  }, [engine.animation, engine.reduceMotion, target, tx, width, withFab]);
 
   const activeItem =
     engine.shown[engine.active.visibleIndex] ?? engine.shown[0];
+
+  if (withFab) {
+    return (
+      <BarShell engine={engine} extraHeight={extra}>
+        <View style={{ height: engine.barHeight + extra }}>
+          <View
+            style={[
+              styles.bar,
+              {
+                marginTop: extra,
+                height: engine.barHeight,
+                backgroundColor: engine.colors.bar,
+              },
+              barShadowStyle(engine.shadow, 'soft'),
+              engine.style?.bar,
+            ]}
+          >
+            <FabSplitRow engine={engine} />
+          </View>
+          <FabSlot engine={engine} top={extra - engine.fabSize * 0.4} />
+        </View>
+      </BarShell>
+    );
+  }
 
   return (
     <BarShell engine={engine} extraHeight={extra}>
@@ -42,6 +68,7 @@ export function WaveLayout({ engine }: { engine: BarEngine }) {
               height: engine.barHeight,
               backgroundColor: engine.colors.bar,
             },
+            barShadowStyle(engine.shadow, 'soft'),
             engine.style?.bar,
           ]}
         >
@@ -97,6 +124,8 @@ export function WaveLayout({ engine }: { engine: BarEngine }) {
 const styles = StyleSheet.create({
   bar: {
     overflow: 'visible',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   row: {
     flex: 1,

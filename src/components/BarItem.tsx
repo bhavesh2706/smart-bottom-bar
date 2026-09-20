@@ -1,5 +1,5 @@
 import { useMemo, type ReactNode } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import type {
   BottomBarItem,
   BottomBarStyle,
@@ -46,12 +46,22 @@ export function BarItem({
   renderItem?: (params: RenderItemParams) => ReactNode;
   testID?: string;
 }) {
-  const labelColor = active ? colors.label : colors.inactiveLabel;
+  const labelColor = active
+    ? (item.activeColor ?? colors.label)
+    : (item.color ?? colors.inactiveLabel);
   const showLabel =
     labelPosition !== 'hidden' && !(compact && !active) && Boolean(item.label);
   const beside = labelPosition === 'beside' || Boolean(vertical);
 
   const icon = active && item.activeIcon != null ? item.activeIcon : item.icon;
+
+  const isDark = colors.scheme === 'dark';
+  const haloColor = isDark
+    ? 'rgba(100, 210, 255, 0.28)'
+    : 'rgba(0, 122, 255, 0.14)';
+  const activePillBg = isDark
+    ? 'rgba(100, 210, 255, 0.18)'
+    : 'rgba(0, 122, 255, 0.1)';
 
   const defaultItem = useMemo(
     () => (
@@ -60,18 +70,34 @@ export function BarItem({
           styles.body,
           beside ? styles.beside : styles.below,
           vertical ? styles.vertical : null,
+          active && !beside && !vertical
+            ? [styles.activePill, { backgroundColor: activePillBg }]
+            : null,
         ]}
       >
         <View style={[styles.iconWrap, style?.icon]}>
-          {icon}
+          {active ? (
+            <View
+              pointerEvents="none"
+              style={[styles.activeHalo, { backgroundColor: haloColor }]}
+            />
+          ) : null}
+          <View style={styles.iconFront}>{icon}</View>
           <Badge item={item} colors={colors} style={style} />
         </View>
         {showLabel ? (
           <Text
             numberOfLines={1}
+            allowFontScaling
+            maxFontSizeMultiplier={1.35}
             style={[
               styles.label,
-              { color: labelColor },
+              {
+                color: labelColor,
+                fontWeight: active ? '700' : '500',
+                // Keep inactive labels fully opaque — dimming kills dark contrast
+                opacity: 1,
+              },
               beside ? styles.labelBeside : null,
               style?.label,
             ]}
@@ -79,9 +105,27 @@ export function BarItem({
             {item.label}
           </Text>
         ) : null}
+        {active && !beside && !vertical ? (
+          <View
+            pointerEvents="none"
+            style={[styles.activeUnderline, { backgroundColor: labelColor }]}
+          />
+        ) : null}
       </View>
     ),
-    [beside, colors, icon, item, labelColor, showLabel, style, vertical]
+    [
+      active,
+      activePillBg,
+      beside,
+      colors,
+      haloColor,
+      icon,
+      item,
+      labelColor,
+      showLabel,
+      style,
+      vertical,
+    ]
   );
 
   const content =
@@ -156,6 +200,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  activePill: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 14,
+    minWidth: 52,
+  },
   below: {
     flexDirection: 'column',
   },
@@ -169,15 +219,40 @@ const styles = StyleSheet.create({
     position: 'relative',
     alignItems: 'center',
     justifyContent: 'center',
-    minWidth: 24,
-    minHeight: 24,
+    minWidth: 28,
+    minHeight: 28,
+  },
+  activeHalo: {
+    position: 'absolute',
+    width: 34,
+    height: 34,
+    borderRadius: 17,
+    zIndex: 0,
+  },
+  iconFront: {
+    zIndex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  activeUnderline: {
+    marginTop: 2,
+    width: 18,
+    height: 2.5,
+    borderRadius: 2,
   },
   label: {
-    fontSize: 11,
-    fontWeight: '500',
-    marginTop: 2,
+    fontSize: Platform.OS === 'ios' ? 10 : 11,
+    letterSpacing: Platform.OS === 'ios' ? 0.1 : 0.15,
+    marginTop: Platform.OS === 'ios' ? 1 : 2,
     maxWidth: 88,
     textAlign: 'center',
+    ...Platform.select({
+      android: {
+        includeFontPadding: false,
+        textAlignVertical: 'center' as const,
+      },
+      default: {},
+    }),
   },
   labelBeside: {
     marginTop: 0,

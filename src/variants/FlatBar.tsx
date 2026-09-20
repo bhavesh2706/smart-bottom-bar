@@ -2,13 +2,19 @@ import { useEffect, useRef, useState } from 'react';
 import { Animated, StyleSheet, View } from 'react-native';
 import type { BarEngine } from '../hooks/useBarEngine';
 import { BarShell } from '../components/BarShell';
+import { FabSlot, FabSplitRow } from '../components/FabChrome';
 import { ItemRow } from '../components/ItemRow';
+import { barShadowStyle } from '../theme';
 import { runBarAnimation } from '../utils';
 
 export function FlatLayout({ engine }: { engine: BarEngine }) {
   const [width, setWidth] = useState(0);
   const tx = useRef(new Animated.Value(0)).current;
-  const count = Math.max(engine.shown.length, 1);
+  const withFab = engine.wantsFab && Boolean(engine.fab);
+  const count = Math.max(
+    withFab ? engine.split.left.length + engine.split.right.length + 1 : engine.shown.length,
+    1
+  );
   const tabWidth = width / count;
   const visualIndex = engine.rtl
     ? count - 1 - engine.active.visibleIndex
@@ -17,41 +23,54 @@ export function FlatLayout({ engine }: { engine: BarEngine }) {
   const target = tabWidth * visualIndex + (tabWidth - indicatorWidth) / 2;
 
   useEffect(() => {
-    if (width === 0) {
+    if (width === 0 || withFab) {
       return;
     }
     runBarAnimation(tx, target, engine.animation, engine.reduceMotion).start();
-  }, [engine.animation, engine.reduceMotion, target, tx, width]);
+  }, [engine.animation, engine.reduceMotion, target, tx, width, withFab]);
 
   return (
-    <BarShell engine={engine}>
-      <View
-        onLayout={(e) => setWidth(e.nativeEvent.layout.width)}
-        style={[
-          styles.bar,
-          {
-            height: engine.barHeight,
-            backgroundColor: engine.colors.bar,
-            borderTopColor: engine.colors.border,
-          },
-          engine.style?.bar,
-        ]}
-      >
-        <Animated.View
-          pointerEvents="none"
+    <BarShell engine={engine} extraHeight={withFab ? engine.fabExtra : 0}>
+      <View style={{ height: engine.barHeight + (withFab ? engine.fabExtra : 0) }}>
+        <View
+          onLayout={(e) => setWidth(e.nativeEvent.layout.width)}
           style={[
-            styles.indicator,
+            styles.bar,
             {
-              width: indicatorWidth,
-              backgroundColor: engine.colors.indicator,
-              transform: [{ translateX: tx }],
+              marginTop: withFab ? engine.fabExtra : 0,
+              height: engine.barHeight,
+              backgroundColor: engine.colors.bar,
+              borderTopColor: engine.colors.border,
             },
-            engine.style?.indicator,
+            barShadowStyle(engine.shadow, 'soft'),
+            engine.style?.bar,
           ]}
-        />
-        <View style={styles.row}>
-          <ItemRow engine={engine} items={engine.shown} />
+        >
+          {!withFab ? (
+            <Animated.View
+              pointerEvents="none"
+              style={[
+                styles.indicator,
+                {
+                  width: indicatorWidth,
+                  backgroundColor: engine.colors.indicator,
+                  transform: [{ translateX: tx }],
+                },
+                engine.style?.indicator,
+              ]}
+            />
+          ) : null}
+          <View style={styles.row}>
+            {withFab ? (
+              <FabSplitRow engine={engine} />
+            ) : (
+              <ItemRow engine={engine} items={engine.shown} />
+            )}
+          </View>
         </View>
+        {withFab ? (
+          <FabSlot engine={engine} top={engine.fabExtra - engine.fabSize * 0.4} />
+        ) : null}
       </View>
     </BarShell>
   );
@@ -61,7 +80,7 @@ const styles = StyleSheet.create({
   bar: {
     width: '100%',
     borderTopWidth: StyleSheet.hairlineWidth,
-    overflow: 'hidden',
+    overflow: 'visible',
   },
   row: {
     flex: 1,

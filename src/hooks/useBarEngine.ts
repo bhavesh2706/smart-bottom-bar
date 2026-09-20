@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import type { SmartBottomBarProps } from '../types';
-import { DEFAULT_FAB_SIZE, defaultBarHeight } from '../theme';
+import { DEFAULT_FAB_SIZE, defaultBarHeight, defaultShadow } from '../theme';
 import {
   resolveFabItem,
   resolveRtl,
@@ -42,6 +42,8 @@ export function useBarEngine(props: SmartBottomBarProps) {
     [shown, props.fabKey]
   );
   const split = useMemo(() => splitAroundFab(shown, fab), [shown, fab]);
+  const shadow = props.shadow ?? defaultShadow(resolvedVariant);
+  const fabExtra = wantsFab && fab ? fabSize * 0.42 : 0;
 
   const handlePress = useCallback(
     (key: string) => {
@@ -104,6 +106,8 @@ export function useBarEngine(props: SmartBottomBarProps) {
     fab,
     wantsFab,
     split,
+    shadow,
+    fabExtra,
     handlePress,
     handleLongPress,
     visible,

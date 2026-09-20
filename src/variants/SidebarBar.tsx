@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 import type { BarEngine } from '../hooks/useBarEngine';
 import { ItemRow } from '../components/ItemRow';
-import { DEFAULT_SIDEBAR_WIDTH } from '../theme';
+import { DEFAULT_SIDEBAR_WIDTH, barShadowStyle } from '../theme';
 
 export function SidebarLayout({ engine }: { engine: BarEngine }) {
   const width = engine.sidebarWidth ?? DEFAULT_SIDEBAR_WIDTH;
@@ -22,6 +22,7 @@ export function SidebarLayout({ engine }: { engine: BarEngine }) {
           borderRightColor: engine.colors.border,
           opacity: engine.visible ? 1 : 0,
         },
+        barShadowStyle(engine.shadow, 'soft'),
         engine.style?.container,
         engine.style?.bar,
       ]}
