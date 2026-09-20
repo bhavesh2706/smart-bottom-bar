@@ -1,0 +1,42 @@
+import type { BarEngine } from '../hooks/useBarEngine';
+import { BarItem } from './BarItem';
+import { maybeReverse } from '../utils';
+import type { BottomBarItem } from '../types';
+
+export function ItemRow({
+  engine,
+  items,
+  compact,
+  vertical,
+}: {
+  engine: BarEngine;
+  items: readonly BottomBarItem[];
+  compact?: boolean;
+  vertical?: boolean;
+}) {
+  const ordered = maybeReverse(items, engine.rtl && !vertical);
+
+  return (
+    <>
+      {ordered.map((item, visualIndex) => {
+        const sourceIndex = engine.shown.findIndex((it) => it.key === item.key);
+        return (
+          <BarItem
+            key={item.key}
+            item={item}
+            index={sourceIndex < 0 ? visualIndex : sourceIndex}
+            active={item.key === engine.active.activeKey}
+            colors={engine.colors}
+            labelPosition={engine.labelPosition}
+            compact={compact}
+            vertical={vertical}
+            onPress={() => engine.handlePress(item.key)}
+            onLongPress={() => engine.handleLongPress(item.key)}
+            style={engine.style}
+            renderItem={engine.renderItem}
+          />
+        );
+      })}
+    </>
+  );
+}

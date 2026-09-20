@@ -1,0 +1,6514 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`variants matches a snapshot per variant: curved 1`] = `
+<View
+  accessibilityRole="tablist"
+  collapsable={false}
+  pointerEvents="auto"
+  style={
+    {
+      "paddingBottom": 34,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "transform": [
+        {
+          "translateY": 0,
+        },
+      ],
+      "width": "100%",
+    }
+  }
+  testID="snap-curved"
+>
+  <View
+    style={
+      {
+        "height": 81.2,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "justifyContent": "flex-end",
+            "overflow": "visible",
+          },
+          {
+            "backgroundColor": "#FFFFFF",
+            "height": 56,
+            "marginTop": 25.2,
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        pointerEvents="none"
+        style={
+          [
+            {
+              "alignSelf": "center",
+              "position": "absolute",
+            },
+            {
+              "backgroundColor": "#FFFFFF",
+              "borderRadius": 38,
+              "height": 76,
+              "top": -31.919999999999998,
+              "width": 76,
+            },
+          ]
+        }
+      />
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityLabel="Home, 3 notifications"
+            accessibilityRole="tab"
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": false,
+                "expanded": undefined,
+                "selected": true,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "justifyContent": "center",
+                  "minHeight": 44,
+                  "minWidth": 44,
+                  "paddingHorizontal": 4,
+                  "paddingVertical": 4,
+                },
+                {
+                  "flexBasis": 0,
+                },
+                undefined,
+                null,
+                null,
+              ]
+            }
+            testID="smart-bottom-bar-item-home"
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                  },
+                  {
+                    "flexDirection": "column",
+                  },
+                  null,
+                ]
+              }
+            >
+              <View
+                style={
+                  [
+                    {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "minHeight": 24,
+                      "minWidth": 24,
+                      "position": "relative",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text>
+                  H
+                </Text>
+                <View
+                  accessibilityElementsHidden={true}
+                  importantForAccessibility="no-hide-descendants"
+                  style={
+                    [
+                      {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                        "minHeight": 8,
+                        "minWidth": 8,
+                        "position": "absolute",
+                        "right": -8,
+                        "top": -4,
+                        "zIndex": 2,
+                      },
+                      {
+                        "borderRadius": 8,
+                        "height": 16,
+                        "minWidth": 16,
+                        "paddingHorizontal": 4,
+                      },
+                      {
+                        "backgroundColor": "#FF3B30",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  <Text
+                    style={
+                      [
+                        {
+                          "fontSize": 10,
+                          "fontWeight": "700",
+                          "lineHeight": 12,
+                        },
+                        {
+                          "color": "#FFFFFF",
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    3
+                  </Text>
+                </View>
+              </View>
+              <Text
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "marginTop": 2,
+                      "maxWidth": 88,
+                      "textAlign": "center",
+                    },
+                    {
+                      "color": "#007AFF",
+                    },
+                    null,
+                    undefined,
+                  ]
+                }
+              >
+                Home
+              </Text>
+            </View>
+          </View>
+          <View
+            accessibilityLabel="Search"
+            accessibilityRole="tab"
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": false,
+                "expanded": undefined,
+                "selected": false,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "justifyContent": "center",
+                  "minHeight": 44,
+                  "minWidth": 44,
+                  "paddingHorizontal": 4,
+                  "paddingVertical": 4,
+                },
+                {
+                  "flexBasis": 0,
+                },
+                undefined,
+                null,
+                null,
+              ]
+            }
+            testID="smart-bottom-bar-item-search"
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                  },
+                  {
+                    "flexDirection": "column",
+                  },
+                  null,
+                ]
+              }
+            >
+              <View
+                style={
+                  [
+                    {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "minHeight": 24,
+                      "minWidth": 24,
+                      "position": "relative",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text>
+                  S
+                </Text>
+              </View>
+              <Text
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "marginTop": 2,
+                      "maxWidth": 88,
+                      "textAlign": "center",
+                    },
+                    {
+                      "color": "#8E8E93",
+                    },
+                    null,
+                    undefined,
+                  ]
+                }
+              >
+                Search
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            {
+              "width": 64,
+            }
+          }
+        />
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityLabel="Alerts, new notifications"
+            accessibilityRole="tab"
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": false,
+                "expanded": undefined,
+                "selected": false,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "justifyContent": "center",
+                  "minHeight": 44,
+                  "minWidth": 44,
+                  "paddingHorizontal": 4,
+                  "paddingVertical": 4,
+                },
+                {
+                  "flexBasis": 0,
+                },
+                undefined,
+                null,
+                null,
+              ]
+            }
+            testID="smart-bottom-bar-item-alerts"
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                  },
+                  {
+                    "flexDirection": "column",
+                  },
+                  null,
+                ]
+              }
+            >
+              <View
+                style={
+                  [
+                    {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "minHeight": 24,
+                      "minWidth": 24,
+                      "position": "relative",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text>
+                  A
+                </Text>
+                <View
+                  accessibilityElementsHidden={true}
+                  importantForAccessibility="no-hide-descendants"
+                  style={
+                    [
+                      {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                        "minHeight": 8,
+                        "minWidth": 8,
+                        "position": "absolute",
+                        "right": -8,
+                        "top": -4,
+                        "zIndex": 2,
+                      },
+                      {
+                        "borderRadius": 4,
+                        "height": 8,
+                        "width": 8,
+                      },
+                      {
+                        "backgroundColor": "#FF3B30",
+                      },
+                      undefined,
+                    ]
+                  }
+                />
+              </View>
+              <Text
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "marginTop": 2,
+                      "maxWidth": 88,
+                      "textAlign": "center",
+                    },
+                    {
+                      "color": "#8E8E93",
+                    },
+                    null,
+                    undefined,
+                  ]
+                }
+              >
+                Alerts
+              </Text>
+            </View>
+          </View>
+          <View
+            accessibilityLabel="Profile"
+            accessibilityRole="tab"
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": false,
+                "expanded": undefined,
+                "selected": false,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "justifyContent": "center",
+                  "minHeight": 44,
+                  "minWidth": 44,
+                  "paddingHorizontal": 4,
+                  "paddingVertical": 4,
+                },
+                {
+                  "flexBasis": 0,
+                },
+                undefined,
+                null,
+                null,
+              ]
+            }
+            testID="smart-bottom-bar-item-profile"
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                  },
+                  {
+                    "flexDirection": "column",
+                  },
+                  null,
+                ]
+              }
+            >
+              <View
+                style={
+                  [
+                    {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "minHeight": 24,
+                      "minWidth": 24,
+                      "position": "relative",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text>
+                  P
+                </Text>
+              </View>
+              <Text
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "marginTop": 2,
+                      "maxWidth": 88,
+                      "textAlign": "center",
+                    },
+                    {
+                      "color": "#8E8E93",
+                    },
+                    null,
+                    undefined,
+                  ]
+                }
+              >
+                Profile
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "position": "absolute",
+          },
+          {
+            "top": 0,
+            "width": 56,
+          },
+        ]
+      }
+    >
+      <View
+        accessibilityLabel="Add"
+        accessibilityRole="tab"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": false,
+            "expanded": undefined,
+            "selected": false,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            {
+              "backgroundColor": "#007AFF",
+              "borderRadius": 28,
+              "height": 56,
+              "width": 56,
+            },
+            {
+              "elevation": 6,
+              "shadowColor": "#000",
+              "shadowOffset": {
+                "height": 4,
+                "width": 0,
+              },
+              "shadowOpacity": 0.22,
+              "shadowRadius": 8,
+            },
+            undefined,
+            null,
+            null,
+          ]
+        }
+        testID="smart-bottom-bar-item-plus"
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text>
+            +
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`variants matches a snapshot per variant: flat 1`] = `
+<View
+  accessibilityRole="tablist"
+  collapsable={false}
+  pointerEvents="auto"
+  style={
+    {
+      "paddingBottom": 34,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "transform": [
+        {
+          "translateY": 0,
+        },
+      ],
+      "width": "100%",
+    }
+  }
+  testID="snap-flat"
+>
+  <View
+    onLayout={[Function]}
+    style={
+      [
+        {
+          "borderTopWidth": 0.5,
+          "overflow": "hidden",
+          "width": "100%",
+        },
+        {
+          "backgroundColor": "#FFFFFF",
+          "borderTopColor": "rgba(60, 60, 67, 0.12)",
+          "height": 49,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      collapsable={false}
+      pointerEvents="none"
+      style={
+        {
+          "backgroundColor": "#007AFF",
+          "borderRadius": 2,
+          "height": 3,
+          "left": 0,
+          "position": "absolute",
+          "top": 0,
+          "transform": [
+            {
+              "translateX": 0,
+            },
+          ],
+          "width": 16,
+        }
+      }
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        accessibilityLabel="Home, 3 notifications"
+        accessibilityRole="tab"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": false,
+            "expanded": undefined,
+            "selected": true,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "alignItems": "center",
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "justifyContent": "center",
+              "minHeight": 44,
+              "minWidth": 44,
+              "paddingHorizontal": 4,
+              "paddingVertical": 4,
+            },
+            {
+              "flexBasis": 0,
+            },
+            undefined,
+            null,
+            null,
+          ]
+        }
+        testID="smart-bottom-bar-item-home"
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+              {
+                "flexDirection": "column",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "minHeight": 24,
+                  "minWidth": 24,
+                  "position": "relative",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text>
+              H
+            </Text>
+            <View
+              accessibilityElementsHidden={true}
+              importantForAccessibility="no-hide-descendants"
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "minHeight": 8,
+                    "minWidth": 8,
+                    "position": "absolute",
+                    "right": -8,
+                    "top": -4,
+                    "zIndex": 2,
+                  },
+                  {
+                    "borderRadius": 8,
+                    "height": 16,
+                    "minWidth": 16,
+                    "paddingHorizontal": 4,
+                  },
+                  {
+                    "backgroundColor": "#FF3B30",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "fontSize": 10,
+                      "fontWeight": "700",
+                      "lineHeight": 12,
+                    },
+                    {
+                      "color": "#FFFFFF",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                3
+              </Text>
+            </View>
+          </View>
+          <Text
+            numberOfLines={1}
+            style={
+              [
+                {
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "marginTop": 2,
+                  "maxWidth": 88,
+                  "textAlign": "center",
+                },
+                {
+                  "color": "#007AFF",
+                },
+                null,
+                undefined,
+              ]
+            }
+          >
+            Home
+          </Text>
+        </View>
+      </View>
+      <View
+        accessibilityLabel="Search"
+        accessibilityRole="tab"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": false,
+            "expanded": undefined,
+            "selected": false,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "alignItems": "center",
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "justifyContent": "center",
+              "minHeight": 44,
+              "minWidth": 44,
+              "paddingHorizontal": 4,
+              "paddingVertical": 4,
+            },
+            {
+              "flexBasis": 0,
+            },
+            undefined,
+            null,
+            null,
+          ]
+        }
+        testID="smart-bottom-bar-item-search"
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+              {
+                "flexDirection": "column",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "minHeight": 24,
+                  "minWidth": 24,
+                  "position": "relative",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text>
+              S
+            </Text>
+          </View>
+          <Text
+            numberOfLines={1}
+            style={
+              [
+                {
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "marginTop": 2,
+                  "maxWidth": 88,
+                  "textAlign": "center",
+                },
+                {
+                  "color": "#8E8E93",
+                },
+                null,
+                undefined,
+              ]
+            }
+          >
+            Search
+          </Text>
+        </View>
+      </View>
+      <View
+        accessibilityLabel="Add"
+        accessibilityRole="tab"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": false,
+            "expanded": undefined,
+            "selected": false,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "alignItems": "center",
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "justifyContent": "center",
+              "minHeight": 44,
+              "minWidth": 44,
+              "paddingHorizontal": 4,
+              "paddingVertical": 4,
+            },
+            {
+              "flexBasis": 0,
+            },
+            undefined,
+            null,
+            null,
+          ]
+        }
+        testID="smart-bottom-bar-item-plus"
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+              {
+                "flexDirection": "column",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "minHeight": 24,
+                  "minWidth": 24,
+                  "position": "relative",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text>
+              +
+            </Text>
+          </View>
+          <Text
+            numberOfLines={1}
+            style={
+              [
+                {
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "marginTop": 2,
+                  "maxWidth": 88,
+                  "textAlign": "center",
+                },
+                {
+                  "color": "#8E8E93",
+                },
+                null,
+                undefined,
+              ]
+            }
+          >
+            Add
+          </Text>
+        </View>
+      </View>
+      <View
+        accessibilityLabel="Alerts, new notifications"
+        accessibilityRole="tab"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": false,
+            "expanded": undefined,
+            "selected": false,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "alignItems": "center",
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "justifyContent": "center",
+              "minHeight": 44,
+              "minWidth": 44,
+              "paddingHorizontal": 4,
+              "paddingVertical": 4,
+            },
+            {
+              "flexBasis": 0,
+            },
+            undefined,
+            null,
+            null,
+          ]
+        }
+        testID="smart-bottom-bar-item-alerts"
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+              {
+                "flexDirection": "column",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "minHeight": 24,
+                  "minWidth": 24,
+                  "position": "relative",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text>
+              A
+            </Text>
+            <View
+              accessibilityElementsHidden={true}
+              importantForAccessibility="no-hide-descendants"
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "minHeight": 8,
+                    "minWidth": 8,
+                    "position": "absolute",
+                    "right": -8,
+                    "top": -4,
+                    "zIndex": 2,
+                  },
+                  {
+                    "borderRadius": 4,
+                    "height": 8,
+                    "width": 8,
+                  },
+                  {
+                    "backgroundColor": "#FF3B30",
+                  },
+                  undefined,
+                ]
+              }
+            />
+          </View>
+          <Text
+            numberOfLines={1}
+            style={
+              [
+                {
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "marginTop": 2,
+                  "maxWidth": 88,
+                  "textAlign": "center",
+                },
+                {
+                  "color": "#8E8E93",
+                },
+                null,
+                undefined,
+              ]
+            }
+          >
+            Alerts
+          </Text>
+        </View>
+      </View>
+      <View
+        accessibilityLabel="Profile"
+        accessibilityRole="tab"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": false,
+            "expanded": undefined,
+            "selected": false,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "alignItems": "center",
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "justifyContent": "center",
+              "minHeight": 44,
+              "minWidth": 44,
+              "paddingHorizontal": 4,
+              "paddingVertical": 4,
+            },
+            {
+              "flexBasis": 0,
+            },
+            undefined,
+            null,
+            null,
+          ]
+        }
+        testID="smart-bottom-bar-item-profile"
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+              {
+                "flexDirection": "column",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "minHeight": 24,
+                  "minWidth": 24,
+                  "position": "relative",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text>
+              P
+            </Text>
+          </View>
+          <Text
+            numberOfLines={1}
+            style={
+              [
+                {
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "marginTop": 2,
+                  "maxWidth": 88,
+                  "textAlign": "center",
+                },
+                {
+                  "color": "#8E8E93",
+                },
+                null,
+                undefined,
+              ]
+            }
+          >
+            Profile
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`variants matches a snapshot per variant: floating 1`] = `
+<View
+  accessibilityRole="tablist"
+  collapsable={false}
+  pointerEvents="auto"
+  style={
+    {
+      "paddingBottom": 34,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "transform": [
+        {
+          "translateY": 0,
+        },
+      ],
+      "width": "100%",
+    }
+  }
+  testID="snap-floating"
+>
+  <View
+    style={
+      [
+        {},
+        {
+          "marginBottom": 12,
+          "marginHorizontal": 12,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "elevation": 8,
+            "flexDirection": "row",
+            "shadowColor": "#000",
+            "shadowOffset": {
+              "height": 4,
+              "width": 0,
+            },
+            "shadowOpacity": 0.18,
+            "shadowRadius": 12,
+          },
+          {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 28,
+            "height": 58,
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        accessibilityLabel="Home, 3 notifications"
+        accessibilityRole="tab"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": false,
+            "expanded": undefined,
+            "selected": true,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "alignItems": "center",
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "justifyContent": "center",
+              "minHeight": 44,
+              "minWidth": 44,
+              "paddingHorizontal": 4,
+              "paddingVertical": 4,
+            },
+            {
+              "flexBasis": 0,
+            },
+            undefined,
+            null,
+            null,
+          ]
+        }
+        testID="smart-bottom-bar-item-home"
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+              {
+                "flexDirection": "column",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "minHeight": 24,
+                  "minWidth": 24,
+                  "position": "relative",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text>
+              H
+            </Text>
+            <View
+              accessibilityElementsHidden={true}
+              importantForAccessibility="no-hide-descendants"
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "minHeight": 8,
+                    "minWidth": 8,
+                    "position": "absolute",
+                    "right": -8,
+                    "top": -4,
+                    "zIndex": 2,
+                  },
+                  {
+                    "borderRadius": 8,
+                    "height": 16,
+                    "minWidth": 16,
+                    "paddingHorizontal": 4,
+                  },
+                  {
+                    "backgroundColor": "#FF3B30",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "fontSize": 10,
+                      "fontWeight": "700",
+                      "lineHeight": 12,
+                    },
+                    {
+                      "color": "#FFFFFF",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                3
+              </Text>
+            </View>
+          </View>
+          <Text
+            numberOfLines={1}
+            style={
+              [
+                {
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "marginTop": 2,
+                  "maxWidth": 88,
+                  "textAlign": "center",
+                },
+                {
+                  "color": "#007AFF",
+                },
+                null,
+                undefined,
+              ]
+            }
+          >
+            Home
+          </Text>
+        </View>
+      </View>
+      <View
+        accessibilityLabel="Search"
+        accessibilityRole="tab"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": false,
+            "expanded": undefined,
+            "selected": false,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "alignItems": "center",
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "justifyContent": "center",
+              "minHeight": 44,
+              "minWidth": 44,
+              "paddingHorizontal": 4,
+              "paddingVertical": 4,
+            },
+            {
+              "flexBasis": 0,
+            },
+            undefined,
+            null,
+            null,
+          ]
+        }
+        testID="smart-bottom-bar-item-search"
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+              {
+                "flexDirection": "column",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "minHeight": 24,
+                  "minWidth": 24,
+                  "position": "relative",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text>
+              S
+            </Text>
+          </View>
+          <Text
+            numberOfLines={1}
+            style={
+              [
+                {
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "marginTop": 2,
+                  "maxWidth": 88,
+                  "textAlign": "center",
+                },
+                {
+                  "color": "#8E8E93",
+                },
+                null,
+                undefined,
+              ]
+            }
+          >
+            Search
+          </Text>
+        </View>
+      </View>
+      <View
+        accessibilityLabel="Add"
+        accessibilityRole="tab"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": false,
+            "expanded": undefined,
+            "selected": false,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "alignItems": "center",
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "justifyContent": "center",
+              "minHeight": 44,
+              "minWidth": 44,
+              "paddingHorizontal": 4,
+              "paddingVertical": 4,
+            },
+            {
+              "flexBasis": 0,
+            },
+            undefined,
+            null,
+            null,
+          ]
+        }
+        testID="smart-bottom-bar-item-plus"
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+              {
+                "flexDirection": "column",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "minHeight": 24,
+                  "minWidth": 24,
+                  "position": "relative",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text>
+              +
+            </Text>
+          </View>
+          <Text
+            numberOfLines={1}
+            style={
+              [
+                {
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "marginTop": 2,
+                  "maxWidth": 88,
+                  "textAlign": "center",
+                },
+                {
+                  "color": "#8E8E93",
+                },
+                null,
+                undefined,
+              ]
+            }
+          >
+            Add
+          </Text>
+        </View>
+      </View>
+      <View
+        accessibilityLabel="Alerts, new notifications"
+        accessibilityRole="tab"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": false,
+            "expanded": undefined,
+            "selected": false,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "alignItems": "center",
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "justifyContent": "center",
+              "minHeight": 44,
+              "minWidth": 44,
+              "paddingHorizontal": 4,
+              "paddingVertical": 4,
+            },
+            {
+              "flexBasis": 0,
+            },
+            undefined,
+            null,
+            null,
+          ]
+        }
+        testID="smart-bottom-bar-item-alerts"
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+              {
+                "flexDirection": "column",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "minHeight": 24,
+                  "minWidth": 24,
+                  "position": "relative",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text>
+              A
+            </Text>
+            <View
+              accessibilityElementsHidden={true}
+              importantForAccessibility="no-hide-descendants"
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "minHeight": 8,
+                    "minWidth": 8,
+                    "position": "absolute",
+                    "right": -8,
+                    "top": -4,
+                    "zIndex": 2,
+                  },
+                  {
+                    "borderRadius": 4,
+                    "height": 8,
+                    "width": 8,
+                  },
+                  {
+                    "backgroundColor": "#FF3B30",
+                  },
+                  undefined,
+                ]
+              }
+            />
+          </View>
+          <Text
+            numberOfLines={1}
+            style={
+              [
+                {
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "marginTop": 2,
+                  "maxWidth": 88,
+                  "textAlign": "center",
+                },
+                {
+                  "color": "#8E8E93",
+                },
+                null,
+                undefined,
+              ]
+            }
+          >
+            Alerts
+          </Text>
+        </View>
+      </View>
+      <View
+        accessibilityLabel="Profile"
+        accessibilityRole="tab"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": false,
+            "expanded": undefined,
+            "selected": false,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "alignItems": "center",
+              "flexGrow": 1,
+              "flexShrink": 1,
+              "justifyContent": "center",
+              "minHeight": 44,
+              "minWidth": 44,
+              "paddingHorizontal": 4,
+              "paddingVertical": 4,
+            },
+            {
+              "flexBasis": 0,
+            },
+            undefined,
+            null,
+            null,
+          ]
+        }
+        testID="smart-bottom-bar-item-profile"
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+              {
+                "flexDirection": "column",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "minHeight": 24,
+                  "minWidth": 24,
+                  "position": "relative",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text>
+              P
+            </Text>
+          </View>
+          <Text
+            numberOfLines={1}
+            style={
+              [
+                {
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "marginTop": 2,
+                  "maxWidth": 88,
+                  "textAlign": "center",
+                },
+                {
+                  "color": "#8E8E93",
+                },
+                null,
+                undefined,
+              ]
+            }
+          >
+            Profile
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
+<View
+  accessibilityRole="tablist"
+  collapsable={false}
+  pointerEvents="auto"
+  style={
+    {
+      "paddingBottom": 34,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "transform": [
+        {
+          "translateY": 0,
+        },
+      ],
+      "width": "100%",
+    }
+  }
+  testID="snap-liquidGlass"
+>
+  <View
+    style={
+      [
+        {
+          "overflow": "visible",
+        },
+        {
+          "height": 80.4,
+          "marginBottom": 12,
+          "marginHorizontal": 12,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "stretch",
+            "flexDirection": "row",
+          },
+          {
+            "height": 58,
+            "marginTop": 22.400000000000002,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "borderColor": "rgba(255,255,255,0.28)",
+              "borderWidth": 0.5,
+              "overflow": "hidden",
+            },
+            {
+              "backgroundColor": "rgba(255, 255, 255, 0.72)",
+              "borderRadius": 28,
+              "opacity": 0.72,
+            },
+            [
+              {
+                "flex": 1,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        <View
+          pointerEvents="none"
+          style={
+            [
+              {
+                "height": 1.5,
+                "left": 0,
+                "opacity": 0.85,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(255, 255, 255, 0.55)",
+              },
+            ]
+          }
+        />
+        <View
+          collapsable={false}
+          pointerEvents="none"
+          style={
+            {
+              "backgroundColor": "rgba(255,255,255,0.55)",
+              "bottom": 0,
+              "opacity": 0,
+              "position": "absolute",
+              "top": 0,
+              "transform": [
+                {
+                  "translateX": -80,
+                },
+              ],
+              "width": 56,
+            }
+          }
+        />
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityLabel="Home, 3 notifications"
+            accessibilityRole="tab"
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": false,
+                "expanded": undefined,
+                "selected": true,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "justifyContent": "center",
+                  "minHeight": 44,
+                  "minWidth": 44,
+                  "paddingHorizontal": 4,
+                  "paddingVertical": 4,
+                },
+                {
+                  "flexBasis": 0,
+                },
+                undefined,
+                null,
+                null,
+              ]
+            }
+            testID="smart-bottom-bar-item-home"
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                  },
+                  {
+                    "flexDirection": "column",
+                  },
+                  null,
+                ]
+              }
+            >
+              <View
+                style={
+                  [
+                    {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "minHeight": 24,
+                      "minWidth": 24,
+                      "position": "relative",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text>
+                  H
+                </Text>
+                <View
+                  accessibilityElementsHidden={true}
+                  importantForAccessibility="no-hide-descendants"
+                  style={
+                    [
+                      {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                        "minHeight": 8,
+                        "minWidth": 8,
+                        "position": "absolute",
+                        "right": -8,
+                        "top": -4,
+                        "zIndex": 2,
+                      },
+                      {
+                        "borderRadius": 8,
+                        "height": 16,
+                        "minWidth": 16,
+                        "paddingHorizontal": 4,
+                      },
+                      {
+                        "backgroundColor": "#FF3B30",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  <Text
+                    style={
+                      [
+                        {
+                          "fontSize": 10,
+                          "fontWeight": "700",
+                          "lineHeight": 12,
+                        },
+                        {
+                          "color": "#FFFFFF",
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    3
+                  </Text>
+                </View>
+              </View>
+              <Text
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "marginTop": 2,
+                      "maxWidth": 88,
+                      "textAlign": "center",
+                    },
+                    {
+                      "color": "#007AFF",
+                    },
+                    null,
+                    undefined,
+                  ]
+                }
+              >
+                Home
+              </Text>
+            </View>
+          </View>
+          <View
+            accessibilityLabel="Search"
+            accessibilityRole="tab"
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": false,
+                "expanded": undefined,
+                "selected": false,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "justifyContent": "center",
+                  "minHeight": 44,
+                  "minWidth": 44,
+                  "paddingHorizontal": 4,
+                  "paddingVertical": 4,
+                },
+                {
+                  "flexBasis": 0,
+                },
+                undefined,
+                null,
+                null,
+              ]
+            }
+            testID="smart-bottom-bar-item-search"
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                  },
+                  {
+                    "flexDirection": "column",
+                  },
+                  null,
+                ]
+              }
+            >
+              <View
+                style={
+                  [
+                    {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "minHeight": 24,
+                      "minWidth": 24,
+                      "position": "relative",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text>
+                  S
+                </Text>
+              </View>
+              <Text
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "marginTop": 2,
+                      "maxWidth": 88,
+                      "textAlign": "center",
+                    },
+                    {
+                      "color": "#8E8E93",
+                    },
+                    null,
+                    undefined,
+                  ]
+                }
+              >
+                Search
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "overflow": "visible",
+            },
+            {
+              "backgroundColor": "#F2F2F7",
+              "height": 58,
+              "width": 72,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "overflow": "hidden",
+                "position": "absolute",
+                "top": 0,
+              },
+              {
+                "backgroundColor": "#F2F2F7",
+                "height": 36,
+                "left": -36,
+                "width": 36,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "position": "absolute",
+                },
+                {
+                  "backgroundColor": "transparent",
+                  "borderRadius": 36,
+                  "bottom": 0,
+                  "height": 72,
+                  "right": 0,
+                  "width": 72,
+                },
+              ]
+            }
+          />
+        </View>
+        <View
+          style={
+            [
+              {
+                "overflow": "hidden",
+                "position": "absolute",
+                "top": 0,
+              },
+              {
+                "backgroundColor": "#F2F2F7",
+                "height": 36,
+                "right": -36,
+                "width": 36,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "position": "absolute",
+                },
+                {
+                  "backgroundColor": "transparent",
+                  "borderRadius": 36,
+                  "bottom": 0,
+                  "height": 72,
+                  "left": 0,
+                  "width": 72,
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "borderColor": "rgba(255,255,255,0.28)",
+              "borderWidth": 0.5,
+              "overflow": "hidden",
+            },
+            {
+              "backgroundColor": "rgba(255, 255, 255, 0.72)",
+              "borderRadius": 28,
+              "opacity": 0.72,
+            },
+            [
+              {
+                "flex": 1,
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        <View
+          pointerEvents="none"
+          style={
+            [
+              {
+                "height": 1.5,
+                "left": 0,
+                "opacity": 0.85,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+              },
+              {
+                "backgroundColor": "rgba(255, 255, 255, 0.55)",
+              },
+            ]
+          }
+        />
+        <View
+          collapsable={false}
+          pointerEvents="none"
+          style={
+            {
+              "backgroundColor": "rgba(255,255,255,0.55)",
+              "bottom": 0,
+              "opacity": 0,
+              "position": "absolute",
+              "top": 0,
+              "transform": [
+                {
+                  "translateX": -80,
+                },
+              ],
+              "width": 56,
+            }
+          }
+        />
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessibilityLabel="Alerts, new notifications"
+            accessibilityRole="tab"
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": false,
+                "expanded": undefined,
+                "selected": false,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "justifyContent": "center",
+                  "minHeight": 44,
+                  "minWidth": 44,
+                  "paddingHorizontal": 4,
+                  "paddingVertical": 4,
+                },
+                {
+                  "flexBasis": 0,
+                },
+                undefined,
+                null,
+                null,
+              ]
+            }
+            testID="smart-bottom-bar-item-alerts"
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                  },
+                  {
+                    "flexDirection": "column",
+                  },
+                  null,
+                ]
+              }
+            >
+              <View
+                style={
+                  [
+                    {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "minHeight": 24,
+                      "minWidth": 24,
+                      "position": "relative",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text>
+                  A
+                </Text>
+                <View
+                  accessibilityElementsHidden={true}
+                  importantForAccessibility="no-hide-descendants"
+                  style={
+                    [
+                      {
+                        "alignItems": "center",
+                        "justifyContent": "center",
+                        "minHeight": 8,
+                        "minWidth": 8,
+                        "position": "absolute",
+                        "right": -8,
+                        "top": -4,
+                        "zIndex": 2,
+                      },
+                      {
+                        "borderRadius": 4,
+                        "height": 8,
+                        "width": 8,
+                      },
+                      {
+                        "backgroundColor": "#FF3B30",
+                      },
+                      undefined,
+                    ]
+                  }
+                />
+              </View>
+              <Text
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "marginTop": 2,
+                      "maxWidth": 88,
+                      "textAlign": "center",
+                    },
+                    {
+                      "color": "#8E8E93",
+                    },
+                    null,
+                    undefined,
+                  ]
+                }
+              >
+                Alerts
+              </Text>
+            </View>
+          </View>
+          <View
+            accessibilityLabel="Profile"
+            accessibilityRole="tab"
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": false,
+                "expanded": undefined,
+                "selected": false,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "justifyContent": "center",
+                  "minHeight": 44,
+                  "minWidth": 44,
+                  "paddingHorizontal": 4,
+                  "paddingVertical": 4,
+                },
+                {
+                  "flexBasis": 0,
+                },
+                undefined,
+                null,
+                null,
+              ]
+            }
+            testID="smart-bottom-bar-item-profile"
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                  },
+                  {
+                    "flexDirection": "column",
+                  },
+                  null,
+                ]
+              }
+            >
+              <View
+                style={
+                  [
+                    {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "minHeight": 24,
+                      "minWidth": 24,
+                      "position": "relative",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text>
+                  P
+                </Text>
+              </View>
+              <Text
+                numberOfLines={1}
+                style={
+                  [
+                    {
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "marginTop": 2,
+                      "maxWidth": 88,
+                      "textAlign": "center",
+                    },
+                    {
+                      "color": "#8E8E93",
+                    },
+                    null,
+                    undefined,
+                  ]
+                }
+              >
+                Profile
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "position": "absolute",
+          },
+          {
+            "top": 2.8000000000000043,
+            "width": 56,
+          },
+        ]
+      }
+    >
+      <View
+        accessibilityLabel="Add"
+        accessibilityRole="tab"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": false,
+            "expanded": undefined,
+            "selected": false,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            {
+              "backgroundColor": "#007AFF",
+              "borderRadius": 28,
+              "height": 56,
+              "width": 56,
+            },
+            {
+              "elevation": 6,
+              "shadowColor": "#000",
+              "shadowOffset": {
+                "height": 4,
+                "width": 0,
+              },
+              "shadowOpacity": 0.22,
+              "shadowRadius": 8,
+            },
+            undefined,
+            null,
+            null,
+          ]
+        }
+        testID="smart-bottom-bar-item-plus"
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text>
+            +
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`variants matches a snapshot per variant: material 1`] = `
+<View
+  accessibilityRole="tablist"
+  collapsable={false}
+  pointerEvents="auto"
+  style={
+    {
+      "paddingBottom": 34,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "transform": [
+        {
+          "translateY": 0,
+        },
+      ],
+      "width": "100%",
+    }
+  }
+  testID="snap-material"
+>
+  <View
+    style={
+      [
+        {
+          "alignItems": "center",
+          "elevation": 3,
+          "flexDirection": "row",
+          "shadowColor": "#000",
+          "shadowOffset": {
+            "height": -1,
+            "width": 0,
+          },
+          "shadowOpacity": 0.12,
+          "shadowRadius": 6,
+        },
+        {
+          "backgroundColor": "#F7F2FA",
+          "height": 80,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessibilityLabel="Home, 3 notifications"
+      accessibilityRole="tab"
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": true,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          {
+            "alignItems": "center",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "center",
+            "minHeight": 44,
+            "minWidth": 44,
+            "paddingHorizontal": 4,
+            "paddingVertical": 4,
+          },
+          {
+            "flexBasis": 0,
+          },
+          undefined,
+          null,
+          null,
+        ]
+      }
+      testID="smart-bottom-bar-item-home"
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            {
+              "flexDirection": "column",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "minHeight": 24,
+                "minWidth": 24,
+                "position": "relative",
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text>
+            H
+          </Text>
+          <View
+            accessibilityElementsHidden={true}
+            importantForAccessibility="no-hide-descendants"
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "minHeight": 8,
+                  "minWidth": 8,
+                  "position": "absolute",
+                  "right": -8,
+                  "top": -4,
+                  "zIndex": 2,
+                },
+                {
+                  "borderRadius": 8,
+                  "height": 16,
+                  "minWidth": 16,
+                  "paddingHorizontal": 4,
+                },
+                {
+                  "backgroundColor": "#FF3B30",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "fontSize": 10,
+                    "fontWeight": "700",
+                    "lineHeight": 12,
+                  },
+                  {
+                    "color": "#FFFFFF",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              3
+            </Text>
+          </View>
+        </View>
+        <Text
+          numberOfLines={1}
+          style={
+            [
+              {
+                "fontSize": 11,
+                "fontWeight": "500",
+                "marginTop": 2,
+                "maxWidth": 88,
+                "textAlign": "center",
+              },
+              {
+                "color": "#1D1B20",
+              },
+              null,
+              undefined,
+            ]
+          }
+        >
+          Home
+        </Text>
+      </View>
+    </View>
+    <View
+      accessibilityLabel="Search"
+      accessibilityRole="tab"
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": false,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          {
+            "alignItems": "center",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "center",
+            "minHeight": 44,
+            "minWidth": 44,
+            "paddingHorizontal": 4,
+            "paddingVertical": 4,
+          },
+          {
+            "flexBasis": 0,
+          },
+          undefined,
+          null,
+          null,
+        ]
+      }
+      testID="smart-bottom-bar-item-search"
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            {
+              "flexDirection": "column",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "minHeight": 24,
+                "minWidth": 24,
+                "position": "relative",
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text>
+            S
+          </Text>
+        </View>
+        <Text
+          numberOfLines={1}
+          style={
+            [
+              {
+                "fontSize": 11,
+                "fontWeight": "500",
+                "marginTop": 2,
+                "maxWidth": 88,
+                "textAlign": "center",
+              },
+              {
+                "color": "#49454F",
+              },
+              null,
+              undefined,
+            ]
+          }
+        >
+          Search
+        </Text>
+      </View>
+    </View>
+    <View
+      accessibilityLabel="Add"
+      accessibilityRole="tab"
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": false,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          {
+            "alignItems": "center",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "center",
+            "minHeight": 44,
+            "minWidth": 44,
+            "paddingHorizontal": 4,
+            "paddingVertical": 4,
+          },
+          {
+            "flexBasis": 0,
+          },
+          undefined,
+          null,
+          null,
+        ]
+      }
+      testID="smart-bottom-bar-item-plus"
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            {
+              "flexDirection": "column",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "minHeight": 24,
+                "minWidth": 24,
+                "position": "relative",
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text>
+            +
+          </Text>
+        </View>
+        <Text
+          numberOfLines={1}
+          style={
+            [
+              {
+                "fontSize": 11,
+                "fontWeight": "500",
+                "marginTop": 2,
+                "maxWidth": 88,
+                "textAlign": "center",
+              },
+              {
+                "color": "#49454F",
+              },
+              null,
+              undefined,
+            ]
+          }
+        >
+          Add
+        </Text>
+      </View>
+    </View>
+    <View
+      accessibilityLabel="Alerts, new notifications"
+      accessibilityRole="tab"
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": false,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          {
+            "alignItems": "center",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "center",
+            "minHeight": 44,
+            "minWidth": 44,
+            "paddingHorizontal": 4,
+            "paddingVertical": 4,
+          },
+          {
+            "flexBasis": 0,
+          },
+          undefined,
+          null,
+          null,
+        ]
+      }
+      testID="smart-bottom-bar-item-alerts"
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            {
+              "flexDirection": "column",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "minHeight": 24,
+                "minWidth": 24,
+                "position": "relative",
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text>
+            A
+          </Text>
+          <View
+            accessibilityElementsHidden={true}
+            importantForAccessibility="no-hide-descendants"
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                  "minHeight": 8,
+                  "minWidth": 8,
+                  "position": "absolute",
+                  "right": -8,
+                  "top": -4,
+                  "zIndex": 2,
+                },
+                {
+                  "borderRadius": 4,
+                  "height": 8,
+                  "width": 8,
+                },
+                {
+                  "backgroundColor": "#FF3B30",
+                },
+                undefined,
+              ]
+            }
+          />
+        </View>
+        <Text
+          numberOfLines={1}
+          style={
+            [
+              {
+                "fontSize": 11,
+                "fontWeight": "500",
+                "marginTop": 2,
+                "maxWidth": 88,
+                "textAlign": "center",
+              },
+              {
+                "color": "#49454F",
+              },
+              null,
+              undefined,
+            ]
+          }
+        >
+          Alerts
+        </Text>
+      </View>
+    </View>
+    <View
+      accessibilityLabel="Profile"
+      accessibilityRole="tab"
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": false,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          {
+            "alignItems": "center",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "center",
+            "minHeight": 44,
+            "minWidth": 44,
+            "paddingHorizontal": 4,
+            "paddingVertical": 4,
+          },
+          {
+            "flexBasis": 0,
+          },
+          undefined,
+          null,
+          null,
+        ]
+      }
+      testID="smart-bottom-bar-item-profile"
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            {
+              "flexDirection": "column",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "minHeight": 24,
+                "minWidth": 24,
+                "position": "relative",
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text>
+            P
+          </Text>
+        </View>
+        <Text
+          numberOfLines={1}
+          style={
+            [
+              {
+                "fontSize": 11,
+                "fontWeight": "500",
+                "marginTop": 2,
+                "maxWidth": 88,
+                "textAlign": "center",
+              },
+              {
+                "color": "#49454F",
+              },
+              null,
+              undefined,
+            ]
+          }
+        >
+          Profile
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`variants matches a snapshot per variant: notchedFab 1`] = `
+<View
+  accessibilityRole="tablist"
+  collapsable={false}
+  pointerEvents="auto"
+  style={
+    {
+      "paddingBottom": 34,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "transform": [
+        {
+          "translateY": 0,
+        },
+      ],
+      "width": "100%",
+    }
+  }
+  testID="snap-notchedFab"
+>
+  <View
+    style={
+      {
+        "height": 78.4,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+          },
+          {
+            "alignItems": "stretch",
+            "height": 56,
+            "marginTop": 22.400000000000002,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+            },
+            {
+              "backgroundColor": "#FFFFFF",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          accessibilityLabel="Home, 3 notifications"
+          accessibilityRole="tab"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": false,
+              "expanded": undefined,
+              "selected": true,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
+                "minHeight": 44,
+                "minWidth": 44,
+                "paddingHorizontal": 4,
+                "paddingVertical": 4,
+              },
+              {
+                "flexBasis": 0,
+              },
+              undefined,
+              null,
+              null,
+            ]
+          }
+          testID="smart-bottom-bar-item-home"
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                },
+                {
+                  "flexDirection": "column",
+                },
+                null,
+              ]
+            }
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "minHeight": 24,
+                    "minWidth": 24,
+                    "position": "relative",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text>
+                H
+              </Text>
+              <View
+                accessibilityElementsHidden={true}
+                importantForAccessibility="no-hide-descendants"
+                style={
+                  [
+                    {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "minHeight": 8,
+                      "minWidth": 8,
+                      "position": "absolute",
+                      "right": -8,
+                      "top": -4,
+                      "zIndex": 2,
+                    },
+                    {
+                      "borderRadius": 8,
+                      "height": 16,
+                      "minWidth": 16,
+                      "paddingHorizontal": 4,
+                    },
+                    {
+                      "backgroundColor": "#FF3B30",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    [
+                      {
+                        "fontSize": 10,
+                        "fontWeight": "700",
+                        "lineHeight": 12,
+                      },
+                      {
+                        "color": "#FFFFFF",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  3
+                </Text>
+              </View>
+            </View>
+            <Text
+              numberOfLines={1}
+              style={
+                [
+                  {
+                    "fontSize": 11,
+                    "fontWeight": "500",
+                    "marginTop": 2,
+                    "maxWidth": 88,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#007AFF",
+                  },
+                  null,
+                  undefined,
+                ]
+              }
+            >
+              Home
+            </Text>
+          </View>
+        </View>
+        <View
+          accessibilityLabel="Search"
+          accessibilityRole="tab"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": false,
+              "expanded": undefined,
+              "selected": false,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
+                "minHeight": 44,
+                "minWidth": 44,
+                "paddingHorizontal": 4,
+                "paddingVertical": 4,
+              },
+              {
+                "flexBasis": 0,
+              },
+              undefined,
+              null,
+              null,
+            ]
+          }
+          testID="smart-bottom-bar-item-search"
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                },
+                {
+                  "flexDirection": "column",
+                },
+                null,
+              ]
+            }
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "minHeight": 24,
+                    "minWidth": 24,
+                    "position": "relative",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text>
+                S
+              </Text>
+            </View>
+            <Text
+              numberOfLines={1}
+              style={
+                [
+                  {
+                    "fontSize": 11,
+                    "fontWeight": "500",
+                    "marginTop": 2,
+                    "maxWidth": 88,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#8E8E93",
+                  },
+                  null,
+                  undefined,
+                ]
+              }
+            >
+              Search
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "overflow": "visible",
+            },
+            {
+              "backgroundColor": "#F2F2F7",
+              "height": 56,
+              "width": 72,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "overflow": "hidden",
+                "position": "absolute",
+                "top": 0,
+              },
+              {
+                "backgroundColor": "#F2F2F7",
+                "height": 36,
+                "left": -36,
+                "width": 36,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "position": "absolute",
+                },
+                {
+                  "backgroundColor": "#FFFFFF",
+                  "borderRadius": 36,
+                  "bottom": 0,
+                  "height": 72,
+                  "right": 0,
+                  "width": 72,
+                },
+              ]
+            }
+          />
+        </View>
+        <View
+          style={
+            [
+              {
+                "overflow": "hidden",
+                "position": "absolute",
+                "top": 0,
+              },
+              {
+                "backgroundColor": "#F2F2F7",
+                "height": 36,
+                "right": -36,
+                "width": 36,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              [
+                {
+                  "position": "absolute",
+                },
+                {
+                  "backgroundColor": "#FFFFFF",
+                  "borderRadius": 36,
+                  "bottom": 0,
+                  "height": 72,
+                  "left": 0,
+                  "width": 72,
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+            },
+            {
+              "backgroundColor": "#FFFFFF",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          accessibilityLabel="Alerts, new notifications"
+          accessibilityRole="tab"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": false,
+              "expanded": undefined,
+              "selected": false,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
+                "minHeight": 44,
+                "minWidth": 44,
+                "paddingHorizontal": 4,
+                "paddingVertical": 4,
+              },
+              {
+                "flexBasis": 0,
+              },
+              undefined,
+              null,
+              null,
+            ]
+          }
+          testID="smart-bottom-bar-item-alerts"
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                },
+                {
+                  "flexDirection": "column",
+                },
+                null,
+              ]
+            }
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "minHeight": 24,
+                    "minWidth": 24,
+                    "position": "relative",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text>
+                A
+              </Text>
+              <View
+                accessibilityElementsHidden={true}
+                importantForAccessibility="no-hide-descendants"
+                style={
+                  [
+                    {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "minHeight": 8,
+                      "minWidth": 8,
+                      "position": "absolute",
+                      "right": -8,
+                      "top": -4,
+                      "zIndex": 2,
+                    },
+                    {
+                      "borderRadius": 4,
+                      "height": 8,
+                      "width": 8,
+                    },
+                    {
+                      "backgroundColor": "#FF3B30",
+                    },
+                    undefined,
+                  ]
+                }
+              />
+            </View>
+            <Text
+              numberOfLines={1}
+              style={
+                [
+                  {
+                    "fontSize": 11,
+                    "fontWeight": "500",
+                    "marginTop": 2,
+                    "maxWidth": 88,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#8E8E93",
+                  },
+                  null,
+                  undefined,
+                ]
+              }
+            >
+              Alerts
+            </Text>
+          </View>
+        </View>
+        <View
+          accessibilityLabel="Profile"
+          accessibilityRole="tab"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": false,
+              "expanded": undefined,
+              "selected": false,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
+                "minHeight": 44,
+                "minWidth": 44,
+                "paddingHorizontal": 4,
+                "paddingVertical": 4,
+              },
+              {
+                "flexBasis": 0,
+              },
+              undefined,
+              null,
+              null,
+            ]
+          }
+          testID="smart-bottom-bar-item-profile"
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                },
+                {
+                  "flexDirection": "column",
+                },
+                null,
+              ]
+            }
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "minHeight": 24,
+                    "minWidth": 24,
+                    "position": "relative",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text>
+                P
+              </Text>
+            </View>
+            <Text
+              numberOfLines={1}
+              style={
+                [
+                  {
+                    "fontSize": 11,
+                    "fontWeight": "500",
+                    "marginTop": 2,
+                    "maxWidth": 88,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#8E8E93",
+                  },
+                  null,
+                  undefined,
+                ]
+              }
+            >
+              Profile
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "position": "absolute",
+          },
+          {
+            "top": 2.8000000000000043,
+            "width": 56,
+          },
+        ]
+      }
+    >
+      <View
+        accessibilityLabel="Add"
+        accessibilityRole="tab"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": false,
+            "expanded": undefined,
+            "selected": false,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            {
+              "backgroundColor": "#007AFF",
+              "borderRadius": 28,
+              "height": 56,
+              "width": 56,
+            },
+            {
+              "elevation": 6,
+              "shadowColor": "#000",
+              "shadowOffset": {
+                "height": 4,
+                "width": 0,
+              },
+              "shadowOpacity": 0.22,
+              "shadowRadius": 8,
+            },
+            undefined,
+            null,
+            null,
+          ]
+        }
+        testID="smart-bottom-bar-item-plus"
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text>
+            +
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`variants matches a snapshot per variant: segmented 1`] = `
+<View
+  accessibilityRole="tablist"
+  collapsable={false}
+  pointerEvents="auto"
+  style={
+    {
+      "paddingBottom": 34,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "transform": [
+        {
+          "translateY": 0,
+        },
+      ],
+      "width": "100%",
+    }
+  }
+  testID="snap-segmented"
+>
+  <View
+    style={
+      {
+        "paddingHorizontal": 12,
+        "paddingTop": 6,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "padding": 3,
+          },
+          {
+            "backgroundColor": "#F2F2F7",
+            "borderRadius": 22,
+            "height": 44,
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "flex": 1,
+              "height": "100%",
+              "justifyContent": "center",
+            },
+            {
+              "backgroundColor": "#FFFFFF",
+              "borderRadius": 19,
+            },
+          ]
+        }
+      >
+        <View
+          accessibilityLabel="Home, 3 notifications"
+          accessibilityRole="tab"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": false,
+              "expanded": undefined,
+              "selected": true,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
+                "minHeight": 44,
+                "minWidth": 44,
+                "paddingHorizontal": 4,
+                "paddingVertical": 4,
+              },
+              {
+                "flexBasis": 0,
+              },
+              undefined,
+              null,
+              null,
+            ]
+          }
+          testID="smart-bottom-bar-item-home"
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                },
+                {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
+            }
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "minHeight": 24,
+                    "minWidth": 24,
+                    "position": "relative",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text>
+                H
+              </Text>
+              <View
+                accessibilityElementsHidden={true}
+                importantForAccessibility="no-hide-descendants"
+                style={
+                  [
+                    {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "minHeight": 8,
+                      "minWidth": 8,
+                      "position": "absolute",
+                      "right": -8,
+                      "top": -4,
+                      "zIndex": 2,
+                    },
+                    {
+                      "borderRadius": 8,
+                      "height": 16,
+                      "minWidth": 16,
+                      "paddingHorizontal": 4,
+                    },
+                    {
+                      "backgroundColor": "#FF3B30",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    [
+                      {
+                        "fontSize": 10,
+                        "fontWeight": "700",
+                        "lineHeight": 12,
+                      },
+                      {
+                        "color": "#FFFFFF",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  3
+                </Text>
+              </View>
+            </View>
+            <Text
+              numberOfLines={1}
+              style={
+                [
+                  {
+                    "fontSize": 11,
+                    "fontWeight": "500",
+                    "marginTop": 2,
+                    "maxWidth": 88,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#007AFF",
+                  },
+                  {
+                    "fontSize": 13,
+                    "marginLeft": 8,
+                    "marginTop": 0,
+                    "maxWidth": 140,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Home
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "flex": 1,
+              "height": "100%",
+              "justifyContent": "center",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          accessibilityLabel="Search"
+          accessibilityRole="tab"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": false,
+              "expanded": undefined,
+              "selected": false,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
+                "minHeight": 44,
+                "minWidth": 44,
+                "paddingHorizontal": 4,
+                "paddingVertical": 4,
+              },
+              {
+                "flexBasis": 0,
+              },
+              undefined,
+              null,
+              null,
+            ]
+          }
+          testID="smart-bottom-bar-item-search"
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                },
+                {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
+            }
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "minHeight": 24,
+                    "minWidth": 24,
+                    "position": "relative",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text>
+                S
+              </Text>
+            </View>
+            <Text
+              numberOfLines={1}
+              style={
+                [
+                  {
+                    "fontSize": 11,
+                    "fontWeight": "500",
+                    "marginTop": 2,
+                    "maxWidth": 88,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#8E8E93",
+                  },
+                  {
+                    "fontSize": 13,
+                    "marginLeft": 8,
+                    "marginTop": 0,
+                    "maxWidth": 140,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Search
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "flex": 1,
+              "height": "100%",
+              "justifyContent": "center",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          accessibilityLabel="Add"
+          accessibilityRole="tab"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": false,
+              "expanded": undefined,
+              "selected": false,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
+                "minHeight": 44,
+                "minWidth": 44,
+                "paddingHorizontal": 4,
+                "paddingVertical": 4,
+              },
+              {
+                "flexBasis": 0,
+              },
+              undefined,
+              null,
+              null,
+            ]
+          }
+          testID="smart-bottom-bar-item-plus"
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                },
+                {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
+            }
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "minHeight": 24,
+                    "minWidth": 24,
+                    "position": "relative",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text>
+                +
+              </Text>
+            </View>
+            <Text
+              numberOfLines={1}
+              style={
+                [
+                  {
+                    "fontSize": 11,
+                    "fontWeight": "500",
+                    "marginTop": 2,
+                    "maxWidth": 88,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#8E8E93",
+                  },
+                  {
+                    "fontSize": 13,
+                    "marginLeft": 8,
+                    "marginTop": 0,
+                    "maxWidth": 140,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Add
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "flex": 1,
+              "height": "100%",
+              "justifyContent": "center",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          accessibilityLabel="Alerts, new notifications"
+          accessibilityRole="tab"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": false,
+              "expanded": undefined,
+              "selected": false,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
+                "minHeight": 44,
+                "minWidth": 44,
+                "paddingHorizontal": 4,
+                "paddingVertical": 4,
+              },
+              {
+                "flexBasis": 0,
+              },
+              undefined,
+              null,
+              null,
+            ]
+          }
+          testID="smart-bottom-bar-item-alerts"
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                },
+                {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
+            }
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "minHeight": 24,
+                    "minWidth": 24,
+                    "position": "relative",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text>
+                A
+              </Text>
+              <View
+                accessibilityElementsHidden={true}
+                importantForAccessibility="no-hide-descendants"
+                style={
+                  [
+                    {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "minHeight": 8,
+                      "minWidth": 8,
+                      "position": "absolute",
+                      "right": -8,
+                      "top": -4,
+                      "zIndex": 2,
+                    },
+                    {
+                      "borderRadius": 4,
+                      "height": 8,
+                      "width": 8,
+                    },
+                    {
+                      "backgroundColor": "#FF3B30",
+                    },
+                    undefined,
+                  ]
+                }
+              />
+            </View>
+            <Text
+              numberOfLines={1}
+              style={
+                [
+                  {
+                    "fontSize": 11,
+                    "fontWeight": "500",
+                    "marginTop": 2,
+                    "maxWidth": 88,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#8E8E93",
+                  },
+                  {
+                    "fontSize": 13,
+                    "marginLeft": 8,
+                    "marginTop": 0,
+                    "maxWidth": 140,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Alerts
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "flex": 1,
+              "height": "100%",
+              "justifyContent": "center",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          accessibilityLabel="Profile"
+          accessibilityRole="tab"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": false,
+              "expanded": undefined,
+              "selected": false,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
+                "minHeight": 44,
+                "minWidth": 44,
+                "paddingHorizontal": 4,
+                "paddingVertical": 4,
+              },
+              {
+                "flexBasis": 0,
+              },
+              undefined,
+              null,
+              null,
+            ]
+          }
+          testID="smart-bottom-bar-item-profile"
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                },
+                {
+                  "flexDirection": "row",
+                },
+                null,
+              ]
+            }
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "minHeight": 24,
+                    "minWidth": 24,
+                    "position": "relative",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text>
+                P
+              </Text>
+            </View>
+            <Text
+              numberOfLines={1}
+              style={
+                [
+                  {
+                    "fontSize": 11,
+                    "fontWeight": "500",
+                    "marginTop": 2,
+                    "maxWidth": 88,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#8E8E93",
+                  },
+                  {
+                    "fontSize": 13,
+                    "marginLeft": 8,
+                    "marginTop": 0,
+                    "maxWidth": 140,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Profile
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`variants matches a snapshot per variant: sidebar 1`] = `
+<View
+  accessibilityRole="tablist"
+  pointerEvents="auto"
+  style={
+    [
+      {
+        "alignItems": "center",
+        "borderRightWidth": 0.5,
+        "height": "100%",
+      },
+      {
+        "backgroundColor": "#FFFFFF",
+        "borderRightColor": "rgba(60, 60, 67, 0.12)",
+        "opacity": 1,
+        "paddingBottom": 42,
+        "paddingLeft": 0,
+        "paddingTop": 8,
+        "width": 80,
+      },
+      undefined,
+      undefined,
+    ]
+  }
+  testID="snap-sidebar"
+>
+  <View
+    accessibilityLabel="Home, 3 notifications"
+    accessibilityRole="tab"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": false,
+        "expanded": undefined,
+        "selected": true,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "justifyContent": "center",
+          "minHeight": 44,
+          "minWidth": 44,
+          "paddingHorizontal": 4,
+          "paddingVertical": 4,
+        },
+        {
+          "flexGrow": 0,
+          "paddingVertical": 10,
+          "width": "100%",
+        },
+        undefined,
+        null,
+        null,
+      ]
+    }
+    testID="smart-bottom-bar-item-home"
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+          {
+            "flexDirection": "row",
+          },
+          {
+            "minHeight": 44,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "minHeight": 24,
+              "minWidth": 24,
+              "position": "relative",
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text>
+          H
+        </Text>
+        <View
+          accessibilityElementsHidden={true}
+          importantForAccessibility="no-hide-descendants"
+          style={
+            [
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "minHeight": 8,
+                "minWidth": 8,
+                "position": "absolute",
+                "right": -8,
+                "top": -4,
+                "zIndex": 2,
+              },
+              {
+                "borderRadius": 8,
+                "height": 16,
+                "minWidth": 16,
+                "paddingHorizontal": 4,
+              },
+              {
+                "backgroundColor": "#FF3B30",
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "fontSize": 10,
+                  "fontWeight": "700",
+                  "lineHeight": 12,
+                },
+                {
+                  "color": "#FFFFFF",
+                },
+                undefined,
+              ]
+            }
+          >
+            3
+          </Text>
+        </View>
+      </View>
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "fontSize": 11,
+              "fontWeight": "500",
+              "marginTop": 2,
+              "maxWidth": 88,
+              "textAlign": "center",
+            },
+            {
+              "color": "#007AFF",
+            },
+            {
+              "fontSize": 13,
+              "marginLeft": 8,
+              "marginTop": 0,
+              "maxWidth": 140,
+            },
+            undefined,
+          ]
+        }
+      >
+        Home
+      </Text>
+    </View>
+  </View>
+  <View
+    accessibilityLabel="Search"
+    accessibilityRole="tab"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": false,
+        "expanded": undefined,
+        "selected": false,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "justifyContent": "center",
+          "minHeight": 44,
+          "minWidth": 44,
+          "paddingHorizontal": 4,
+          "paddingVertical": 4,
+        },
+        {
+          "flexGrow": 0,
+          "paddingVertical": 10,
+          "width": "100%",
+        },
+        undefined,
+        null,
+        null,
+      ]
+    }
+    testID="smart-bottom-bar-item-search"
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+          {
+            "flexDirection": "row",
+          },
+          {
+            "minHeight": 44,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "minHeight": 24,
+              "minWidth": 24,
+              "position": "relative",
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text>
+          S
+        </Text>
+      </View>
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "fontSize": 11,
+              "fontWeight": "500",
+              "marginTop": 2,
+              "maxWidth": 88,
+              "textAlign": "center",
+            },
+            {
+              "color": "#8E8E93",
+            },
+            {
+              "fontSize": 13,
+              "marginLeft": 8,
+              "marginTop": 0,
+              "maxWidth": 140,
+            },
+            undefined,
+          ]
+        }
+      >
+        Search
+      </Text>
+    </View>
+  </View>
+  <View
+    accessibilityLabel="Add"
+    accessibilityRole="tab"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": false,
+        "expanded": undefined,
+        "selected": false,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "justifyContent": "center",
+          "minHeight": 44,
+          "minWidth": 44,
+          "paddingHorizontal": 4,
+          "paddingVertical": 4,
+        },
+        {
+          "flexGrow": 0,
+          "paddingVertical": 10,
+          "width": "100%",
+        },
+        undefined,
+        null,
+        null,
+      ]
+    }
+    testID="smart-bottom-bar-item-plus"
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+          {
+            "flexDirection": "row",
+          },
+          {
+            "minHeight": 44,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "minHeight": 24,
+              "minWidth": 24,
+              "position": "relative",
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text>
+          +
+        </Text>
+      </View>
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "fontSize": 11,
+              "fontWeight": "500",
+              "marginTop": 2,
+              "maxWidth": 88,
+              "textAlign": "center",
+            },
+            {
+              "color": "#8E8E93",
+            },
+            {
+              "fontSize": 13,
+              "marginLeft": 8,
+              "marginTop": 0,
+              "maxWidth": 140,
+            },
+            undefined,
+          ]
+        }
+      >
+        Add
+      </Text>
+    </View>
+  </View>
+  <View
+    accessibilityLabel="Alerts, new notifications"
+    accessibilityRole="tab"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": false,
+        "expanded": undefined,
+        "selected": false,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "justifyContent": "center",
+          "minHeight": 44,
+          "minWidth": 44,
+          "paddingHorizontal": 4,
+          "paddingVertical": 4,
+        },
+        {
+          "flexGrow": 0,
+          "paddingVertical": 10,
+          "width": "100%",
+        },
+        undefined,
+        null,
+        null,
+      ]
+    }
+    testID="smart-bottom-bar-item-alerts"
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+          {
+            "flexDirection": "row",
+          },
+          {
+            "minHeight": 44,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "minHeight": 24,
+              "minWidth": 24,
+              "position": "relative",
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text>
+          A
+        </Text>
+        <View
+          accessibilityElementsHidden={true}
+          importantForAccessibility="no-hide-descendants"
+          style={
+            [
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "minHeight": 8,
+                "minWidth": 8,
+                "position": "absolute",
+                "right": -8,
+                "top": -4,
+                "zIndex": 2,
+              },
+              {
+                "borderRadius": 4,
+                "height": 8,
+                "width": 8,
+              },
+              {
+                "backgroundColor": "#FF3B30",
+              },
+              undefined,
+            ]
+          }
+        />
+      </View>
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "fontSize": 11,
+              "fontWeight": "500",
+              "marginTop": 2,
+              "maxWidth": 88,
+              "textAlign": "center",
+            },
+            {
+              "color": "#8E8E93",
+            },
+            {
+              "fontSize": 13,
+              "marginLeft": 8,
+              "marginTop": 0,
+              "maxWidth": 140,
+            },
+            undefined,
+          ]
+        }
+      >
+        Alerts
+      </Text>
+    </View>
+  </View>
+  <View
+    accessibilityLabel="Profile"
+    accessibilityRole="tab"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": false,
+        "expanded": undefined,
+        "selected": false,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "justifyContent": "center",
+          "minHeight": 44,
+          "minWidth": 44,
+          "paddingHorizontal": 4,
+          "paddingVertical": 4,
+        },
+        {
+          "flexGrow": 0,
+          "paddingVertical": 10,
+          "width": "100%",
+        },
+        undefined,
+        null,
+        null,
+      ]
+    }
+    testID="smart-bottom-bar-item-profile"
+  >
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+          {
+            "flexDirection": "row",
+          },
+          {
+            "minHeight": 44,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "minHeight": 24,
+              "minWidth": 24,
+              "position": "relative",
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text>
+          P
+        </Text>
+      </View>
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "fontSize": 11,
+              "fontWeight": "500",
+              "marginTop": 2,
+              "maxWidth": 88,
+              "textAlign": "center",
+            },
+            {
+              "color": "#8E8E93",
+            },
+            {
+              "fontSize": 13,
+              "marginLeft": 8,
+              "marginTop": 0,
+              "maxWidth": 140,
+            },
+            undefined,
+          ]
+        }
+      >
+        Profile
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`variants matches a snapshot per variant: wave 1`] = `
+<View
+  accessibilityRole="tablist"
+  collapsable={false}
+  pointerEvents="auto"
+  style={
+    {
+      "paddingBottom": 34,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "transform": [
+        {
+          "translateY": 0,
+        },
+      ],
+      "width": "100%",
+    }
+  }
+  testID="snap-wave"
+>
+  <View
+    onLayout={[Function]}
+    style={
+      {
+        "height": 80.32,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "overflow": "visible",
+          },
+          {
+            "backgroundColor": "#FFFFFF",
+            "height": 56,
+            "marginTop": 24.32,
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        collapsable={false}
+        pointerEvents="none"
+        style={
+          {
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 32,
+            "height": 64,
+            "left": 0,
+            "position": "absolute",
+            "top": -26.88,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+            ],
+            "width": 64,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "alignItems": "flex-end",
+            "flex": 1,
+            "flexDirection": "row",
+            "paddingBottom": 4,
+          }
+        }
+      >
+        <View
+          accessibilityLabel="Home, 3 notifications"
+          accessibilityRole="tab"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": false,
+              "expanded": undefined,
+              "selected": true,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
+                "minHeight": 44,
+                "minWidth": 44,
+                "paddingHorizontal": 4,
+                "paddingVertical": 4,
+              },
+              {
+                "flexBasis": 0,
+              },
+              undefined,
+              null,
+              null,
+            ]
+          }
+          testID="smart-bottom-bar-item-home"
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                },
+                {
+                  "flexDirection": "column",
+                },
+                null,
+              ]
+            }
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "minHeight": 24,
+                    "minWidth": 24,
+                    "position": "relative",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text>
+                H
+              </Text>
+              <View
+                accessibilityElementsHidden={true}
+                importantForAccessibility="no-hide-descendants"
+                style={
+                  [
+                    {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "minHeight": 8,
+                      "minWidth": 8,
+                      "position": "absolute",
+                      "right": -8,
+                      "top": -4,
+                      "zIndex": 2,
+                    },
+                    {
+                      "borderRadius": 8,
+                      "height": 16,
+                      "minWidth": 16,
+                      "paddingHorizontal": 4,
+                    },
+                    {
+                      "backgroundColor": "#FF3B30",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    [
+                      {
+                        "fontSize": 10,
+                        "fontWeight": "700",
+                        "lineHeight": 12,
+                      },
+                      {
+                        "color": "#FFFFFF",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  3
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          accessibilityLabel="Search"
+          accessibilityRole="tab"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": false,
+              "expanded": undefined,
+              "selected": false,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
+                "minHeight": 44,
+                "minWidth": 44,
+                "paddingHorizontal": 4,
+                "paddingVertical": 4,
+              },
+              {
+                "flexBasis": 0,
+              },
+              undefined,
+              null,
+              null,
+            ]
+          }
+          testID="smart-bottom-bar-item-search"
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                },
+                {
+                  "flexDirection": "column",
+                },
+                null,
+              ]
+            }
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "minHeight": 24,
+                    "minWidth": 24,
+                    "position": "relative",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text>
+                S
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          accessibilityLabel="Add"
+          accessibilityRole="tab"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": false,
+              "expanded": undefined,
+              "selected": false,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
+                "minHeight": 44,
+                "minWidth": 44,
+                "paddingHorizontal": 4,
+                "paddingVertical": 4,
+              },
+              {
+                "flexBasis": 0,
+              },
+              undefined,
+              null,
+              null,
+            ]
+          }
+          testID="smart-bottom-bar-item-plus"
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                },
+                {
+                  "flexDirection": "column",
+                },
+                null,
+              ]
+            }
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "minHeight": 24,
+                    "minWidth": 24,
+                    "position": "relative",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text>
+                +
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          accessibilityLabel="Alerts, new notifications"
+          accessibilityRole="tab"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": false,
+              "expanded": undefined,
+              "selected": false,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
+                "minHeight": 44,
+                "minWidth": 44,
+                "paddingHorizontal": 4,
+                "paddingVertical": 4,
+              },
+              {
+                "flexBasis": 0,
+              },
+              undefined,
+              null,
+              null,
+            ]
+          }
+          testID="smart-bottom-bar-item-alerts"
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                },
+                {
+                  "flexDirection": "column",
+                },
+                null,
+              ]
+            }
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "minHeight": 24,
+                    "minWidth": 24,
+                    "position": "relative",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text>
+                A
+              </Text>
+              <View
+                accessibilityElementsHidden={true}
+                importantForAccessibility="no-hide-descendants"
+                style={
+                  [
+                    {
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "minHeight": 8,
+                      "minWidth": 8,
+                      "position": "absolute",
+                      "right": -8,
+                      "top": -4,
+                      "zIndex": 2,
+                    },
+                    {
+                      "borderRadius": 4,
+                      "height": 8,
+                      "width": 8,
+                    },
+                    {
+                      "backgroundColor": "#FF3B30",
+                    },
+                    undefined,
+                  ]
+                }
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          accessibilityLabel="Profile"
+          accessibilityRole="tab"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": false,
+              "expanded": undefined,
+              "selected": false,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "alignItems": "center",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "justifyContent": "center",
+                "minHeight": 44,
+                "minWidth": 44,
+                "paddingHorizontal": 4,
+                "paddingVertical": 4,
+              },
+              {
+                "flexBasis": 0,
+              },
+              undefined,
+              null,
+              null,
+            ]
+          }
+          testID="smart-bottom-bar-item-profile"
+        >
+          <View
+            style={
+              [
+                {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                },
+                {
+                  "flexDirection": "column",
+                },
+                null,
+              ]
+            }
+          >
+            <View
+              style={
+                [
+                  {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "minHeight": 24,
+                    "minWidth": 24,
+                    "position": "relative",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text>
+                P
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      collapsable={false}
+      style={
+        {
+          "alignItems": "center",
+          "left": 0,
+          "position": "absolute",
+          "top": -0.879999999999999,
+          "transform": [
+            {
+              "translateX": 0,
+            },
+          ],
+          "width": 64,
+        }
+      }
+    >
+      <View
+        accessibilityLabel="Home"
+        accessibilityRole="tab"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": false,
+            "expanded": undefined,
+            "selected": true,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            {
+              "backgroundColor": "#007AFF",
+              "borderRadius": 28,
+              "height": 56,
+              "width": 56,
+            },
+            {
+              "elevation": 6,
+              "shadowColor": "#000",
+              "shadowOffset": {
+                "height": 4,
+                "width": 0,
+              },
+              "shadowOpacity": 0.22,
+              "shadowRadius": 8,
+            },
+            undefined,
+            null,
+            null,
+          ]
+        }
+        testID="smart-bottom-bar-item-home"
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text>
+            H
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

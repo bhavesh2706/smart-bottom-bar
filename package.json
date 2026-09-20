@@ -1,0 +1,236 @@
+{
+  "name": "react-native-smart-bottom-bars",
+  "version": "0.1.0",
+  "description": "Universal React Native bottom bar — nine visual variants, zero runtime dependencies. Works in Expo Go, CLI, and the New Architecture.",
+  "keywords": [
+    "react-native",
+    "bottom-bar",
+    "tab-bar",
+    "bottom-tabs",
+    "navigation",
+    "liquid-glass",
+    "curved",
+    "floating",
+    "material",
+    "expo",
+    "fabric",
+    "typescript"
+  ],
+  "license": "MIT",
+  "author": "Bhavesh Barot <bhaveshbarot2706@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhavesh2706/smart-bottom-bars.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bhavesh2706/smart-bottom-bars/issues"
+  },
+  "homepage": "https://github.com/bhavesh2706/smart-bottom-bars#readme",
+  "source": "./src/index.ts",
+  "main": "./lib/commonjs/index.js",
+  "module": "./lib/module/index.js",
+  "react-native": "./src/index.ts",
+  "types": "./lib/typescript/commonjs/src/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/typescript/module/src/index.d.ts",
+        "default": "./lib/module/index.js"
+      },
+      "require": {
+        "types": "./lib/typescript/commonjs/src/index.d.ts",
+        "default": "./lib/commonjs/index.js"
+      }
+    },
+    "./flat": {
+      "import": {
+        "types": "./lib/typescript/module/src/flat.d.ts",
+        "default": "./lib/module/flat.js"
+      },
+      "require": {
+        "types": "./lib/typescript/commonjs/src/flat.d.ts",
+        "default": "./lib/commonjs/flat.js"
+      }
+    },
+    "./curved": {
+      "import": {
+        "types": "./lib/typescript/module/src/curved.d.ts",
+        "default": "./lib/module/curved.js"
+      },
+      "require": {
+        "types": "./lib/typescript/commonjs/src/curved.d.ts",
+        "default": "./lib/commonjs/curved.js"
+      }
+    },
+    "./floating": {
+      "import": {
+        "types": "./lib/typescript/module/src/floating.d.ts",
+        "default": "./lib/module/floating.js"
+      },
+      "require": {
+        "types": "./lib/typescript/commonjs/src/floating.d.ts",
+        "default": "./lib/commonjs/floating.js"
+      }
+    },
+    "./wave": {
+      "import": {
+        "types": "./lib/typescript/module/src/wave.d.ts",
+        "default": "./lib/module/wave.js"
+      },
+      "require": {
+        "types": "./lib/typescript/commonjs/src/wave.d.ts",
+        "default": "./lib/commonjs/wave.js"
+      }
+    },
+    "./liquid-glass": {
+      "import": {
+        "types": "./lib/typescript/module/src/liquid-glass.d.ts",
+        "default": "./lib/module/liquid-glass.js"
+      },
+      "require": {
+        "types": "./lib/typescript/commonjs/src/liquid-glass.d.ts",
+        "default": "./lib/commonjs/liquid-glass.js"
+      }
+    },
+    "./notched-fab": {
+      "import": {
+        "types": "./lib/typescript/module/src/notched-fab.d.ts",
+        "default": "./lib/module/notched-fab.js"
+      },
+      "require": {
+        "types": "./lib/typescript/commonjs/src/notched-fab.d.ts",
+        "default": "./lib/commonjs/notched-fab.js"
+      }
+    },
+    "./material": {
+      "import": {
+        "types": "./lib/typescript/module/src/material.d.ts",
+        "default": "./lib/module/material.js"
+      },
+      "require": {
+        "types": "./lib/typescript/commonjs/src/material.d.ts",
+        "default": "./lib/commonjs/material.js"
+      }
+    },
+    "./segmented": {
+      "import": {
+        "types": "./lib/typescript/module/src/segmented.d.ts",
+        "default": "./lib/module/segmented.js"
+      },
+      "require": {
+        "types": "./lib/typescript/commonjs/src/segmented.d.ts",
+        "default": "./lib/commonjs/segmented.js"
+      }
+    },
+    "./sidebar": {
+      "import": {
+        "types": "./lib/typescript/module/src/sidebar.d.ts",
+        "default": "./lib/module/sidebar.js"
+      },
+      "require": {
+        "types": "./lib/typescript/commonjs/src/sidebar.d.ts",
+        "default": "./lib/commonjs/sidebar.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "lib",
+    "!**/__tests__",
+    "!**/*.test.ts",
+    "!**/*.test.tsx",
+    "!**/__snapshots__",
+    "!**/*.map",
+    "README.md",
+    "LICENSE",
+    "CODEOWNERS"
+  ],
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --check \"src/**/*.{ts,tsx}\"",
+    "format:write": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "build": "bob build",
+    "prepare": "bob build",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build",
+    "clean": "del-cli lib"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-native": ">=0.74.0"
+  },
+  "devDependencies": {
+    "@react-native/babel-preset": "0.87.0",
+    "@react-native/jest-preset": "0.87.0",
+    "@testing-library/react-native": "^13.3.3",
+    "@types/jest": "^30.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-test-renderer": "^19.1.0",
+    "del-cli": "^7.0.0",
+    "jest": "^30.4.2",
+    "prettier": "^3.6.0",
+    "react": "19.2.3",
+    "react-native": "0.87.0",
+    "react-native-builder-bob": "^0.43.0",
+    "react-test-renderer": "19.2.3",
+    "typescript": "^5.9.0"
+  },
+  "jest": {
+    "preset": "@react-native/jest-preset",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(react-native|@react-native|@testing-library)/)"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/example/",
+      "/lib/"
+    ],
+    "setupFiles": [
+      "<rootDir>/jest.setup.js"
+    ],
+    "forceExit": true
+  },
+  "overrides": {
+    "@react-native/jest-preset": {
+      "jest-environment-node": "^30.0.0",
+      "babel-jest": "^30.0.0"
+    }
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      [
+        "commonjs",
+        {
+          "esm": true
+        }
+      ],
+      [
+        "module",
+        {
+          "esm": true
+        }
+      ],
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

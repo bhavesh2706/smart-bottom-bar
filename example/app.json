@@ -1,0 +1,14 @@
+{
+  "name": "smart-bottom-bars-example",
+  "slug": "smart-bottom-bars-example",
+  "version": "0.0.0",
+  "orientation": "portrait",
+  "userInterfaceStyle": "automatic",
+  "platforms": ["ios", "android", "web"],
+  "ios": {
+    "supportsTablet": true
+  },
+  "android": {
+    "softwareKeyboardLayoutMode": "resize"
+  }
+}

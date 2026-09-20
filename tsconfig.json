@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ESNext"],
+    "jsx": "react-jsx",
+    "allowJs": false,
+    "declaration": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": false,
+    "types": ["jest"],
+
+    "strict": true,
+    "noImplicitAny": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "exactOptionalPropertyTypes": false,
+    "noImplicitOverride": true,
+
+    "paths": {
+      "react-native-smart-bottom-bars": ["./src/index"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "lib", "example"]
+}
