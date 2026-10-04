@@ -105,10 +105,24 @@ export interface GlassSurfaceProps {
   cornerRadius: number;
 }
 
+/** Props passed to function icons — same shape as React Navigation's `tabBarIcon`. */
+export interface BarIconProps {
+  /** Tint for where the icon is drawn: active/inactive in a row, on-FAB color in a FAB. */
+  color: string;
+  focused: boolean;
+  size: number;
+}
+
+/**
+ * A node, or a function the bar calls with the right tint. Prefer the function
+ * form: the same item then reads correctly in rows, FABs, bubbles and rails.
+ */
+export type BarIcon = ReactNode | ((props: BarIconProps) => ReactNode);
+
 export interface BottomBarItem {
   key: string;
-  icon?: ReactNode;
-  activeIcon?: ReactNode;
+  icon?: BarIcon;
+  activeIcon?: BarIcon;
   label?: string;
   badge?: number | string | boolean;
   disabled?: boolean;

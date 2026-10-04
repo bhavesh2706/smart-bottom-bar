@@ -12,7 +12,7 @@ import { NotchedFabBottomBar } from '../notched-fab';
 import { MaterialBottomBar } from '../material';
 import { SegmentedBottomBar } from '../segmented';
 import { SidebarBottomBar } from '../sidebar';
-import type { BottomBarItem, BottomBarVariant } from '../types';
+import type { BarIconProps, BottomBarItem, BottomBarVariant } from '../types';
 
 const Icon = ({ label }: { label: string }) => <Text>{label}</Text>;
 
@@ -258,6 +258,133 @@ describe('SmartBottomBar', () => {
         fabKey: 'missing',
       });
       expect(getByLabelText('Profile')).toBeTruthy();
+    });
+  });
+
+  describe('function icons', () => {
+    const spyItems = () => {
+      const tabIcon = jest.fn(({ color }: BarIconProps) => (
+        <Text>{`tab:${color}`}</Text>
+      ));
+      const fabIcon = jest.fn(({ color }: BarIconProps) => (
+        <Text>{`fab:${color}`}</Text>
+      ));
+      const list: BottomBarItem[] = [
+        { key: 'home', label: 'Home', icon: tabIcon },
+        { key: 'search', label: 'Search', icon: tabIcon },
+        { key: 'plus', label: 'Add', icon: fabIcon, fab: true },
+        { key: 'alerts', label: 'Alerts', icon: tabIcon },
+        { key: 'profile', label: 'Profile', icon: tabIcon },
+      ];
+      return { list, tabIcon, fabIcon };
+    };
+
+    it('tints row icons by state and FAB icons with the on-FAB color', () => {
+      const { list, tabIcon, fabIcon } = spyItems();
+      render(
+        <SmartBottomBar
+          variant="flat"
+          items={list}
+          activeKey="home"
+          colorScheme="light"
+        />
+      );
+      expect(tabIcon).toHaveBeenCalledWith(
+        expect.objectContaining({ color: '#007AFF', focused: true, size: 24 })
+      );
+      expect(tabIcon).toHaveBeenCalledWith(
+        expect.objectContaining({ color: '#636366', focused: false })
+      );
+      expect(fabIcon).toHaveBeenCalledWith(
+        expect.objectContaining({ color: '#FFFFFF' })
+      );
+    });
+
+    it('uses the on-FAB color for the active wave bubble and hides its row slot', () => {
+      const { list } = spyItems();
+      const noFab = list.map(({ fab: _fab, ...item }) => item);
+      const { getAllByLabelText, getByText } = render(
+        <SmartBottomBar variant="wave" items={noFab} activeKey="search" />
+      );
+      expect(getByText('tab:#FFFFFF')).toBeTruthy();
+      expect(getAllByLabelText('Search')).toHaveLength(1);
+      expect(
+        getAllByLabelText('Search', { includeHiddenElements: true })
+      ).toHaveLength(2);
+    });
+
+    it('falls back to icon when activeIcon is missing and survives a null render', () => {
+      const empty = jest.fn(() => null);
+      const { getByLabelText } = render(
+        <SmartBottomBar
+          items={[
+            { key: 'a', label: 'A', icon: empty },
+            { key: 'b', label: 'B' },
+          ]}
+          activeKey="a"
+        />
+      );
+      expect(empty).toHaveBeenCalledWith(
+        expect.objectContaining({ focused: true })
+      );
+      expect(getByLabelText('B')).toBeTruthy();
+    });
+  });
+
+  describe('material active indicator', () => {
+    const pillsIn = (node: ReactTestInstance) =>
+      node.findAll(
+        (n) =>
+          typeof n.type === 'string' &&
+          StyleSheet.flatten(n.props.style)?.width === 56 &&
+          StyleSheet.flatten(n.props.style)?.height === 32
+      );
+
+    it('draws the pill behind the active tab only', () => {
+      const { getByLabelText } = renderBar({
+        variant: 'material',
+        activeKey: 'search',
+        colorScheme: 'light',
+      });
+      const pills = pillsIn(getByLabelText('Search'));
+      expect(pills).toHaveLength(1);
+      expect(StyleSheet.flatten(pills[0]!.props.style).backgroundColor).toBe(
+        '#E8DEF8'
+      );
+      expect(pillsIn(getByLabelText('Profile'))).toHaveLength(0);
+    });
+
+    it('does not draw the pill on non-material variants', () => {
+      const { getByLabelText } = renderBar({
+        variant: 'flat',
+        activeKey: 'search',
+      });
+      expect(pillsIn(getByLabelText('Search'))).toHaveLength(0);
+    });
+  });
+
+  describe('sidebar FAB', () => {
+    it('leads the rail with the FAB and keeps it pressable', () => {
+      const onChange = jest.fn();
+      const { getAllByRole, getByLabelText } = renderBar({
+        variant: 'sidebar',
+        onChange,
+      });
+      expect(getAllByRole('tab')[0]).toBe(getByLabelText('Add'));
+      fireEvent.press(getByLabelText('Add'));
+      expect(onChange).toHaveBeenCalledWith('plus', 2);
+    });
+
+    it('renders a plain rail without a FAB item or with a missing fabKey', () => {
+      const noFab = items.map(({ fab: _fab, ...item }) => item);
+      const plain = render(<SmartBottomBar variant="sidebar" items={noFab} />);
+      expect(plain.getAllByRole('tab')[0]).toBe(
+        plain.getByLabelText('Home, 3 notifications')
+      );
+      const missing = render(
+        <SmartBottomBar variant="sidebar" items={noFab} fabKey="missing" />
+      );
+      expect(missing.getAllByRole('tab')).toHaveLength(5);
     });
   });
 

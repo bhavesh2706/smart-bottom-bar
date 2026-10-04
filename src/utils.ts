@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { Animated, Easing, I18nManager, Platform } from 'react-native';
 import type {
   AnimationConfig,
@@ -35,6 +36,16 @@ export function resolveFabItem(
     return flagged;
   }
   return items[Math.floor(items.length / 2)];
+}
+
+export function renderItemIcon(
+  item: BottomBarItem,
+  focused: boolean,
+  color: string,
+  size: number
+): ReactNode {
+  const icon = focused && item.activeIcon != null ? item.activeIcon : item.icon;
+  return typeof icon === 'function' ? icon({ color, focused, size }) : icon;
 }
 
 export function splitAroundFab(

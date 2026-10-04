@@ -41,7 +41,10 @@ export function FloatingLayout({ engine }: { engine: BarEngine }) {
           )}
         </View>
         {withFab ? (
-          <FabSlot engine={engine} top={engine.fabExtra - engine.fabSize * 0.4} />
+          <FabSlot
+            engine={engine}
+            top={engine.fabExtra - engine.fabSize * 0.4}
+          />
         ) : null}
       </View>
     </BarShell>
@@ -78,7 +81,10 @@ export function SegmentedLayout({ engine }: { engine: BarEngine }) {
           >
             <FabSplitRow engine={engine} compact />
           </View>
-          <FabSlot engine={engine} top={engine.fabExtra - engine.fabSize * 0.35} />
+          <FabSlot
+            engine={engine}
+            top={engine.fabExtra - engine.fabSize * 0.35}
+          />
         </View>
       </BarShell>
     );
@@ -138,7 +144,9 @@ export function MaterialLayout({ engine }: { engine: BarEngine }) {
 
   return (
     <BarShell engine={engine} extraHeight={withFab ? engine.fabExtra : 0}>
-      <View style={{ height: engine.barHeight + (withFab ? engine.fabExtra : 0) }}>
+      <View
+        style={{ height: engine.barHeight + (withFab ? engine.fabExtra : 0) }}
+      >
         <View
           style={[
             styles.material,
@@ -152,13 +160,25 @@ export function MaterialLayout({ engine }: { engine: BarEngine }) {
           ]}
         >
           {withFab ? (
-            <FabSplitRow engine={engine} compact={shifting} />
+            <FabSplitRow
+              engine={engine}
+              compact={shifting}
+              pill={engine.colors.indicator}
+            />
           ) : (
-            <ItemRow engine={engine} items={engine.shown} compact={shifting} />
+            <ItemRow
+              engine={engine}
+              items={engine.shown}
+              compact={shifting}
+              pill={engine.colors.indicator}
+            />
           )}
         </View>
         {withFab ? (
-          <FabSlot engine={engine} top={engine.fabExtra - engine.fabSize * 0.4} />
+          <FabSlot
+            engine={engine}
+            top={engine.fabExtra - engine.fabSize * 0.4}
+          />
         ) : null}
       </View>
     </BarShell>

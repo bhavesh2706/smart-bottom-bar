@@ -91,6 +91,7 @@ export function WaveLayout({ engine }: { engine: BarEngine }) {
             <ItemRow
               engine={{ ...engine, labelPosition: 'hidden' }}
               items={engine.shown}
+              ghostKey={activeItem?.key}
             />
           </View>
         </View>

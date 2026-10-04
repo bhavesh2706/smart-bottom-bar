@@ -15,6 +15,7 @@ import type {
   ResolvedPalette,
 } from '../types';
 import { MIN_HIT } from '../theme';
+import { renderItemIcon } from '../utils';
 import { Badge } from './Badge';
 
 function hasBadge(
@@ -38,6 +39,8 @@ export function BarItem({
   renderItem,
   testID,
   onLayout,
+  pill,
+  ghost,
 }: {
   item: BottomBarItem;
   index: number;
@@ -54,6 +57,10 @@ export function BarItem({
   renderItem?: (params: RenderItemParams) => ReactNode;
   testID?: string;
   onLayout?: (event: LayoutChangeEvent) => void;
+  /** Material-style active indicator color drawn behind the icon. */
+  pill?: string;
+  /** Keep the slot (layout + touch) but hide it — another view draws this item. */
+  ghost?: boolean;
 }) {
   const labelColor = active
     ? (item.activeColor ?? colors.label)
@@ -62,7 +69,10 @@ export function BarItem({
     labelPosition !== 'hidden' && !(compact && !active) && Boolean(item.label);
   const beside = labelPosition === 'beside' || Boolean(vertical);
 
-  const icon = active && item.activeIcon != null ? item.activeIcon : item.icon;
+  const iconColor = active
+    ? (item.activeColor ?? colors.active)
+    : (item.color ?? colors.inactive);
+  const icon = renderItemIcon(item, active, iconColor, ICON_SIZE);
 
   const defaultItem = useMemo(
     () => (
@@ -73,7 +83,12 @@ export function BarItem({
           vertical ? styles.vertical : null,
         ]}
       >
-        <View style={[styles.iconWrap, style?.icon]}>
+        <View
+          style={[styles.iconWrap, pill ? styles.pillWrap : null, style?.icon]}
+        >
+          {pill && active ? (
+            <View style={[styles.pill, { backgroundColor: pill }]} />
+          ) : null}
           {icon}
           <Badge item={item} colors={colors} style={style} />
         </View>
@@ -97,7 +112,18 @@ export function BarItem({
         ) : null}
       </View>
     ),
-    [active, beside, colors, icon, item, labelColor, showLabel, style, vertical]
+    [
+      active,
+      beside,
+      colors,
+      icon,
+      item,
+      labelColor,
+      pill,
+      showLabel,
+      style,
+      vertical,
+    ]
   );
 
   const content =
@@ -122,6 +148,8 @@ export function BarItem({
         selected: active,
         disabled: Boolean(item.disabled),
       }}
+      accessibilityElementsHidden={ghost || undefined}
+      importantForAccessibility={ghost ? 'no-hide-descendants' : undefined}
       disabled={item.disabled}
       onPress={onPress}
       onLongPress={onLongPress}
@@ -137,12 +165,15 @@ export function BarItem({
         style?.item,
         item.disabled ? styles.disabled : null,
         pressed && !item.disabled ? styles.pressed : null,
+        ghost ? styles.ghost : null,
       ]}
     >
       {content}
     </Pressable>
   );
 }
+
+const ICON_SIZE = 24;
 
 const styles = StyleSheet.create({
   hit: {
@@ -189,6 +220,16 @@ const styles = StyleSheet.create({
     minWidth: 28,
     minHeight: 28,
   },
+  pillWrap: {
+    minHeight: 32,
+    marginBottom: 2,
+  },
+  pill: {
+    position: 'absolute',
+    width: 56,
+    height: 32,
+    borderRadius: 16,
+  },
   label: {
     fontSize: Platform.OS === 'ios' ? 10 : 11,
     letterSpacing: Platform.OS === 'ios' ? 0.1 : 0.15,
@@ -214,5 +255,8 @@ const styles = StyleSheet.create({
   },
   pressed: {
     opacity: 0.7,
+  },
+  ghost: {
+    opacity: 0,
   },
 });

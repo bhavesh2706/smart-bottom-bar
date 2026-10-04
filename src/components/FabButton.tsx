@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, View } from 'react-native';
 import type { BottomBarItem, BottomBarStyle, ResolvedPalette } from '../types';
 import { MIN_HIT } from '../theme';
+import { renderItemIcon } from '../utils';
 
 export function FabButton({
   item,
@@ -21,7 +22,12 @@ export function FabButton({
   style?: BottomBarStyle;
   raised?: boolean;
 }) {
-  const icon = active && item.activeIcon != null ? item.activeIcon : item.icon;
+  const icon = renderItemIcon(
+    item,
+    active,
+    colors.fabIcon,
+    Math.round(size * 0.46)
+  );
 
   return (
     <Pressable

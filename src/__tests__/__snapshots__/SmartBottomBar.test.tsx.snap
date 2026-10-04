@@ -149,6 +149,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                   undefined,
                   null,
                   null,
+                  null,
                 ]
               }
               testID="smart-bottom-bar-item-home"
@@ -177,6 +178,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                         "minWidth": 28,
                         "position": "relative",
                       },
+                      null,
                       undefined,
                     ]
                   }
@@ -308,6 +310,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                   undefined,
                   null,
                   null,
+                  null,
                 ]
               }
               testID="smart-bottom-bar-item-search"
@@ -336,6 +339,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                         "minWidth": 28,
                         "position": "relative",
                       },
+                      null,
                       undefined,
                     ]
                   }
@@ -444,6 +448,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                   undefined,
                   null,
                   null,
+                  null,
                 ]
               }
               testID="smart-bottom-bar-item-alerts"
@@ -472,6 +477,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                         "minWidth": 28,
                         "position": "relative",
                       },
+                      null,
                       undefined,
                     ]
                   }
@@ -584,6 +590,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                   undefined,
                   null,
                   null,
+                  null,
                 ]
               }
               testID="smart-bottom-bar-item-profile"
@@ -612,6 +619,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                         "minWidth": 28,
                         "position": "relative",
                       },
+                      null,
                       undefined,
                     ]
                   }
@@ -880,6 +888,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
                   undefined,
                   null,
                   null,
+                  null,
                 ]
               }
               testID="smart-bottom-bar-item-home"
@@ -908,6 +917,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
                         "minWidth": 28,
                         "position": "relative",
                       },
+                      null,
                       undefined,
                     ]
                   }
@@ -1039,6 +1049,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
                   undefined,
                   null,
                   null,
+                  null,
                 ]
               }
               testID="smart-bottom-bar-item-search"
@@ -1067,6 +1078,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
                         "minWidth": 28,
                         "position": "relative",
                       },
+                      null,
                       undefined,
                     ]
                   }
@@ -1175,6 +1187,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
                   undefined,
                   null,
                   null,
+                  null,
                 ]
               }
               testID="smart-bottom-bar-item-alerts"
@@ -1203,6 +1216,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
                         "minWidth": 28,
                         "position": "relative",
                       },
+                      null,
                       undefined,
                     ]
                   }
@@ -1315,6 +1329,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
                   undefined,
                   null,
                   null,
+                  null,
                 ]
               }
               testID="smart-bottom-bar-item-profile"
@@ -1343,6 +1358,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
                         "minWidth": 28,
                         "position": "relative",
                       },
+                      null,
                       undefined,
                     ]
                   }
@@ -1609,6 +1625,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
                 undefined,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-home"
@@ -1637,6 +1654,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
                       "minWidth": 28,
                       "position": "relative",
                     },
+                    null,
                     undefined,
                   ]
                 }
@@ -1768,6 +1786,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
                 undefined,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-search"
@@ -1796,6 +1815,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
                       "minWidth": 28,
                       "position": "relative",
                     },
+                    null,
                     undefined,
                   ]
                 }
@@ -1904,6 +1924,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
                 undefined,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-alerts"
@@ -1932,6 +1953,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
                       "minWidth": 28,
                       "position": "relative",
                     },
+                    null,
                     undefined,
                   ]
                 }
@@ -2044,6 +2066,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
                 undefined,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-profile"
@@ -2072,6 +2095,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
                       "minWidth": 28,
                       "position": "relative",
                     },
+                    null,
                     undefined,
                   ]
                 }
@@ -2376,6 +2400,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                       undefined,
                       null,
                       null,
+                      null,
                     ]
                   }
                   testID="smart-bottom-bar-item-home"
@@ -2404,6 +2429,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                             "minWidth": 28,
                             "position": "relative",
                           },
+                          null,
                           undefined,
                         ]
                       }
@@ -2536,6 +2562,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                       undefined,
                       null,
                       null,
+                      null,
                     ]
                   }
                   testID="smart-bottom-bar-item-search"
@@ -2564,6 +2591,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                             "minWidth": 28,
                             "position": "relative",
                           },
+                          null,
                           undefined,
                         ]
                       }
@@ -2674,6 +2702,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                       undefined,
                       null,
                       null,
+                      null,
                     ]
                   }
                   testID="smart-bottom-bar-item-alerts"
@@ -2702,6 +2731,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                             "minWidth": 28,
                             "position": "relative",
                           },
+                          null,
                           undefined,
                         ]
                       }
@@ -2815,6 +2845,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                       undefined,
                       null,
                       null,
+                      null,
                     ]
                   }
                   testID="smart-bottom-bar-item-profile"
@@ -2843,6 +2874,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                             "minWidth": 28,
                             "position": "relative",
                           },
+                          null,
                           undefined,
                         ]
                       }
@@ -3117,6 +3149,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
                 undefined,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-home"
@@ -3145,10 +3178,29 @@ exports[`variants matches a snapshot per variant: material 1`] = `
                       "minWidth": 28,
                       "position": "relative",
                     },
+                    {
+                      "marginBottom": 2,
+                      "minHeight": 32,
+                    },
                     undefined,
                   ]
                 }
               >
+                <View
+                  style={
+                    [
+                      {
+                        "borderRadius": 16,
+                        "height": 32,
+                        "position": "absolute",
+                        "width": 56,
+                      },
+                      {
+                        "backgroundColor": "#E8DEF8",
+                      },
+                    ]
+                  }
+                />
                 <Text>
                   H
                 </Text>
@@ -3276,6 +3328,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
                 undefined,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-search"
@@ -3303,6 +3356,10 @@ exports[`variants matches a snapshot per variant: material 1`] = `
                       "minHeight": 28,
                       "minWidth": 28,
                       "position": "relative",
+                    },
+                    {
+                      "marginBottom": 2,
+                      "minHeight": 32,
                     },
                     undefined,
                   ]
@@ -3412,6 +3469,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
                 undefined,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-alerts"
@@ -3439,6 +3497,10 @@ exports[`variants matches a snapshot per variant: material 1`] = `
                       "minHeight": 28,
                       "minWidth": 28,
                       "position": "relative",
+                    },
+                    {
+                      "marginBottom": 2,
+                      "minHeight": 32,
                     },
                     undefined,
                   ]
@@ -3552,6 +3614,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
                 undefined,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-profile"
@@ -3579,6 +3642,10 @@ exports[`variants matches a snapshot per variant: material 1`] = `
                       "minHeight": 28,
                       "minWidth": 28,
                       "position": "relative",
+                    },
+                    {
+                      "marginBottom": 2,
+                      "minHeight": 32,
                     },
                     undefined,
                   ]
@@ -3878,6 +3945,7 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                     undefined,
                     null,
                     null,
+                    null,
                   ]
                 }
                 testID="smart-bottom-bar-item-home"
@@ -3906,6 +3974,7 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                           "minWidth": 28,
                           "position": "relative",
                         },
+                        null,
                         undefined,
                       ]
                     }
@@ -4037,6 +4106,7 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                     undefined,
                     null,
                     null,
+                    null,
                   ]
                 }
                 testID="smart-bottom-bar-item-search"
@@ -4065,6 +4135,7 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                           "minWidth": 28,
                           "position": "relative",
                         },
+                        null,
                         undefined,
                       ]
                     }
@@ -4173,6 +4244,7 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                     undefined,
                     null,
                     null,
+                    null,
                   ]
                 }
                 testID="smart-bottom-bar-item-alerts"
@@ -4201,6 +4273,7 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                           "minWidth": 28,
                           "position": "relative",
                         },
+                        null,
                         undefined,
                       ]
                     }
@@ -4313,6 +4386,7 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                     undefined,
                     null,
                     null,
+                    null,
                   ]
                 }
                 testID="smart-bottom-bar-item-profile"
@@ -4341,6 +4415,7 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                           "minWidth": 28,
                           "position": "relative",
                         },
+                        null,
                         undefined,
                       ]
                     }
@@ -4605,6 +4680,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
                 undefined,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-home"
@@ -4633,6 +4709,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
                       "minWidth": 28,
                       "position": "relative",
                     },
+                    null,
                     undefined,
                   ]
                 }
@@ -4764,6 +4841,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
                 undefined,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-search"
@@ -4792,6 +4870,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
                       "minWidth": 28,
                       "position": "relative",
                     },
+                    null,
                     undefined,
                   ]
                 }
@@ -4876,6 +4955,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
                 undefined,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-alerts"
@@ -4904,6 +4984,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
                       "minWidth": 28,
                       "position": "relative",
                     },
+                    null,
                     undefined,
                   ]
                 }
@@ -4992,6 +5073,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
                 undefined,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-profile"
@@ -5020,6 +5102,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
                       "minWidth": 28,
                       "position": "relative",
                     },
+                    null,
                     undefined,
                   ]
                 }
@@ -5166,6 +5249,89 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
   testID="snap-sidebar"
 >
   <View
+    style={
+      {
+        "marginBottom": 12,
+        "marginTop": 4,
+      }
+    }
+  >
+    <View
+      accessibilityLabel="Add"
+      accessibilityRole="tab"
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": false,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+          {
+            "backgroundColor": "#007AFF",
+            "borderRadius": 28,
+            "height": 56,
+            "width": 56,
+          },
+          {
+            "elevation": 6,
+            "shadowColor": "#000",
+            "shadowOffset": {
+              "height": 4,
+              "width": 0,
+            },
+            "shadowOpacity": 0.22,
+            "shadowRadius": 8,
+          },
+          undefined,
+          null,
+          null,
+        ]
+      }
+      testID="smart-bottom-bar-item-plus"
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text>
+          +
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
     accessibilityLabel="Home, 3 notifications"
     accessibilityRole="tab"
     accessibilityState={
@@ -5217,6 +5383,7 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
         undefined,
         null,
         null,
+        null,
       ]
     }
     testID="smart-bottom-bar-item-home"
@@ -5247,6 +5414,7 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
               "minWidth": 28,
               "position": "relative",
             },
+            null,
             undefined,
           ]
         }
@@ -5384,6 +5552,7 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
         undefined,
         null,
         null,
+        null,
       ]
     }
     testID="smart-bottom-bar-item-search"
@@ -5414,6 +5583,7 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
               "minWidth": 28,
               "position": "relative",
             },
+            null,
             undefined,
           ]
         }
@@ -5450,127 +5620,6 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
         }
       >
         Search
-      </Text>
-    </View>
-  </View>
-  <View
-    accessibilityLabel="Add"
-    accessibilityRole="tab"
-    accessibilityState={
-      {
-        "busy": undefined,
-        "checked": undefined,
-        "disabled": false,
-        "expanded": undefined,
-        "selected": false,
-      }
-    }
-    accessibilityValue={
-      {
-        "max": undefined,
-        "min": undefined,
-        "now": undefined,
-        "text": undefined,
-      }
-    }
-    accessible={true}
-    collapsable={false}
-    focusable={true}
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      [
-        {
-          "alignItems": "center",
-          "flexGrow": 1,
-          "flexShrink": 1,
-          "justifyContent": "center",
-          "minHeight": 44,
-          "minWidth": 44,
-          "paddingHorizontal": 4,
-          "paddingVertical": 4,
-        },
-        {
-          "flexGrow": 0,
-          "paddingVertical": 10,
-          "width": "100%",
-        },
-        undefined,
-        null,
-        null,
-      ]
-    }
-    testID="smart-bottom-bar-item-plus"
-  >
-    <View
-      style={
-        [
-          {
-            "alignItems": "center",
-            "justifyContent": "center",
-          },
-          {
-            "flexDirection": "row",
-          },
-          {
-            "minHeight": 44,
-          },
-        ]
-      }
-    >
-      <View
-        style={
-          [
-            {
-              "alignItems": "center",
-              "justifyContent": "center",
-              "minHeight": 28,
-              "minWidth": 28,
-              "position": "relative",
-            },
-            undefined,
-          ]
-        }
-      >
-        <Text>
-          +
-        </Text>
-      </View>
-      <Text
-        allowFontScaling={true}
-        maxFontSizeMultiplier={1.35}
-        numberOfLines={1}
-        style={
-          [
-            {
-              "fontSize": 10,
-              "letterSpacing": 0.1,
-              "marginTop": 1,
-              "maxWidth": 88,
-              "textAlign": "center",
-            },
-            {
-              "color": "#3A3A3C",
-              "fontWeight": "500",
-            },
-            {
-              "fontSize": 13,
-              "marginLeft": 8,
-              "marginTop": 0,
-              "maxWidth": 140,
-            },
-            undefined,
-          ]
-        }
-      >
-        Add
       </Text>
     </View>
   </View>
@@ -5626,6 +5675,7 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
         undefined,
         null,
         null,
+        null,
       ]
     }
     testID="smart-bottom-bar-item-alerts"
@@ -5656,6 +5706,7 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
               "minWidth": 28,
               "position": "relative",
             },
+            null,
             undefined,
           ]
         }
@@ -5774,6 +5825,7 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
         undefined,
         null,
         null,
+        null,
       ]
     }
     testID="smart-bottom-bar-item-profile"
@@ -5804,6 +5856,7 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
               "minWidth": 28,
               "position": "relative",
             },
+            null,
             undefined,
           ]
         }
@@ -5969,6 +6022,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
                 undefined,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-home"
@@ -5997,6 +6051,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
                       "minWidth": 28,
                       "position": "relative",
                     },
+                    null,
                     undefined,
                   ]
                 }
@@ -6128,6 +6183,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
                 undefined,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-search"
@@ -6156,6 +6212,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
                       "minWidth": 28,
                       "position": "relative",
                     },
+                    null,
                     undefined,
                   ]
                 }
@@ -6264,6 +6321,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
                 undefined,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-alerts"
@@ -6292,6 +6350,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
                       "minWidth": 28,
                       "position": "relative",
                     },
+                    null,
                     undefined,
                   ]
                 }
@@ -6404,6 +6463,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
                 undefined,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-profile"
@@ -6432,6 +6492,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
                       "minWidth": 28,
                       "position": "relative",
                     },
+                    null,
                     undefined,
                   ]
                 }

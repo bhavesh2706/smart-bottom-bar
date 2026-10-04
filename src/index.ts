@@ -22,6 +22,8 @@ export type {
   SmartBottomBarProps,
   VariantBarProps,
   BottomBarItem,
+  BarIcon,
+  BarIconProps,
   BottomBarVariant,
   BottomBarStyle,
   EdgeInsets,

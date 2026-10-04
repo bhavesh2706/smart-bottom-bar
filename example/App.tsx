@@ -17,6 +17,7 @@ import {
 } from 'react-native-safe-area-context';
 import {
   SmartBottomBar,
+  type BarIconProps,
   type BottomBarItem,
   type BottomBarVariant,
   type ColorSchemePreference,
@@ -46,9 +47,27 @@ const FAB_MODES: Record<FabMode, FabMode> = {
   embedded: 'off',
 };
 
-function TabIcon({ name, color }: { name: IconName; color: string }) {
-  return <Ionicons name={name} size={24} color={color} />;
-}
+// Function icons let the bar pick the tint (row, FAB, wave bubble, rail).
+const icon =
+  (name: IconName) =>
+  ({ color, size }: BarIconProps) => (
+    <Ionicons name={name} size={size} color={color} />
+  );
+
+// Outline when idle, filled when selected — the iOS tab convention.
+const tab = (
+  key: string,
+  label: string,
+  idle: IconName,
+  selected: IconName,
+  extra?: Partial<BottomBarItem>
+): BottomBarItem => ({
+  key,
+  label,
+  icon: icon(idle),
+  activeIcon: icon(selected),
+  ...extra,
+});
 
 function Demo() {
   const insets = useSafeAreaInsets();
@@ -65,24 +84,6 @@ function Demo() {
     scheme === 'dark' || (scheme === 'auto' && systemScheme === 'dark');
   const scene = dark ? '#000000' : '#F2F2F7';
 
-  const activeTint = dark ? '#409CFF' : '#007AFF';
-  const inactiveTint = dark ? '#D1D1D6' : '#3C3C43';
-
-  // Outline when idle, filled when selected — the iOS tab convention.
-  const tab = (
-    key: string,
-    label: string,
-    icon: IconName,
-    activeIcon: IconName,
-    extra?: Partial<BottomBarItem>
-  ): BottomBarItem => ({
-    key,
-    label,
-    icon: <TabIcon name={icon} color={inactiveTint} />,
-    activeIcon: <TabIcon name={activeIcon} color={activeTint} />,
-    ...extra,
-  });
-
   const items: BottomBarItem[] = useMemo(
     () => [
       tab('home', 'Home', 'home-outline', 'home', { badge: 3 }),
@@ -91,7 +92,7 @@ function Demo() {
         ? {
             key: 'add',
             label: 'Add',
-            icon: <Ionicons name="add" size={28} color="#FFFFFF" />,
+            icon: icon('add'),
             fab: true,
           }
         : tab('add', 'Add', 'add-circle-outline', 'add-circle'),
@@ -100,9 +101,7 @@ function Demo() {
       }),
       tab('profile', 'Profile', 'person-circle-outline', 'person-circle'),
     ],
-    // `tab` only closes over the tints, which derive from `dark`.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [dark, fabOn]
+    [fabOn]
   );
 
   const shadowLabel = shadow === undefined ? 'auto' : shadow ? 'on' : 'off';

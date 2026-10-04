@@ -10,6 +10,8 @@ export function ItemRow({
   vertical,
   noShrink,
   onItemLayout,
+  pill,
+  ghostKey,
 }: {
   engine: BarEngine;
   items: readonly BottomBarItem[];
@@ -18,6 +20,8 @@ export function ItemRow({
   noShrink?: boolean;
   /** Reports each item's x/width relative to the row it is laid out in. */
   onItemLayout?: (key: string, x: number, width: number) => void;
+  pill?: string;
+  ghostKey?: string;
 }) {
   const ordered = maybeReverse(items, engine.rtl && !vertical);
 
@@ -40,6 +44,8 @@ export function ItemRow({
             onLongPress={() => engine.handleLongPress(item.key)}
             style={engine.style}
             renderItem={engine.renderItem}
+            pill={pill}
+            ghost={item.key === ghostKey}
             onLayout={
               onItemLayout
                 ? (event) =>

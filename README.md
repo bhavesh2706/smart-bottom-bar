@@ -20,6 +20,12 @@ import { SmartBottomBar } from 'react-native-smart-bottom-bars';
 
 Icons are whatever you already use (`@expo/vector-icons`, `react-native-vector-icons`, SVG components, images, emoji). This package never bundles an icon set.
 
+Pass an icon as a **function** to let the bar pick the tint — the same shape as React Navigation's `tabBarIcon`. One item then reads correctly everywhere it is drawn: active/inactive in the row, white (on-FAB color) inside the center FAB, the wave bubble, and the sidebar rail.
+
+```tsx
+{ key: 'home', label: 'Home', icon: ({ color, size }) => <Ionicons name="home" size={size} color={color} /> }
+```
+
 ## Install
 
 CLI and Expo use the same command. There is **no additional native setup**.
@@ -69,7 +75,7 @@ Curves and waves are layered `View`s, not SVG. They will not match a true Bézie
 | Field | Type | Notes |
 | --- | --- | --- |
 | `key` | `string` | Required identity |
-| `icon` / `activeIcon` | `ReactNode` | Consumer-supplied |
+| `icon` / `activeIcon` | `ReactNode \| ({ color, focused, size }) => ReactNode` | Consumer-supplied; the function form is tinted by the bar |
 | `label` | `string` | |
 | `badge` | `number \| string \| boolean` | `true` is a dot; numbers cap at `99+` |
 | `disabled` / `hidden` | `boolean` | Hidden items are not rendered |

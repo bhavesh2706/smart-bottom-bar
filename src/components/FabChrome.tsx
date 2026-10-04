@@ -18,9 +18,11 @@ export function FabSplitRow({
   center,
   gap,
   onItemLayout,
+  pill,
 }: {
   engine: BarEngine;
   compact?: boolean;
+  pill?: string;
   center?: ReactNode;
   gap?: number;
   onItemLayout?: (key: string, x: number, width: number) => void;
@@ -70,6 +72,7 @@ export function FabSplitRow({
           engine={engine}
           items={engine.split.left}
           compact={compact}
+          pill={pill}
           onItemLayout={itemLayout('left')}
         />
       </View>
@@ -79,6 +82,7 @@ export function FabSplitRow({
           engine={engine}
           items={engine.split.right}
           compact={compact}
+          pill={pill}
           onItemLayout={itemLayout('right')}
         />
       </View>
