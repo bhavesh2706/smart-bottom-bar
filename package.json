@@ -1,6 +1,6 @@
 {
   "name": "react-native-smart-bottom-bars",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Universal React Native bottom bar — nine visual variants, zero runtime dependencies. Works in Expo Go, CLI, and the New Architecture.",
   "keywords": [
     "react-native",
