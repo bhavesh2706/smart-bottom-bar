@@ -51,6 +51,7 @@ export function BarShell({
           paddingRight: engine.insets.right,
           transform: [{ translateY }],
         },
+        hidden && !engine.translateOnHide ? styles.invisible : null,
         engine.style?.container,
         barStyle,
       ]}
@@ -70,5 +71,8 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     zIndex: 50,
+  },
+  invisible: {
+    opacity: 0,
   },
 });

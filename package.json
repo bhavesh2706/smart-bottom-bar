@@ -14,18 +14,32 @@
     "material",
     "expo",
     "fabric",
-    "typescript"
+    "typescript",
+    "bottom-navigation",
+    "tabbar",
+    "bottom-tab-bar",
+    "react-navigation",
+    "expo-router",
+    "ios-26",
+    "glassmorphism",
+    "fab",
+    "wave",
+    "material-3",
+    "navigation-rail",
+    "sidebar",
+    "animated",
+    "zero-dependency"
   ],
   "license": "MIT",
   "author": "Bhavesh Barot <bhaveshbarot2706@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bhavesh2706/smart-bottom-bars.git"
+    "url": "git+https://github.com/bhavesh2706/smart-bottom-bar.git"
   },
   "bugs": {
-    "url": "https://github.com/bhavesh2706/smart-bottom-bars/issues"
+    "url": "https://github.com/bhavesh2706/smart-bottom-bar/issues"
   },
-  "homepage": "https://github.com/bhavesh2706/smart-bottom-bars#readme",
+  "homepage": "https://github.com/bhavesh2706/smart-bottom-bar#readme",
   "source": "./src/index.ts",
   "main": "./lib/commonjs/index.js",
   "module": "./lib/module/index.js",

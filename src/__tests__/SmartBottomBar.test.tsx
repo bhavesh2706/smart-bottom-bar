@@ -129,6 +129,21 @@ describe('SmartBottomBar', () => {
     expect(getByTestId('bar').props.pointerEvents).toBe('none');
   });
 
+  it('hides instantly with translateOnHide={false}, slides otherwise', () => {
+    const opacity = (override = {}) =>
+      StyleSheet.flatten(
+        renderBar({ visible: false, ...override }).getByTestId('bar').props
+          .style
+      ).opacity;
+    expect(opacity({ translateOnHide: false })).toBe(0);
+    expect(opacity()).toBeUndefined();
+    expect(
+      StyleSheet.flatten(
+        renderBar({ translateOnHide: false }).getByTestId('bar').props.style
+      ).opacity
+    ).toBeUndefined();
+  });
+
   it('passes through a custom glass surface', () => {
     const { getAllByTestId } = render(
       <SmartBottomBar
