@@ -92,6 +92,8 @@ export interface BottomBarStyle {
   activeLabel?: StyleProp<TextStyle>;
   indicator?: StyleProp<ViewStyle>;
   fab?: StyleProp<ViewStyle>;
+  /** Material active indicator behind the icon (default 56x32). */
+  pill?: StyleProp<ViewStyle>;
 }
 
 export interface RenderItemParams {
@@ -163,6 +165,31 @@ export interface ResolvedPalette {
   fabIcon: string;
 }
 
+/**
+ * Pressed-state feedback for tabs and the FAB. `'none'` disables it; an object
+ * applies only what you set. `rippleColor` adds an Android ripple (ignored on iOS).
+ */
+export type PressFeedback =
+  'none' | { opacity?: number; scale?: number; rippleColor?: string };
+
+/** Text props for tab labels (style them with `style.label`). */
+export interface LabelProps {
+  numberOfLines?: number;
+  allowFontScaling?: boolean;
+  maxFontSizeMultiplier?: number;
+}
+
+export interface RenderFabParams {
+  item: BottomBarItem;
+  active: boolean;
+  size: number;
+  /** Resolved `colors.fab` / `colors.fabIcon`. */
+  color: string;
+  iconColor: string;
+  /** The item's icon, already tinted with `iconColor`. */
+  icon: ReactNode;
+}
+
 /** Every palette slot a host can override (all but the resolved `scheme`). */
 export type BarColors = Omit<ResolvedPalette, 'scheme'>;
 
@@ -203,6 +230,21 @@ export interface SmartBottomBarProps {
   colors?: BarColorOverrides;
   /** `size` passed to function icons in tabs. Default `24`. */
   iconSize?: number;
+  /** Default `{ opacity: 0.7 }` on tabs, `{ scale: 0.94 }` on the FAB. */
+  pressFeedback?: PressFeedback;
+  /** Defaults: one line, font scaling on, capped at 1.35x. */
+  labelProps?: LabelProps;
+  /** Numeric badges above this show `${badgeMax}+`. Default `99`. */
+  badgeMax?: number;
+  /** Horizontal + bottom gap of detached bars (floating, liquidGlass). */
+  floatingMargin?: number;
+  /** Wave bubble diameter. Default `64`. */
+  bubbleSize?: number;
+  /**
+   * Replace the FAB visual (e.g. a gradient button). The bar keeps the press
+   * handling, selected state and accessibility around it.
+   */
+  renderFab?: (params: RenderFabParams) => ReactNode;
   rtl?: RtlMode;
   hapticFeedback?: HapticFeedback;
   animation?: AnimationConfig;

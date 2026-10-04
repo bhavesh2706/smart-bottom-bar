@@ -45,6 +45,9 @@ export function ItemRow({
             style={engine.style}
             renderItem={engine.renderItem}
             iconSize={engine.iconSize}
+            pressFeedback={engine.pressFeedback}
+            labelProps={engine.labelProps}
+            badgeMax={engine.badgeMax}
             pill={pill}
             ghost={item.key === ghostKey}
             onLayout={

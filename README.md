@@ -104,6 +104,12 @@ Curves and waves are layered `View`s, not SVG. They will not match a true Bézie
 | `colorScheme` | `'auto'` | `'auto' \| 'light' \| 'dark'` via `useColorScheme()` |
 | `colors` | variant palette | Brand colors — see [Theming](#theming) |
 | `iconSize` | `24` | `size` passed to function icons |
+| `pressFeedback` | fade tabs / scale FAB | `'none'` or `{ opacity, scale, rippleColor }` — `rippleColor` adds an Android ripple |
+| `labelProps` | 1 line, scaling ≤ 1.35× | `{ numberOfLines, allowFontScaling, maxFontSizeMultiplier }` |
+| `badgeMax` | `99` | Numeric badges above it show `99+` |
+| `floatingMargin` | `12` / `16` | Side + bottom gap of `floating` / `liquidGlass` |
+| `bubbleSize` | `64` | Wave bubble diameter |
+| `renderFab` | — | Draw your own FAB — see [Custom FAB](#custom-fab) |
 | `rtl` | `'auto'` | `'auto'` reads `I18nManager.isRTL` |
 | `hapticFeedback` | — | `(key, event) => void` — you supply haptics |
 | `animation` | spring | `{ type: 'spring' \| 'timing', duration, config }` |
@@ -118,7 +124,7 @@ Curves and waves are layered `View`s, not SVG. They will not match a true Bézie
 | `fabKey` / `fabSize` | middle item / `56` | Center FAB — when set (or `item.fab`), **every** horizontal variant uses 2+2 sides + raised center FAB |
 | `shadow` | per-variant | `true` \| `false` — elevation under the bar. Defaults: on for floating / liquidGlass / material / curved / notchedFab / wave; off for flat / segmented / sidebar |
 | `sceneColor` | theme scene | Match the screen for notched cutouts |
-| `style` | — | `{ container, bar, item, icon, label, badge, badgeText, indicator, fab, activeItem, activeLabel }` |
+| `style` | — | `{ container, bar, item, icon, label, badge, badgeText, indicator, fab, pill, activeItem, activeLabel }` |
 | `renderItem` | — | Override every item |
 
 Tabs are `accessibilityRole="tab"` with `accessibilityState={{ selected, disabled }}` and a **44×44** minimum hit target.
@@ -250,6 +256,41 @@ Every color is overridable with `colors`. Top-level keys apply to both schemes; 
 ```
 
 Keys: `bar`, `background`, `scene`, `active`, `inactive`, `label`, `inactiveLabel`, `badge`, `badgeText`, `indicator`, `border`, `glassTint`, `glassHighlight`, `fab`, `fabIcon`. Inline objects are fine — the palette is memoized by content, not identity.
+
+Fonts and shapes go through `style` (`label` / `activeLabel` take `fontFamily`, `fontSize`, `letterSpacing`…; `pill` resizes the Material indicator). On `liquidGlass`, shadow keys in `style.bar` (`boxShadow`, `shadow*`, `elevation`) are drawn outside the glass and replace the built-in lift.
+
+```tsx
+<SmartBottomBar
+  items={items}
+  pressFeedback={{ scale: 0.92, rippleColor: 'rgba(233, 30, 99, 0.18)' }}
+  labelProps={{ numberOfLines: 2, maxFontSizeMultiplier: 1.2 }}
+  badgeMax={9}
+  style={{
+    label: { fontFamily: 'Inter-Medium', fontSize: 11 },
+    pill: { width: 64, borderRadius: 10 },
+  }}
+/>
+```
+
+### Custom FAB
+
+`renderFab` replaces the FAB visual (gradient, image, any shape). The bar keeps the press handling, selected state, accessibility and 44pt hit target around it, on every variant.
+
+```tsx
+<SmartBottomBar
+  items={items}
+  renderFab={({ icon, active, size }) => (
+    <LinearGradient
+      colors={active ? ['#FF6090', '#E91E63'] : ['#E91E63', '#AD1457']}
+      style={{ width: size, height: size, borderRadius: size / 2, alignItems: 'center', justifyContent: 'center' }}
+    >
+      {icon}
+    </LinearGradient>
+  )}
+/>
+```
+
+It receives `{ item, active, size, color, iconColor, icon }` — `icon` is already tinted with `colors.fabIcon`. Return `null` to fall back to the default FAB.
 
 ### Liquid Glass
 

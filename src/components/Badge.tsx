@@ -6,16 +6,18 @@ export function Badge({
   item,
   colors,
   style,
+  max,
 }: {
   item: BottomBarItem;
   colors: ResolvedPalette;
   style?: BottomBarStyle;
+  max?: number;
 }) {
   if (item.badge === undefined || item.badge === false) {
     return null;
   }
   const isDot = item.badge === true;
-  const label = formatBadge(item.badge);
+  const label = formatBadge(item.badge, max);
 
   return (
     <View

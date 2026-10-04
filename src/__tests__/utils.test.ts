@@ -9,6 +9,8 @@ import {
   toNativeTabConfig,
   visibleItems,
   glassOpacity,
+  pressedStyle,
+  rippleFor,
   supportsBoxShadow,
 } from '../utils';
 import type { BottomBarItem } from '../types';
@@ -90,8 +92,44 @@ describe('formatBadge / glassOpacity', () => {
     expect(formatBadge('new')).toBe('new');
   });
 
+  it('honours a custom cap', () => {
+    expect(formatBadge(10, 9)).toBe('9+');
+    expect(formatBadge(9, 9)).toBe('9');
+    expect(formatBadge(1000, 999)).toBe('999+');
+    expect(formatBadge(true, 9)).toBe('');
+  });
+
   it('returns a lower opacity for clear glass', () => {
     expect(glassOpacity('clear')).toBeLessThan(glassOpacity('regular'));
+  });
+});
+
+describe('pressedStyle / rippleFor', () => {
+  const fallback = { opacity: 0.7 };
+
+  it('uses the fallback by default and nothing for none', () => {
+    expect(pressedStyle(undefined, fallback)).toBe(fallback);
+    expect(pressedStyle('none', fallback)).toBeNull();
+  });
+
+  it('applies only the configured parts', () => {
+    expect(pressedStyle({ opacity: 0.5 }, fallback)).toEqual({ opacity: 0.5 });
+    expect(pressedStyle({ scale: 0.9 }, fallback)).toEqual({
+      transform: [{ scale: 0.9 }],
+    });
+    expect(pressedStyle({ opacity: 0 }, fallback)).toEqual({ opacity: 0 });
+    expect(pressedStyle({ rippleColor: '#000' }, fallback)).toEqual({});
+  });
+
+  it('builds a ripple only when a color is given', () => {
+    expect(rippleFor(undefined)).toBeUndefined();
+    expect(rippleFor('none')).toBeUndefined();
+    expect(rippleFor({ opacity: 0.5 })).toBeUndefined();
+    expect(rippleFor({ rippleColor: '#33000000' })).toEqual({
+      color: '#33000000',
+      borderless: true,
+      foreground: true,
+    });
   });
 });
 

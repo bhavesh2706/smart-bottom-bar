@@ -5,20 +5,21 @@ import { BarShell } from '../components/BarShell';
 import { FabButton } from '../components/FabButton';
 import { FabSlot, FabSplitRow } from '../components/FabChrome';
 import { ItemRow } from '../components/ItemRow';
-import { WAVE_BUBBLE, barShadowStyle } from '../theme';
+import { barShadowStyle } from '../theme';
 import { runBarAnimation } from '../utils';
 
 export function WaveLayout({ engine }: { engine: BarEngine }) {
   const [width, setWidth] = useState(0);
   const tx = useRef(new Animated.Value(0)).current;
   const withFab = engine.wantsFab && Boolean(engine.fab);
-  const extra = withFab ? engine.fabExtra : WAVE_BUBBLE * 0.38;
+  const bubble = engine.bubbleSize;
+  const extra = withFab ? engine.fabExtra : bubble * 0.38;
   const count = Math.max(engine.shown.length, 1);
   const tabWidth = width / count;
   const visualIndex = engine.rtl
     ? count - 1 - engine.active.visibleIndex
     : engine.active.visibleIndex;
-  const target = tabWidth * visualIndex + (tabWidth - WAVE_BUBBLE) / 2;
+  const target = tabWidth * visualIndex + (tabWidth - bubble) / 2;
 
   useEffect(() => {
     if (width === 0 || withFab) {
@@ -77,11 +78,11 @@ export function WaveLayout({ engine }: { engine: BarEngine }) {
             style={[
               styles.bubble,
               {
-                width: WAVE_BUBBLE,
-                height: WAVE_BUBBLE,
-                borderRadius: WAVE_BUBBLE / 2,
+                width: bubble,
+                height: bubble,
+                borderRadius: bubble / 2,
                 backgroundColor: engine.colors.bar,
-                top: -WAVE_BUBBLE * 0.42,
+                top: -bubble * 0.42,
                 transform: [{ translateX: tx }],
               },
               engine.style?.indicator,
@@ -101,7 +102,7 @@ export function WaveLayout({ engine }: { engine: BarEngine }) {
               styles.floatIcon,
               {
                 top: extra - engine.fabSize * 0.45,
-                width: WAVE_BUBBLE,
+                width: bubble,
                 transform: [{ translateX: tx }],
               },
             ]}
@@ -114,6 +115,7 @@ export function WaveLayout({ engine }: { engine: BarEngine }) {
               onPress={() => engine.handlePress(activeItem.key)}
               onLongPress={() => engine.handleLongPress(activeItem.key)}
               style={engine.style}
+              pressFeedback={engine.pressFeedback}
             />
           </Animated.View>
         ) : null}

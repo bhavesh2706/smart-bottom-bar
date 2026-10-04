@@ -40,6 +40,8 @@ export function SidebarLayout({ engine }: { engine: BarEngine }) {
             onPress={() => engine.handlePress(fab.key)}
             onLongPress={() => engine.handleLongPress(fab.key)}
             style={engine.style}
+            pressFeedback={engine.pressFeedback}
+            renderFab={engine.renderFab}
           />
         </View>
       ) : null}

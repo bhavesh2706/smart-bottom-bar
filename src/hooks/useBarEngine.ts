@@ -3,6 +3,7 @@ import type { SmartBottomBarProps } from '../types';
 import {
   DEFAULT_FAB_SIZE,
   DEFAULT_ICON_SIZE,
+  WAVE_BUBBLE,
   defaultBarHeight,
   defaultShadow,
 } from '../theme';
@@ -112,6 +113,12 @@ export function useBarEngine(props: SmartBottomBarProps) {
     barHeight,
     fabSize,
     iconSize: props.iconSize ?? DEFAULT_ICON_SIZE,
+    pressFeedback: props.pressFeedback,
+    labelProps: props.labelProps,
+    badgeMax: props.badgeMax ?? 99,
+    floatingMargin: props.floatingMargin,
+    bubbleSize: props.bubbleSize ?? WAVE_BUBBLE,
+    renderFab: props.renderFab,
     fab,
     wantsFab,
     split,

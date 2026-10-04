@@ -11,11 +11,13 @@ import type {
   BottomBarItem,
   BottomBarStyle,
   LabelPosition,
+  LabelProps,
+  PressFeedback,
   RenderItemParams,
   ResolvedPalette,
 } from '../types';
 import { DEFAULT_ICON_SIZE, MIN_HIT } from '../theme';
-import { renderItemIcon } from '../utils';
+import { pressedStyle, renderItemIcon, rippleFor } from '../utils';
 import { Badge } from './Badge';
 
 function hasBadge(
@@ -42,6 +44,9 @@ export function BarItem({
   pill,
   ghost,
   iconSize = DEFAULT_ICON_SIZE,
+  pressFeedback,
+  labelProps,
+  badgeMax,
 }: {
   item: BottomBarItem;
   index: number;
@@ -63,6 +68,9 @@ export function BarItem({
   /** Keep the slot (layout + touch) but hide it — another view draws this item. */
   ghost?: boolean;
   iconSize?: number;
+  pressFeedback?: PressFeedback;
+  labelProps?: LabelProps;
+  badgeMax?: number;
 }) {
   const labelColor = active
     ? (item.activeColor ?? colors.label)
@@ -89,16 +97,18 @@ export function BarItem({
           style={[styles.iconWrap, pill ? styles.pillWrap : null, style?.icon]}
         >
           {pill && active ? (
-            <View style={[styles.pill, { backgroundColor: pill }]} />
+            <View
+              style={[styles.pill, { backgroundColor: pill }, style?.pill]}
+            />
           ) : null}
           {icon}
-          <Badge item={item} colors={colors} style={style} />
+          <Badge item={item} colors={colors} style={style} max={badgeMax} />
         </View>
         {showLabel ? (
           <Text
-            numberOfLines={1}
-            allowFontScaling
-            maxFontSizeMultiplier={1.35}
+            numberOfLines={labelProps?.numberOfLines ?? 1}
+            allowFontScaling={labelProps?.allowFontScaling ?? true}
+            maxFontSizeMultiplier={labelProps?.maxFontSizeMultiplier ?? 1.35}
             style={[
               styles.label,
               {
@@ -122,6 +132,8 @@ export function BarItem({
       icon,
       item,
       labelColor,
+      labelProps,
+      badgeMax,
       pill,
       showLabel,
       style,
@@ -158,6 +170,7 @@ export function BarItem({
       onLongPress={onLongPress}
       testID={testID ?? item.testID ?? `smart-bottom-bar-item-${item.key}`}
       onLayout={onLayout}
+      android_ripple={rippleFor(pressFeedback)}
       style={({ pressed }) => [
         styles.hit,
         vertical
@@ -168,7 +181,9 @@ export function BarItem({
         style?.item,
         active ? style?.activeItem : null,
         item.disabled ? styles.disabled : null,
-        pressed && !item.disabled ? styles.pressed : null,
+        pressed && !item.disabled
+          ? pressedStyle(pressFeedback, styles.pressed)
+          : null,
         ghost ? styles.ghost : null,
       ]}
     >

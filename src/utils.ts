@@ -1,8 +1,10 @@
 import type { ReactNode } from 'react';
 import { Animated, Easing, I18nManager, Platform } from 'react-native';
+import type { ViewStyle } from 'react-native';
 import type {
   AnimationConfig,
   BottomBarItem,
+  PressFeedback,
   EdgeInsets,
   NativeTabConfig,
   ResolvedInsets,
@@ -217,14 +219,43 @@ export function supportsBoxShadow(): boolean {
   );
 }
 
-export function formatBadge(badge: number | string | boolean): string {
+export function formatBadge(
+  badge: number | string | boolean,
+  max = 99
+): string {
   if (typeof badge === 'boolean') {
     return '';
   }
   if (typeof badge === 'number') {
-    return badge > 99 ? '99+' : String(badge);
+    return badge > max ? `${max}+` : String(badge);
   }
   return badge;
+}
+
+/** Pressed style for `feedback`; `fallback` is the component's default. */
+export function pressedStyle(
+  feedback: PressFeedback | undefined,
+  fallback: ViewStyle
+): ViewStyle | null {
+  if (feedback === 'none') {
+    return null;
+  }
+  if (!feedback) {
+    return fallback;
+  }
+  return {
+    ...(feedback.opacity != null && { opacity: feedback.opacity }),
+    ...(feedback.scale != null && { transform: [{ scale: feedback.scale }] }),
+  };
+}
+
+/** Foreground so Android doesn't swap out the view's background color. */
+export function rippleFor(
+  feedback: PressFeedback | undefined
+): { color: string; borderless: boolean; foreground: boolean } | undefined {
+  return feedback && feedback !== 'none' && feedback.rippleColor
+    ? { color: feedback.rippleColor, borderless: true, foreground: true }
+    : undefined;
 }
 
 export function isHexOrNamedColor(value: string): boolean {

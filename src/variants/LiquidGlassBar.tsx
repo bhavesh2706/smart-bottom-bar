@@ -77,8 +77,8 @@ export function LiquidGlassLayout({ engine }: { engine: BarEngine }) {
     <BarShell engine={engine} extraHeight={extra}>
       <View
         style={{
-          marginHorizontal: SIDE_MARGIN,
-          marginBottom: floatGap,
+          marginHorizontal: engine.floatingMargin ?? SIDE_MARGIN,
+          marginBottom: engine.floatingMargin ?? floatGap,
           paddingTop: extra,
         }}
       >
@@ -119,6 +119,8 @@ export function LiquidGlassLayout({ engine }: { engine: BarEngine }) {
                         onPress={() => engine.handlePress(fab.key)}
                         onLongPress={() => engine.handleLongPress(fab.key)}
                         style={fabStyle}
+                        pressFeedback={engine.pressFeedback}
+                        renderFab={engine.renderFab}
                       />
                     )
                   }

@@ -1,5 +1,5 @@
 import type { ComponentProps } from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import type { ReactTestInstance } from 'react-test-renderer';
 import { fireEvent, render } from '@testing-library/react-native';
 import { SmartBottomBar } from '../SmartBottomBar';
@@ -509,6 +509,230 @@ describe('SmartBottomBar', () => {
       expect(
         queryByTestId('bar-lens', { includeHiddenElements: true })
       ).toBeTruthy();
+    });
+  });
+
+  describe('fine-grained customization', () => {
+    const findStyled = (
+      root: ReactTestInstance,
+      match: (s: Record<string, unknown>) => boolean
+    ) =>
+      root.findAll(
+        (n) =>
+          typeof n.type === 'string' &&
+          match((StyleSheet.flatten(n.props.style) ?? {}) as never)
+      );
+    const pressables = (
+      result: ReturnType<typeof render>
+    ): ReactTestInstance[] =>
+      result.getAllByRole('tab').map((tab) => {
+        let node: ReactTestInstance | null = tab;
+        while (node && typeof node.props.style !== 'function') {
+          node = node.parent;
+        }
+        return node!;
+      });
+    const pressedOf = (p: ReactTestInstance) =>
+      StyleSheet.flatten(p.props.style({ pressed: true })) ?? {};
+
+    it('keeps default press feedback: fade on tabs, scale on the FAB', () => {
+      const result = renderBar({ activeKey: 'home' });
+      const all = pressables(result);
+      const home = all.find((p) =>
+        p.props.accessibilityLabel?.startsWith('Home')
+      );
+      const fab = all.find((p) => p.props.accessibilityLabel === 'Add');
+      expect(pressedOf(home!).opacity).toBe(0.7);
+      expect(pressedOf(fab!).transform).toEqual([{ scale: 0.94 }]);
+      expect(home!.props.android_ripple).toBeUndefined();
+    });
+
+    it('applies custom press feedback and ripple to tabs and FAB', () => {
+      const result = renderBar({
+        pressFeedback: { scale: 0.9, rippleColor: '#22000000' },
+      });
+      for (const p of pressables(result)) {
+        const pressed = pressedOf(p);
+        expect(pressed.transform).toEqual([{ scale: 0.9 }]);
+        expect(pressed.opacity).toBeUndefined();
+        expect(p.props.android_ripple).toEqual({
+          color: '#22000000',
+          borderless: true,
+          foreground: true,
+        });
+      }
+    });
+
+    it("turns press feedback off with 'none'", () => {
+      const result = renderBar({ pressFeedback: 'none' });
+      for (const p of pressables(result)) {
+        const pressed = pressedOf(p);
+        expect(pressed.opacity).toBeUndefined();
+        expect(pressed.transform).toBeUndefined();
+        expect(p.props.android_ripple).toBeUndefined();
+      }
+    });
+
+    it('never applies press feedback to disabled tabs', () => {
+      const result = render(
+        <SmartBottomBar
+          items={[items[0]!, { ...items[1]!, disabled: true }]}
+          pressFeedback={{ opacity: 0.2 }}
+        />
+      );
+      const [, disabled] = pressables(result);
+      expect(pressedOf(disabled!).opacity).toBe(0.4);
+    });
+
+    it('forwards label text props, defaulting to one scaled line', () => {
+      const def = renderBar();
+      const label = def.getByText('Search');
+      expect(label.props.numberOfLines).toBe(1);
+      expect(label.props.allowFontScaling).toBe(true);
+      expect(label.props.maxFontSizeMultiplier).toBe(1.35);
+      def.unmount();
+      const custom = renderBar({
+        labelProps: {
+          numberOfLines: 2,
+          allowFontScaling: false,
+          maxFontSizeMultiplier: 2,
+        },
+      });
+      const customLabel = custom.getByText('Search');
+      expect(customLabel.props.numberOfLines).toBe(2);
+      expect(customLabel.props.allowFontScaling).toBe(false);
+      expect(customLabel.props.maxFontSizeMultiplier).toBe(2);
+    });
+
+    it('caps numeric badges at badgeMax and leaves the rest alone', () => {
+      const list: BottomBarItem[] = [
+        { key: 'a', label: 'A', icon: <Icon label="a" />, badge: 12 },
+        { key: 'b', label: 'B', icon: <Icon label="b" />, badge: 9 },
+        { key: 'c', label: 'C', icon: <Icon label="c" />, badge: 'new' },
+        { key: 'd', label: 'D', icon: <Icon label="d" />, badge: 150 },
+      ];
+      const custom = render(<SmartBottomBar items={list} badgeMax={9} />);
+      const hidden = { includeHiddenElements: true };
+      expect(custom.getAllByText('9+', hidden)).toHaveLength(2);
+      expect(custom.getByText('9', hidden)).toBeTruthy();
+      expect(custom.getByText('new', hidden)).toBeTruthy();
+      expect(custom.queryByText('12', hidden)).toBeNull();
+      custom.unmount();
+      const def = render(<SmartBottomBar items={list} />);
+      expect(def.getByText('12', hidden)).toBeTruthy();
+      expect(def.getByText('99+', hidden)).toBeTruthy();
+    });
+
+    it.each(['floating', 'liquidGlass'] as const)(
+      'applies floatingMargin to the %s bar, including 0',
+      (variant) => {
+        const { getByTestId } = renderBar({ variant, floatingMargin: 0 });
+        const root = getByTestId('bar');
+        expect(
+          findStyled(
+            root,
+            (s) => s.marginHorizontal === 0 && s.marginBottom === 0
+          ).length
+        ).toBe(1);
+      }
+    );
+
+    it('sizes the wave bubble from bubbleSize and keeps the default', () => {
+      const bubbles = (size: number, override = {}) =>
+        findStyled(
+          renderBar({
+            variant: 'wave',
+            activeKey: 'home',
+            items: items.filter((i) => !i.fab),
+            ...override,
+          }).getByTestId('bar'),
+          (s) => s.width === size && s.borderRadius === size / 2
+        ).length;
+      expect(bubbles(64)).toBeGreaterThan(0);
+      expect(bubbles(80, { bubbleSize: 80 })).toBeGreaterThan(0);
+    });
+
+    it('styles the Material pill through style.pill', () => {
+      const { getByTestId } = renderBar({
+        variant: 'material',
+        activeKey: 'home',
+        style: { pill: { width: 64, borderRadius: 8 } },
+      });
+      const pills = findStyled(
+        getByTestId('bar'),
+        (s) => s.width === 64 && s.borderRadius === 8 && s.height === 32
+      );
+      expect(pills).toHaveLength(1);
+    });
+
+    it.each(['flat', 'liquidGlass', 'sidebar'] as const)(
+      'renders a custom FAB on %s and keeps press + a11y',
+      (variant) => {
+        const onChange = jest.fn();
+        const renderFab = jest.fn(({ icon }) => (
+          <View testID="gradient-fab">{icon}</View>
+        ));
+        const { getByTestId, getByRole } = renderBar({
+          variant,
+          renderFab,
+          onChange,
+          activeKey: 'home',
+        });
+        expect(getByTestId('gradient-fab')).toBeTruthy();
+        expect(renderFab).toHaveBeenCalledWith(
+          expect.objectContaining({
+            active: false,
+            size: 56,
+            item: expect.objectContaining({ key: 'plus' }),
+          })
+        );
+        const fab = getByRole('tab', { name: 'Add' });
+        expect(fab.props.accessibilityState).toMatchObject({ selected: false });
+        expect(StyleSheet.flatten(fab.props.style).backgroundColor).toBe(
+          undefined
+        );
+        fireEvent.press(fab);
+        expect(onChange).toHaveBeenCalledWith('plus', expect.anything());
+      }
+    );
+
+    it('falls back to the default FAB when renderFab returns null', () => {
+      const { getByRole } = renderBar({ renderFab: () => null });
+      const fab = getByRole('tab', { name: 'Add' });
+      expect(StyleSheet.flatten(fab.props.style).width).toBe(56);
+    });
+
+    it('does not call renderFab without a FAB item', () => {
+      const renderFab = jest.fn(() => null);
+      render(
+        <SmartBottomBar
+          items={items.filter((i) => !i.fab)}
+          renderFab={renderFab}
+        />
+      );
+      expect(renderFab).not.toHaveBeenCalled();
+    });
+
+    it('moves liquidGlass style.bar shadows outside the clipped glass', () => {
+      const shadow = '0px 4px 12px rgba(255, 0, 0, 0.4)';
+      const { getByTestId } = renderBar({
+        variant: 'liquidGlass',
+        style: { bar: { boxShadow: shadow, borderWidth: 2 } },
+      });
+      const root = getByTestId('bar');
+      const carriers = findStyled(root, (s) => s.boxShadow === shadow);
+      expect(carriers).toHaveLength(1);
+      expect(
+        StyleSheet.flatten(carriers[0]!.props.style).overflow
+      ).toBeUndefined();
+      const shell = findStyled(
+        root,
+        (s) => s.overflow === 'hidden' && s.borderWidth === 2
+      );
+      expect(shell).toHaveLength(1);
+      expect(
+        StyleSheet.flatten(shell[0]!.props.style).boxShadow
+      ).toBeUndefined();
     });
   });
 

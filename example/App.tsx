@@ -22,6 +22,7 @@ import {
   type BottomBarItem,
   type BottomBarVariant,
   type ColorSchemePreference,
+  type SmartBottomBarProps,
 } from 'react-native-smart-bottom-bars';
 
 LogBox.ignoreLogs(['Open debugger to view warnings']);
@@ -57,6 +58,32 @@ const BRAND: BarColorOverrides = {
   dark: { active: '#FF6090', label: '#FF6090', fab: '#FF6090' },
 };
 
+// Every fine-grained knob at once; all optional on top of the defaults.
+const CUSTOM: Partial<SmartBottomBarProps> = {
+  colors: BRAND,
+  pressFeedback: { scale: 0.92, rippleColor: 'rgba(233, 30, 99, 0.18)' },
+  labelProps: { maxFontSizeMultiplier: 1.2 },
+  badgeMax: 9,
+  bubbleSize: 56,
+  floatingMargin: 20,
+  style: {
+    bar: { boxShadow: '0px 6px 20px rgba(233, 30, 99, 0.22)' },
+    label: { letterSpacing: 0.3 },
+    pill: { width: 64, borderRadius: 10 },
+  },
+  renderFab: ({ icon, color, active }) => (
+    <View
+      style={[
+        styles.customFab,
+        { backgroundColor: color },
+        active && styles.customFabActive,
+      ]}
+    >
+      <View style={styles.customFabIcon}>{icon}</View>
+    </View>
+  ),
+};
+
 // Function icons let the bar pick the tint (row, FAB, wave bubble, rail).
 const icon =
   (name: IconName) =>
@@ -87,7 +114,7 @@ function Demo() {
   const [keyboardProbe, setKeyboardProbe] = useState('');
   const [shadow, setShadow] = useState<boolean | undefined>(undefined);
   const [fabMode, setFabMode] = useState<FabMode>('raised');
-  const [brand, setBrand] = useState(false);
+  const [custom, setCustom] = useState(false);
   const fabOn = fabMode !== 'off';
   const [scheme, setScheme] = useState<ColorSchemePreference>('light');
 
@@ -97,7 +124,7 @@ function Demo() {
 
   const items: BottomBarItem[] = useMemo(
     () => [
-      tab('home', 'Home', 'home-outline', 'home', { badge: 3 }),
+      tab('home', 'Home', 'home-outline', 'home', { badge: custom ? 12 : 3 }),
       tab('search', 'Search', 'search-outline', 'search'),
       fabOn
         ? {
@@ -112,7 +139,7 @@ function Demo() {
       }),
       tab('profile', 'Profile', 'person-circle-outline', 'person-circle'),
     ],
-    [fabOn]
+    [fabOn, custom]
   );
 
   const shadowLabel = shadow === undefined ? 'auto' : shadow ? 'on' : 'off';
@@ -136,7 +163,7 @@ function Demo() {
       shadow={shadow}
       colorScheme={scheme === 'auto' ? 'auto' : scheme}
       glass={fabMode === 'embedded' ? { fabPlacement: 'embedded' } : undefined}
-      colors={brand ? BRAND : undefined}
+      {...(custom ? CUSTOM : null)}
     />
   );
 
@@ -166,8 +193,8 @@ function Demo() {
               }
               fabMode={fabMode}
               setFabMode={setFabMode}
-              brand={brand}
-              setBrand={setBrand}
+              custom={custom}
+              setCustom={setCustom}
               scheme={scheme}
               cycleScheme={() =>
                 setScheme((s) =>
@@ -199,8 +226,8 @@ function Demo() {
               }
               fabMode={fabMode}
               setFabMode={setFabMode}
-              brand={brand}
-              setBrand={setBrand}
+              custom={custom}
+              setCustom={setCustom}
               scheme={scheme}
               cycleScheme={() =>
                 setScheme((s) =>
@@ -259,8 +286,8 @@ function DemoControls({
   cycleShadow,
   fabMode,
   setFabMode,
-  brand,
-  setBrand,
+  custom,
+  setCustom,
   scheme,
   cycleScheme,
 }: {
@@ -272,8 +299,8 @@ function DemoControls({
   cycleShadow: () => void;
   fabMode: FabMode;
   setFabMode: (v: FabMode) => void;
-  brand: boolean;
-  setBrand: (v: boolean) => void;
+  custom: boolean;
+  setCustom: (v: boolean) => void;
   scheme: ColorSchemePreference;
   cycleScheme: () => void;
 }) {
@@ -334,11 +361,11 @@ function DemoControls({
           </Text>
         </Pressable>
         <Pressable
-          onPress={() => setBrand(!brand)}
+          onPress={() => setCustom(!custom)}
           style={[styles.toggle, dark && styles.toggleDark]}
         >
           <Text style={[styles.toggleText, dark && styles.toggleTextDark]}>
-            colors: {brand ? 'brand' : 'default'}
+            custom: {custom ? 'on' : 'off'}
           </Text>
         </Pressable>
       </View>
@@ -413,6 +440,21 @@ const styles = StyleSheet.create({
   },
   chipTextOn: {
     color: '#fff',
+  },
+  customFab: {
+    width: 52,
+    height: 52,
+    borderRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+    transform: [{ rotate: '45deg' }],
+  },
+  customFabIcon: {
+    transform: [{ rotate: '-45deg' }],
+  },
+  customFabActive: {
+    borderWidth: 3,
+    borderColor: 'rgba(255, 255, 255, 0.7)',
   },
   toggles: {
     flexDirection: 'row',

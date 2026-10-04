@@ -722,22 +722,24 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
               "alignItems": "center",
               "justifyContent": "center",
             },
-            {
-              "backgroundColor": "#007AFF",
-              "borderRadius": 28,
-              "height": 56,
-              "width": 56,
-            },
-            {
-              "elevation": 6,
-              "shadowColor": "#000",
-              "shadowOffset": {
-                "height": 4,
-                "width": 0,
+            [
+              {
+                "backgroundColor": "#007AFF",
+                "borderRadius": 28,
+                "height": 56,
+                "width": 56,
               },
-              "shadowOpacity": 0.22,
-              "shadowRadius": 8,
-            },
+              {
+                "elevation": 6,
+                "shadowColor": "#000",
+                "shadowOffset": {
+                  "height": 4,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.22,
+                "shadowRadius": 8,
+              },
+            ],
             undefined,
             null,
             null,
@@ -1469,22 +1471,24 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
               "alignItems": "center",
               "justifyContent": "center",
             },
-            {
-              "backgroundColor": "#007AFF",
-              "borderRadius": 28,
-              "height": 56,
-              "width": 56,
-            },
-            {
-              "elevation": 6,
-              "shadowColor": "#000",
-              "shadowOffset": {
-                "height": 4,
-                "width": 0,
+            [
+              {
+                "backgroundColor": "#007AFF",
+                "borderRadius": 28,
+                "height": 56,
+                "width": 56,
               },
-              "shadowOpacity": 0.22,
-              "shadowRadius": 8,
-            },
+              {
+                "elevation": 6,
+                "shadowColor": "#000",
+                "shadowOffset": {
+                  "height": 4,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.22,
+                "shadowRadius": 8,
+              },
+            ],
             undefined,
             null,
             null,
@@ -2213,22 +2217,24 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
               "alignItems": "center",
               "justifyContent": "center",
             },
-            {
-              "backgroundColor": "#007AFF",
-              "borderRadius": 28,
-              "height": 56,
-              "width": 56,
-            },
-            {
-              "elevation": 6,
-              "shadowColor": "#000",
-              "shadowOffset": {
-                "height": 4,
-                "width": 0,
+            [
+              {
+                "backgroundColor": "#007AFF",
+                "borderRadius": 28,
+                "height": 56,
+                "width": 56,
               },
-              "shadowOpacity": 0.22,
-              "shadowRadius": 8,
-            },
+              {
+                "elevation": 6,
+                "shadowColor": "#000",
+                "shadowOffset": {
+                  "height": 4,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.22,
+                "shadowRadius": 8,
+              },
+            ],
             undefined,
             null,
             null,
@@ -2306,12 +2312,9 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
               "borderColor": "rgba(0, 0, 0, 0.08)",
               "borderRadius": 31,
             },
-            [
-              {
-                "minHeight": 62,
-              },
-              undefined,
-            ],
+            {
+              "minHeight": 62,
+            },
           ]
         }
       >
@@ -3003,22 +3006,24 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
               "alignItems": "center",
               "justifyContent": "center",
             },
-            {
-              "backgroundColor": "#007AFF",
-              "borderRadius": 28,
-              "height": 56,
-              "width": 56,
-            },
-            {
-              "elevation": 6,
-              "shadowColor": "#000",
-              "shadowOffset": {
-                "height": 4,
-                "width": 0,
+            [
+              {
+                "backgroundColor": "#007AFF",
+                "borderRadius": 28,
+                "height": 56,
+                "width": 56,
               },
-              "shadowOpacity": 0.22,
-              "shadowRadius": 8,
-            },
+              {
+                "elevation": 6,
+                "shadowColor": "#000",
+                "shadowOffset": {
+                  "height": 4,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.22,
+                "shadowRadius": 8,
+              },
+            ],
             [
               {
                 "elevation": 4,
@@ -3231,6 +3236,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
                       {
                         "backgroundColor": "#E8DEF8",
                       },
+                      undefined,
                     ]
                   }
                 />
@@ -3780,22 +3786,24 @@ exports[`variants matches a snapshot per variant: material 1`] = `
               "alignItems": "center",
               "justifyContent": "center",
             },
-            {
-              "backgroundColor": "#6750A4",
-              "borderRadius": 28,
-              "height": 56,
-              "width": 56,
-            },
-            {
-              "elevation": 6,
-              "shadowColor": "#000",
-              "shadowOffset": {
-                "height": 4,
-                "width": 0,
+            [
+              {
+                "backgroundColor": "#6750A4",
+                "borderRadius": 28,
+                "height": 56,
+                "width": 56,
               },
-              "shadowOpacity": 0.22,
-              "shadowRadius": 8,
-            },
+              {
+                "elevation": 6,
+                "shadowColor": "#000",
+                "shadowOffset": {
+                  "height": 4,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.22,
+                "shadowRadius": 8,
+              },
+            ],
             undefined,
             null,
             null,
@@ -4559,22 +4567,24 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
               "alignItems": "center",
               "justifyContent": "center",
             },
-            {
-              "backgroundColor": "#007AFF",
-              "borderRadius": 28,
-              "height": 56,
-              "width": 56,
-            },
-            {
-              "elevation": 6,
-              "shadowColor": "#000",
-              "shadowOffset": {
-                "height": 4,
-                "width": 0,
+            [
+              {
+                "backgroundColor": "#007AFF",
+                "borderRadius": 28,
+                "height": 56,
+                "width": 56,
               },
-              "shadowOpacity": 0.22,
-              "shadowRadius": 8,
-            },
+              {
+                "elevation": 6,
+                "shadowColor": "#000",
+                "shadowOffset": {
+                  "height": 4,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.22,
+                "shadowRadius": 8,
+              },
+            ],
             undefined,
             null,
             null,
@@ -5225,22 +5235,24 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
               "alignItems": "center",
               "justifyContent": "center",
             },
-            {
-              "backgroundColor": "#007AFF",
-              "borderRadius": 28,
-              "height": 56,
-              "width": 56,
-            },
-            {
-              "elevation": 6,
-              "shadowColor": "#000",
-              "shadowOffset": {
-                "height": 4,
-                "width": 0,
+            [
+              {
+                "backgroundColor": "#007AFF",
+                "borderRadius": 28,
+                "height": 56,
+                "width": 56,
               },
-              "shadowOpacity": 0.22,
-              "shadowRadius": 8,
-            },
+              {
+                "elevation": 6,
+                "shadowColor": "#000",
+                "shadowOffset": {
+                  "height": 4,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.22,
+                "shadowRadius": 8,
+              },
+            ],
             undefined,
             null,
             null,
@@ -5347,22 +5359,24 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
             "alignItems": "center",
             "justifyContent": "center",
           },
-          {
-            "backgroundColor": "#007AFF",
-            "borderRadius": 28,
-            "height": 56,
-            "width": 56,
-          },
-          {
-            "elevation": 6,
-            "shadowColor": "#000",
-            "shadowOffset": {
-              "height": 4,
-              "width": 0,
+          [
+            {
+              "backgroundColor": "#007AFF",
+              "borderRadius": 28,
+              "height": 56,
+              "width": 56,
             },
-            "shadowOpacity": 0.22,
-            "shadowRadius": 8,
-          },
+            {
+              "elevation": 6,
+              "shadowColor": "#000",
+              "shadowOffset": {
+                "height": 4,
+                "width": 0,
+              },
+              "shadowOpacity": 0.22,
+              "shadowRadius": 8,
+            },
+          ],
           undefined,
           null,
           null,
@@ -6655,22 +6669,24 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
               "alignItems": "center",
               "justifyContent": "center",
             },
-            {
-              "backgroundColor": "#007AFF",
-              "borderRadius": 28,
-              "height": 56,
-              "width": 56,
-            },
-            {
-              "elevation": 6,
-              "shadowColor": "#000",
-              "shadowOffset": {
-                "height": 4,
-                "width": 0,
+            [
+              {
+                "backgroundColor": "#007AFF",
+                "borderRadius": 28,
+                "height": 56,
+                "width": 56,
               },
-              "shadowOpacity": 0.22,
-              "shadowRadius": 8,
-            },
+              {
+                "elevation": 6,
+                "shadowColor": "#000",
+                "shadowOffset": {
+                  "height": 4,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.22,
+                "shadowRadius": 8,
+              },
+            ],
             undefined,
             null,
             null,

@@ -52,6 +52,36 @@ function liftStyle(isDark: boolean): ViewStyle | null {
   return null;
 }
 
+const SHADOW_KEYS = [
+  'boxShadow',
+  'elevation',
+  'shadowColor',
+  'shadowOffset',
+  'shadowOpacity',
+  'shadowRadius',
+] as const;
+
+/**
+ * Shadows on the clipped shell would be cut off, so they move to the outer
+ * wrapper (and replace the built-in lift).
+ */
+function splitShadow(
+  style: StyleProp<ViewStyle>
+): [ViewStyle | null, ViewStyle] {
+  const rest: Record<string, unknown> = { ...StyleSheet.flatten(style) };
+  const shadow: Record<string, unknown> = {};
+  for (const key of SHADOW_KEYS) {
+    if (rest[key] !== undefined) {
+      shadow[key] = rest[key];
+      delete rest[key];
+    }
+  }
+  return [
+    Object.keys(shadow).length ? (shadow as ViewStyle) : null,
+    rest as ViewStyle,
+  ];
+}
+
 /**
  * Zero-dependency liquid-glass capsule: translucent fill + uniform hairline
  * edge + outside-only lift. Hosts can swap in real blur via
@@ -82,7 +112,9 @@ export function GlassSurface({
 }) {
   const radius = glass.cornerRadius ?? cornerRadius;
   const tint = resolveTint(glass.tint, colors);
-  const lift = showShadow ? liftStyle(colors.scheme === 'dark') : null;
+  const [customShadow, shellStyle] = splitShadow(style);
+  const lift =
+    customShadow ?? (showShadow ? liftStyle(colors.scheme === 'dark') : null);
 
   if (renderGlassSurface && !reduceTransparency) {
     return (
@@ -91,7 +123,7 @@ export function GlassSurface({
           intensity: glass.intensity,
           tint,
           cornerRadius: radius,
-          style: [{ borderRadius: radius, overflow: 'hidden' }, style],
+          style: [{ borderRadius: radius, overflow: 'hidden' }, shellStyle],
           children,
         })}
       </View>
@@ -110,7 +142,7 @@ export function GlassSurface({
         style={[
           styles.shell,
           { borderRadius: radius, borderColor: colors.border },
-          style,
+          shellStyle,
         ]}
       >
         <View

@@ -15,8 +15,8 @@ export function FloatingLayout({ engine }: { engine: BarEngine }) {
         style={[
           styles.wrap,
           {
-            marginBottom: FLOATING_MARGIN,
-            marginHorizontal: FLOATING_MARGIN,
+            marginBottom: engine.floatingMargin ?? FLOATING_MARGIN,
+            marginHorizontal: engine.floatingMargin ?? FLOATING_MARGIN,
             height: engine.barHeight + (withFab ? engine.fabExtra : 0),
           },
         ]}

@@ -116,6 +116,8 @@ export function FabSlot({
         onPress={() => engine.handlePress(engine.fab!.key)}
         onLongPress={() => engine.handleLongPress(engine.fab!.key)}
         style={style}
+        pressFeedback={engine.pressFeedback}
+        renderFab={engine.renderFab}
       />
     </View>
   );
