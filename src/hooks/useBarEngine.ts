@@ -123,6 +123,7 @@ export function useBarEngine(props: SmartBottomBarProps) {
       intensity: props.glass?.intensity ?? 'regular',
       tint: props.glass?.tint ?? 'auto',
       cornerRadius: props.glass?.cornerRadius,
+      fabPlacement: props.glass?.fabPlacement ?? 'raised',
     },
     style: props.style,
     animation: props.animation,

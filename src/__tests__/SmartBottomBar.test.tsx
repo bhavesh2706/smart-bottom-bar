@@ -1,5 +1,6 @@
 import type { ComponentProps } from 'react';
-import { Text } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
+import type { ReactTestInstance } from 'react-test-renderer';
 import { fireEvent, render } from '@testing-library/react-native';
 import { SmartBottomBar } from '../SmartBottomBar';
 import { FlatBottomBar } from '../flat';
@@ -177,11 +178,87 @@ describe('SmartBottomBar', () => {
     expect(getByLabelText('Profile')).toBeTruthy();
   });
 
-  it('embeds the FAB in the liquidGlass capsule and keeps it pressable', () => {
-    const onChange = jest.fn();
-    const { getByLabelText } = renderBar({ variant: 'liquidGlass', onChange });
-    fireEvent.press(getByLabelText('Add'));
-    expect(onChange).toHaveBeenCalledWith('plus', 2);
+  describe('liquidGlass center FAB', () => {
+    // The raised FAB lives in the shared absolute FabSlot overlay.
+    const isRaised = (node: ReactTestInstance) => {
+      for (let n: ReactTestInstance | null = node; n; n = n.parent) {
+        const style = StyleSheet.flatten(n.props.style);
+        if (style?.position === 'absolute' && style.zIndex === 4) {
+          return true;
+        }
+      }
+      return false;
+    };
+
+    it('raises the FAB above the capsule by default and keeps it pressable', () => {
+      const onChange = jest.fn();
+      const { getByLabelText } = renderBar({
+        variant: 'liquidGlass',
+        onChange,
+      });
+      const fab = getByLabelText('Add');
+      expect(isRaised(fab)).toBe(true);
+      fireEvent.press(fab);
+      expect(onChange).toHaveBeenCalledWith('plus', 2);
+    });
+
+    it('embeds the FAB with glass.fabPlacement="embedded"', () => {
+      const onChange = jest.fn();
+      const { getByLabelText } = renderBar({
+        variant: 'liquidGlass',
+        glass: { fabPlacement: 'embedded' },
+        onChange,
+      });
+      const fab = getByLabelText('Add');
+      expect(isRaised(fab)).toBe(false);
+      fireEvent.press(fab);
+      expect(onChange).toHaveBeenCalledWith('plus', 2);
+    });
+
+    it('marks the raised FAB selected when it is the active key', () => {
+      const { getByLabelText } = renderBar({
+        variant: 'liquidGlass',
+        activeKey: 'plus',
+      });
+      expect(getByLabelText('Add').props.accessibilityState).toEqual(
+        expect.objectContaining({ selected: true })
+      );
+      expect(getByLabelText('Search').props.accessibilityState).toEqual(
+        expect.objectContaining({ selected: false })
+      );
+    });
+
+    it('ignores presses on a disabled raised FAB', () => {
+      const onChange = jest.fn();
+      const disabledFab = items.map((item) =>
+        item.fab ? { ...item, disabled: true } : item
+      );
+      const { getByLabelText } = render(
+        <SmartBottomBar
+          variant="liquidGlass"
+          items={disabledFab}
+          onChange={onChange}
+        />
+      );
+      fireEvent.press(getByLabelText('Add'));
+      expect(onChange).not.toHaveBeenCalled();
+    });
+
+    it('renders a plain tab row when no item is a FAB', () => {
+      const noFab = items.map(({ fab: _fab, ...item }) => item);
+      const { getByLabelText } = render(
+        <SmartBottomBar variant="liquidGlass" items={noFab} />
+      );
+      expect(isRaised(getByLabelText('Add'))).toBe(false);
+    });
+
+    it('does not crash when fabKey points to a missing item', () => {
+      const { getByLabelText } = renderBar({
+        variant: 'liquidGlass',
+        fabKey: 'missing',
+      });
+      expect(getByLabelText('Profile')).toBeTruthy();
+    });
   });
 
   it('shows the liquidGlass selection lens once tabs are measured', () => {

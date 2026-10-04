@@ -2231,6 +2231,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
       {
         "marginBottom": 12,
         "marginHorizontal": 16,
+        "paddingTop": 23.52,
       }
     }
   >
@@ -2606,91 +2607,11 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                       "justifyContent": "center",
                     },
                     {
-                      "width": 64,
+                      "width": 68,
                     },
                   ]
                 }
-              >
-                <View
-                  accessibilityLabel="Add"
-                  accessibilityRole="tab"
-                  accessibilityState={
-                    {
-                      "busy": undefined,
-                      "checked": undefined,
-                      "disabled": false,
-                      "expanded": undefined,
-                      "selected": false,
-                    }
-                  }
-                  accessibilityValue={
-                    {
-                      "max": undefined,
-                      "min": undefined,
-                      "now": undefined,
-                      "text": undefined,
-                    }
-                  }
-                  accessible={true}
-                  collapsable={false}
-                  focusable={true}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onFocus={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    [
-                      {
-                        "alignItems": "center",
-                        "justifyContent": "center",
-                      },
-                      {
-                        "backgroundColor": "#007AFF",
-                        "borderRadius": 24,
-                        "height": 48,
-                        "width": 48,
-                      },
-                      null,
-                      [
-                        {
-                          "elevation": 4,
-                          "shadowOffset": {
-                            "height": 4,
-                            "width": 0,
-                          },
-                          "shadowOpacity": 0.35,
-                          "shadowRadius": 8,
-                        },
-                        {
-                          "shadowColor": "#007AFF",
-                        },
-                        undefined,
-                      ],
-                      null,
-                      null,
-                    ]
-                  }
-                  testID="smart-bottom-bar-item-plus"
-                >
-                  <View
-                    style={
-                      {
-                        "alignItems": "center",
-                        "justifyContent": "center",
-                      }
-                    }
-                  >
-                    <Text>
-                      +
-                    </Text>
-                  </View>
-                </View>
-              </View>
+              />
               <View
                 onLayout={[Function]}
                 style={
@@ -2959,6 +2880,113 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
               </View>
             </View>
           </View>
+        </View>
+      </View>
+    </View>
+    <View
+      pointerEvents="box-none"
+      style={
+        [
+          {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "elevation": 10,
+            "position": "absolute",
+            "zIndex": 4,
+          },
+          {
+            "top": 1.1199999999999974,
+            "width": 56,
+          },
+        ]
+      }
+    >
+      <View
+        accessibilityLabel="Add"
+        accessibilityRole="tab"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": false,
+            "expanded": undefined,
+            "selected": false,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          [
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            {
+              "backgroundColor": "#007AFF",
+              "borderRadius": 28,
+              "height": 56,
+              "width": 56,
+            },
+            {
+              "elevation": 6,
+              "shadowColor": "#000",
+              "shadowOffset": {
+                "height": 4,
+                "width": 0,
+              },
+              "shadowOpacity": 0.22,
+              "shadowRadius": 8,
+            },
+            [
+              {
+                "elevation": 4,
+                "shadowOffset": {
+                  "height": 4,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.35,
+                "shadowRadius": 8,
+              },
+              {
+                "shadowColor": "#007AFF",
+              },
+              undefined,
+            ],
+            null,
+            null,
+          ]
+        }
+        testID="smart-bottom-bar-item-plus"
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text>
+            +
+          </Text>
         </View>
       </View>
     </View>

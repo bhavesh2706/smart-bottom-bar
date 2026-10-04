@@ -39,6 +39,13 @@ const VARIANTS: BottomBarVariant[] = [
 
 type IconName = ComponentProps<typeof Ionicons>['name'];
 
+type FabMode = 'off' | 'raised' | 'embedded';
+const FAB_MODES: Record<FabMode, FabMode> = {
+  off: 'raised',
+  raised: 'embedded',
+  embedded: 'off',
+};
+
 function TabIcon({ name, color }: { name: IconName; color: string }) {
   return <Ionicons name={name} size={24} color={color} />;
 }
@@ -50,7 +57,8 @@ function Demo() {
   const [activeKey, setActiveKey] = useState('home');
   const [keyboardProbe, setKeyboardProbe] = useState('');
   const [shadow, setShadow] = useState<boolean | undefined>(undefined);
-  const [fabOn, setFabOn] = useState(true);
+  const [fabMode, setFabMode] = useState<FabMode>('raised');
+  const fabOn = fabMode !== 'off';
   const [scheme, setScheme] = useState<ColorSchemePreference>('light');
 
   const dark =
@@ -97,13 +105,14 @@ function Demo() {
     [dark, fabOn]
   );
 
-  const shadowLabel =
-    shadow === undefined ? 'auto' : shadow ? 'on' : 'off';
+  const shadowLabel = shadow === undefined ? 'auto' : shadow ? 'on' : 'off';
 
   // Glass floats over content so translucency is real; pad the scroll content
   // by the capsule footprint (62 bar + ~12 float gap) so nothing is trapped.
   const overlay = variant === 'liquidGlass';
-  const contentBottom = overlay ? insets.bottom + 62 + 12 + 24 : 24;
+  const contentBottom = overlay
+    ? insets.bottom + 62 + 12 + 24 + (fabMode === 'raised' ? 24 : 0)
+    : 24;
 
   const bar = (
     <SmartBottomBar
@@ -116,6 +125,7 @@ function Demo() {
       sceneColor={scene}
       shadow={shadow}
       colorScheme={scheme === 'auto' ? 'auto' : scheme}
+      glass={fabMode === 'embedded' ? { fabPlacement: 'embedded' } : undefined}
     />
   );
 
@@ -143,8 +153,8 @@ function Demo() {
                   s === undefined ? true : s === true ? false : undefined
                 )
               }
-              fabOn={fabOn}
-              setFabOn={setFabOn}
+              fabMode={fabMode}
+              setFabMode={setFabMode}
               scheme={scheme}
               cycleScheme={() =>
                 setScheme((s) =>
@@ -174,8 +184,8 @@ function Demo() {
                   s === undefined ? true : s === true ? false : undefined
                 )
               }
-              fabOn={fabOn}
-              setFabOn={setFabOn}
+              fabMode={fabMode}
+              setFabMode={setFabMode}
               scheme={scheme}
               cycleScheme={() =>
                 setScheme((s) =>
@@ -190,9 +200,7 @@ function Demo() {
               placeholderTextColor={dark ? '#8E8E93' : '#8E8E93'}
               style={[
                 styles.input,
-                dark
-                  ? { backgroundColor: '#1C1C1E', color: '#F5F5F7' }
-                  : null,
+                dark ? { backgroundColor: '#1C1C1E', color: '#F5F5F7' } : null,
               ]}
             />
             {/* Color washes so liquidGlass translucency is visible on device */}
@@ -234,8 +242,8 @@ function DemoControls({
   activeKey,
   shadowLabel,
   cycleShadow,
-  fabOn,
-  setFabOn,
+  fabMode,
+  setFabMode,
   scheme,
   cycleScheme,
 }: {
@@ -245,8 +253,8 @@ function DemoControls({
   activeKey: string;
   shadowLabel: string;
   cycleShadow: () => void;
-  fabOn: boolean;
-  setFabOn: (v: boolean) => void;
+  fabMode: FabMode;
+  setFabMode: (v: FabMode) => void;
   scheme: ColorSchemePreference;
   cycleScheme: () => void;
 }) {
@@ -263,7 +271,11 @@ function DemoControls({
           <Pressable
             key={name}
             onPress={() => setVariant(name)}
-            style={[styles.chip, variant === name && styles.chipOn, dark && styles.chipDark]}
+            style={[
+              styles.chip,
+              variant === name && styles.chipOn,
+              dark && styles.chipDark,
+            ]}
           >
             <Text
               style={[
@@ -295,11 +307,11 @@ function DemoControls({
           </Text>
         </Pressable>
         <Pressable
-          onPress={() => setFabOn(!fabOn)}
+          onPress={() => setFabMode(FAB_MODES[fabMode])}
           style={[styles.toggle, dark && styles.toggleDark]}
         >
           <Text style={[styles.toggleText, dark && styles.toggleTextDark]}>
-            center FAB: {fabOn ? 'on' : 'off'}
+            center FAB: {fabMode}
           </Text>
         </Pressable>
       </View>

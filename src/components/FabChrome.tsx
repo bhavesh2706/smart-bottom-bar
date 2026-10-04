@@ -1,6 +1,7 @@
 import { useCallback, useRef, type ReactNode } from 'react';
 import { StyleSheet, View, type LayoutChangeEvent } from 'react-native';
 import type { BarEngine } from '../hooks/useBarEngine';
+import type { BottomBarStyle } from '../types';
 import { FabButton } from './FabButton';
 import { ItemRow } from './ItemRow';
 
@@ -86,7 +87,15 @@ export function FabSplitRow({
 }
 
 /** Raised center FAB overlay. Parent must be `position`-capable / overflow visible. */
-export function FabSlot({ engine, top }: { engine: BarEngine; top: number }) {
+export function FabSlot({
+  engine,
+  top,
+  style = engine.style,
+}: {
+  engine: BarEngine;
+  top: number;
+  style?: BottomBarStyle;
+}) {
   if (!engine.fab) {
     return null;
   }
@@ -102,7 +111,7 @@ export function FabSlot({ engine, top }: { engine: BarEngine; top: number }) {
         colors={engine.colors}
         onPress={() => engine.handlePress(engine.fab!.key)}
         onLongPress={() => engine.handleLongPress(engine.fab!.key)}
-        style={engine.style}
+        style={style}
       />
     </View>
   );

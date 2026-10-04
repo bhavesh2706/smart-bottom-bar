@@ -3,7 +3,7 @@ import { Platform, StyleSheet, View } from 'react-native';
 import type { BarEngine } from '../hooks/useBarEngine';
 import { BarShell } from '../components/BarShell';
 import { FabButton } from '../components/FabButton';
-import { FabSplitRow } from '../components/FabChrome';
+import { FabSlot, FabSplitRow } from '../components/FabChrome';
 import { GlassLens, type ItemFrame } from '../components/GlassLens';
 import { GlassSurface } from '../components/GlassSurface';
 import { ItemRow } from '../components/ItemRow';
@@ -15,15 +15,18 @@ const SIDE_MARGIN = 16;
 
 /**
  * Liquid glass — floating frosted capsule with a sliding selection lens.
- * Center FAB is embedded in the capsule (no raised overlap, no extra height).
+ * Center FAB is raised above the capsule like every other variant
+ * (`glass.fabPlacement: 'embedded'` keeps it inside, with no extra height).
  * BarShell pads the home indicator; the float gap keeps the capsule clear of
  * the system gesture bar on iOS and Android.
  */
 export function LiquidGlassLayout({ engine }: { engine: BarEngine }) {
   const withFab = engine.wantsFab && Boolean(engine.fab);
+  const raised = withFab && engine.glass.fabPlacement !== 'embedded';
+  const extra = raised ? engine.fabExtra : 0;
   const height = engine.barHeight;
   const radius = engine.glass.cornerRadius ?? height / 2;
-  const fabSize = Math.min(engine.fabSize, height - LENS_INSET * 2 - 2);
+  const embeddedFabSize = Math.min(engine.fabSize, height - LENS_INSET * 2 - 2);
   const floatGap = Platform.OS === 'ios' ? 12 : 10;
 
   const [frames, setFrames] = useState<Record<string, ItemFrame>>({});
@@ -71,8 +74,14 @@ export function LiquidGlassLayout({ engine }: { engine: BarEngine }) {
   const fab = engine.fab;
 
   return (
-    <BarShell engine={engine}>
-      <View style={{ marginHorizontal: SIDE_MARGIN, marginBottom: floatGap }}>
+    <BarShell engine={engine} extraHeight={extra}>
+      <View
+        style={{
+          marginHorizontal: SIDE_MARGIN,
+          marginBottom: floatGap,
+          paddingTop: extra,
+        }}
+      >
         <GlassSurface
           colors={engine.colors}
           glass={engine.glass}
@@ -96,19 +105,21 @@ export function LiquidGlassLayout({ engine }: { engine: BarEngine }) {
               {withFab && fab ? (
                 <FabSplitRow
                   engine={engine}
-                  gap={fabSize + 16}
+                  gap={raised ? engine.fabSize + 12 : embeddedFabSize + 16}
                   onItemLayout={onItemLayout}
                   center={
-                    <FabButton
-                      item={fab}
-                      active={fab.key === engine.active.activeKey}
-                      size={fabSize}
-                      colors={engine.colors}
-                      raised={false}
-                      onPress={() => engine.handlePress(fab.key)}
-                      onLongPress={() => engine.handleLongPress(fab.key)}
-                      style={fabStyle}
-                    />
+                    raised ? null : (
+                      <FabButton
+                        item={fab}
+                        active={fab.key === engine.active.activeKey}
+                        size={embeddedFabSize}
+                        colors={engine.colors}
+                        raised={false}
+                        onPress={() => engine.handlePress(fab.key)}
+                        onLongPress={() => engine.handleLongPress(fab.key)}
+                        style={fabStyle}
+                      />
+                    )
                   }
                 />
               ) : (
@@ -121,6 +132,13 @@ export function LiquidGlassLayout({ engine }: { engine: BarEngine }) {
             </View>
           </View>
         </GlassSurface>
+        {raised ? (
+          <FabSlot
+            engine={engine}
+            top={extra - engine.fabSize * 0.4}
+            style={fabStyle}
+          />
+        ) : null}
       </View>
     </BarShell>
   );

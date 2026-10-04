@@ -101,7 +101,7 @@ Curves and waves are layered `View`s, not SVG. They will not match a true Bézie
 | `breakpoint` | unset | Auto-switch to `sidebar` at this window width |
 | `labelPosition` | `'below'` | `'below' \| 'beside' \| 'hidden'` |
 | `materialMode` | `'fixed'` | `'shifting'` hides inactive labels |
-| `glass` | `{ intensity: 'regular', tint: 'auto' }` | Built-in liquid-glass fallback |
+| `glass` | `{ intensity: 'regular', tint: 'auto', fabPlacement: 'raised' }` | Built-in liquid-glass fallback; `fabPlacement: 'embedded'` keeps the FAB inside the capsule |
 | `renderGlassSurface` | — | Pass `@callstack/liquid-glass` / `expo-glass-effect` |
 | `fabKey` / `fabSize` | middle item / `56` | Center FAB — when set (or `item.fab`), **every** horizontal variant uses 2+2 sides + raised center FAB |
 | `shadow` | per-variant | `true` \| `false` — elevation under the bar. Defaults: on for floating / liquidGlass / material / curved / notchedFab / wave; off for flat / segmented / sidebar |
@@ -223,9 +223,9 @@ For nested stacks that hide the tab bar, keep it mounted:
 
 The built-in `liquidGlass` variant is a **zero-dependency approximation**: a floating frosted capsule with a uniform hairline edge and a **selection lens** that springs between tabs on the native driver (instant under Reduce Motion). It is not Apple's refractive `UIGlassEffect` — there is no backdrop blur without a host surface, so the fill is tuned for label legibility over content.
 
-- **Center FAB** (`fabKey` / `item.fab`) is embedded in the capsule — **2 left + FAB + 2 right**, no raised overlap.
+- **Center FAB** (`fabKey` / `item.fab`) is **raised** above the capsule like every other variant — **2 left + FAB + 2 right**. Pass `glass={{ fabPlacement: 'embedded' }}` to keep it inside the capsule with no extra height.
 - **`shadow`** lifts the capsule with `boxShadow` on the New Architecture (drawn only outside the shape, so it never shows through the glass). On the old architecture iOS uses layer shadows and Android draws none, because Android `elevation` paints a grey slab under translucent views.
-- Float it over content with `placement="overlay"` and pad your scroll content by the capsule footprint (62 + ~12 float gap + bottom inset).
+- Float it over content with `placement="overlay"` and pad your scroll content by the capsule footprint (62 + ~12 float gap + bottom inset, plus ~24 for a raised FAB).
 - The lens has `testID` `` `${testID}-lens` `` and is hidden from accessibility.
 
 Respects **Reduce Transparency** automatically (opaque bar), including when you pass a native surface.

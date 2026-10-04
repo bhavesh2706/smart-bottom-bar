@@ -71,6 +71,11 @@ export interface GlassConfig {
   tint?: 'auto' | 'light' | 'dark' | string;
   /** Capsule vs full-bleed bar. */
   cornerRadius?: number;
+  /**
+   * Center FAB position on `liquidGlass`: `'raised'` (default) lifts it above
+   * the capsule like every other variant; `'embedded'` keeps it inside.
+   */
+  fabPlacement?: 'raised' | 'embedded';
 }
 
 export interface BottomBarStyle {
