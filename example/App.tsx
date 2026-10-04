@@ -136,6 +136,7 @@ function Demo() {
         : tab('add', 'Add', 'add-circle-outline', 'add-circle'),
       tab('alerts', 'Alerts', 'notifications-outline', 'notifications', {
         badge: true,
+        badgeColor: custom ? '#34C759' : undefined,
       }),
       tab('profile', 'Profile', 'person-circle-outline', 'person-circle'),
     ],

@@ -81,12 +81,13 @@ Curves and waves are layered `View`s, not SVG. They will not match a true Bézie
 | `key` | `string` | Required identity |
 | `icon` / `activeIcon` | `ReactNode \| ({ color, focused, size }) => ReactNode` | Consumer-supplied; the function form is tinted by the bar |
 | `label` | `string` | |
-| `badge` | `number \| string \| boolean` | `true` is a dot; numbers cap at `99+` |
+| `badge` | `number \| string \| boolean` | `true` is a dot; numbers cap at `badgeMax` (`99+`) |
+| `badgeColor` | `string` | Badge fill for this tab only |
 | `disabled` / `hidden` | `boolean` | Hidden items are not rendered |
 | `fab` | `boolean` | Center action for curved / notched variants |
 | `renderItem` | `(params) => ReactNode` | Per-item override |
 | `accessibilityLabel` / `Hint` | `string` | Defaults from `label` + badge |
-| `color` / `activeColor` | `string` | Per-item tint hint for labels |
+| `color` / `activeColor` | `string` | Per-item icon + label tint |
 
 ### Component props
 
@@ -257,7 +258,7 @@ Every color is overridable with `colors`. Top-level keys apply to both schemes; 
 
 Keys: `bar`, `background`, `scene`, `active`, `inactive`, `label`, `inactiveLabel`, `badge`, `badgeText`, `indicator`, `border`, `glassTint`, `glassHighlight`, `fab`, `fabIcon`. Inline objects are fine — the palette is memoized by content, not identity.
 
-Fonts and shapes go through `style` (`label` / `activeLabel` take `fontFamily`, `fontSize`, `letterSpacing`…; `pill` resizes the Material indicator). On `liquidGlass`, shadow keys in `style.bar` (`boxShadow`, `shadow*`, `elevation`) are drawn outside the glass and replace the built-in lift.
+Fonts and shapes go through `style` (`label` / `activeLabel` take `fontFamily`, `fontSize`, `letterSpacing`…; `pill` resizes the Material indicator). `indicator` styles the selection marker on every variant that has one — the flat line, wave bubble, glass lens and selected segment; a numeric `width` stays centered under the active tab. On `liquidGlass`, shadow keys in `style.bar` (`boxShadow`, `shadow*`, `elevation`) are drawn outside the glass and replace the built-in lift.
 
 ```tsx
 <SmartBottomBar

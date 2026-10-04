@@ -26,7 +26,7 @@ export function Badge({
       style={[
         styles.badge,
         isDot ? styles.dot : styles.pill,
-        { backgroundColor: colors.badge },
+        { backgroundColor: item.badgeColor ?? colors.badge },
         style?.badge,
       ]}
       testID={item.testID ? `${item.testID}-badge` : undefined}

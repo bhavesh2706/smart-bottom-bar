@@ -142,6 +142,8 @@ export interface BottomBarItem {
   accessibilityHint?: string;
   color?: string;
   activeColor?: string;
+  /** Badge fill for this tab only (overrides `colors.badge`). */
+  badgeColor?: string;
   testID?: string;
   renderItem?: (params: RenderItemParams) => ReactNode;
 }

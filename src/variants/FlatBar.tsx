@@ -19,7 +19,11 @@ export function FlatLayout({ engine }: { engine: BarEngine }) {
   const visualIndex = engine.rtl
     ? count - 1 - engine.active.visibleIndex
     : engine.active.visibleIndex;
-  const indicatorWidth = Math.min(28, Math.max(16, tabWidth * 0.28));
+  const customWidth = StyleSheet.flatten(engine.style?.indicator)?.width;
+  const indicatorWidth =
+    typeof customWidth === 'number'
+      ? customWidth
+      : Math.min(28, Math.max(16, tabWidth * 0.28));
   const target = tabWidth * visualIndex + (tabWidth - indicatorWidth) / 2;
 
   useEffect(() => {

@@ -713,6 +713,72 @@ describe('SmartBottomBar', () => {
       expect(renderFab).not.toHaveBeenCalled();
     });
 
+    it('styles only the active segmented thumb with style.indicator', () => {
+      const { getByTestId } = renderBar({
+        variant: 'segmented',
+        items: items.filter((i) => !i.fab),
+        activeKey: 'search',
+        style: { indicator: { borderWidth: 2, borderColor: '#E91E63' } },
+      });
+      expect(
+        findStyled(getByTestId('bar'), (s) => s.borderColor === '#E91E63')
+      ).toHaveLength(1);
+    });
+
+    it('honours a numeric style.indicator width on flat', () => {
+      const flat = (style?: object) =>
+        findStyled(
+          renderBar({
+            variant: 'flat',
+            items: items.filter((i) => !i.fab),
+            style: style && { indicator: style },
+          }).getByTestId('bar'),
+          (s) => s.position === 'absolute' && s.height === 3
+        )[0]!;
+      expect(StyleSheet.flatten(flat({ width: 40 }).props.style).width).toBe(
+        40
+      );
+      expect(StyleSheet.flatten(flat().props.style).width).toBe(16);
+    });
+
+    it('sizes the liquidGlass lens from a numeric style.indicator width', () => {
+      const lensWidth = (indicator?: object) => {
+        const { getByLabelText, getByTestId, unmount } = renderBar({
+          variant: 'liquidGlass',
+          items: items.filter((i) => !i.fab),
+          activeKey: 'home',
+          style: indicator && { indicator },
+        });
+        const layout = (x: number) => ({
+          nativeEvent: { layout: { x, y: 0, width: 80, height: 50 } },
+        });
+        fireEvent(getByLabelText('Home, 3 notifications'), 'layout', layout(0));
+        fireEvent(getByLabelText('Search'), 'layout', layout(80));
+        const lens = getByTestId('bar-lens', { includeHiddenElements: true });
+        const width = StyleSheet.flatten(lens.props.style).width;
+        unmount();
+        return width;
+      };
+      expect(lensWidth({ width: 50 })).toBe(50);
+      expect(lensWidth()).toBe(76);
+    });
+
+    it('uses item.badgeColor for that tab only', () => {
+      const list: BottomBarItem[] = [
+        { key: 'a', label: 'A', badge: 'new', badgeColor: '#00AA55' },
+        { key: 'b', label: 'B', badge: 2 },
+      ];
+      const { getByLabelText } = render(
+        <SmartBottomBar items={list} colors={{ badge: '#123456' }} />
+      );
+      const fill = (label: string, color: string) =>
+        findStyled(getByLabelText(label), (s) => s.backgroundColor === color)
+          .length;
+      expect(fill('A, new notifications', '#00AA55')).toBe(1);
+      expect(fill('A, new notifications', '#123456')).toBe(0);
+      expect(fill('B, 2 notifications', '#123456')).toBe(1);
+    });
+
     it('moves liquidGlass style.bar shadows outside the clipped glass', () => {
       const shadow = '0px 4px 12px rgba(255, 0, 0, 0.4)';
       const { getByTestId } = renderBar({

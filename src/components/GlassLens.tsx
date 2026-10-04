@@ -44,8 +44,13 @@ export function GlassLens({
   const shown = useRef(false);
 
   const widths = Object.values(frames).map((frame) => frame.width);
+  const customWidth = StyleSheet.flatten(style)?.width;
   const lensWidth =
-    widths.length > 0 ? Math.min(Math.min(...widths) - 4, MAX_LENS_WIDTH) : 0;
+    widths.length === 0
+      ? 0
+      : typeof customWidth === 'number'
+        ? customWidth
+        : Math.min(Math.min(...widths) - 4, MAX_LENS_WIDTH);
   const frame = frames[activeKey];
   const target = frame ? frame.x + (frame.width - lensWidth) / 2 : null;
 

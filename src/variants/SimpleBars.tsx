@@ -118,6 +118,7 @@ export function SegmentedLayout({ engine }: { engine: BarEngine }) {
                         borderRadius: engine.barHeight / 2 - 3,
                       }
                     : null,
+                  active ? engine.style?.indicator : null,
                 ]}
               >
                 <ItemRow
