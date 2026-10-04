@@ -176,6 +176,30 @@ describe('SmartBottomBar', () => {
     expect(getByLabelText('Home, 3 notifications')).toBeTruthy();
     expect(getByLabelText('Profile')).toBeTruthy();
   });
+
+  it('embeds the FAB in the liquidGlass capsule and keeps it pressable', () => {
+    const onChange = jest.fn();
+    const { getByLabelText } = renderBar({ variant: 'liquidGlass', onChange });
+    fireEvent.press(getByLabelText('Add'));
+    expect(onChange).toHaveBeenCalledWith('plus', 2);
+  });
+
+  it('shows the liquidGlass selection lens once tabs are measured', () => {
+    const { getByLabelText, queryByTestId } = renderBar({
+      variant: 'liquidGlass',
+    });
+    expect(
+      queryByTestId('bar-lens', { includeHiddenElements: true })
+    ).toBeNull();
+    const layout = (x: number) => ({
+      nativeEvent: { layout: { x, y: 0, width: 60, height: 50 } },
+    });
+    fireEvent(getByLabelText('Home, 3 notifications'), 'layout', layout(0));
+    fireEvent(getByLabelText('Search'), 'layout', layout(60));
+    expect(
+      queryByTestId('bar-lens', { includeHiddenElements: true })
+    ).toBeTruthy();
+  });
 });
 
 const variants: BottomBarVariant[] = [

@@ -180,8 +180,17 @@ export function runBarAnimation(
   });
 }
 
+/** Multiplier on the glass tint's own alpha — tints already carry translucency. */
 export function glassOpacity(intensity: 'clear' | 'regular'): number {
-  return intensity === 'clear' ? 0.22 : 0.34;
+  return intensity === 'clear' ? 0.62 : 1;
+}
+
+/** Fabric renders `boxShadow` (clipped outside the shape); Paper ignores it. */
+export function isFabric(): boolean {
+  return (
+    (globalThis as { nativeFabricUIManager?: unknown }).nativeFabricUIManager !=
+    null
+  );
 }
 
 export function formatBadge(badge: number | string | boolean): string {

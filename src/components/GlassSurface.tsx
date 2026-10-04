@@ -1,6 +1,5 @@
-import { useEffect, useRef, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import {
-  Animated,
   Platform,
   StyleSheet,
   View,
@@ -8,7 +7,7 @@ import {
   type ViewStyle,
 } from 'react-native';
 import type { GlassConfig, GlassSurfaceProps, ResolvedPalette } from '../types';
-import { glassOpacity, isHexOrNamedColor } from '../utils';
+import { glassOpacity, isFabric, isHexOrNamedColor } from '../utils';
 
 function resolveTint(
   tint: GlassConfig['tint'],
@@ -18,29 +17,50 @@ function resolveTint(
     return colors.glassTint;
   }
   if (tint === 'light') {
-    return 'rgba(255, 255, 255, 0.55)';
+    return 'rgba(255, 255, 255, 0.86)';
   }
   if (tint === 'dark') {
-    return 'rgba(30, 30, 32, 0.58)';
+    return 'rgba(28, 28, 30, 0.84)';
   }
   return tint;
 }
 
 /**
- * Liquid-glass (zero native blur).
+ * Soft lift under the capsule.
  *
- * Hard rules from device QA:
- * - No top specular strip (reads as a hairline on the pill)
- * - No opaque under-plates (reads as a solid grey blob in light mode)
- * - No Android elevation on translucent fills (system draws a hard grey oval)
- * - Rim is a soft edge only — never a thick stroke
+ * Fabric: `boxShadow` is clipped to outside the shape, so nothing shows
+ * through the translucent fill. Paper/Android has no such primitive —
+ * `elevation` paints an opaque grey oval under translucent views — so it
+ * gets no shadow rather than a broken one.
+ */
+function liftStyle(isDark: boolean): ViewStyle | null {
+  if (isFabric()) {
+    return {
+      boxShadow: isDark
+        ? '0px 12px 32px rgba(0, 0, 0, 0.55)'
+        : '0px 10px 28px rgba(15, 23, 42, 0.12), 0px 2px 6px rgba(15, 23, 42, 0.06)',
+    };
+  }
+  if (Platform.OS === 'ios') {
+    return {
+      shadowColor: '#000',
+      shadowOpacity: isDark ? 0.4 : 0.1,
+      shadowRadius: 14,
+      shadowOffset: { width: 0, height: 6 },
+    };
+  }
+  return null;
+}
+
+/**
+ * Zero-dependency liquid-glass capsule: translucent fill + uniform hairline
+ * edge + outside-only lift. Hosts can swap in real blur via
+ * `renderGlassSurface`.
  */
 export function GlassSurface({
   colors,
   glass,
   reduceTransparency,
-  reduceMotion,
-  sweepKey,
   cornerRadius,
   style,
   children,
@@ -54,100 +74,42 @@ export function GlassSurface({
     cornerRadius?: number;
   };
   reduceTransparency: boolean;
-  reduceMotion: boolean;
-  sweepKey: string;
   cornerRadius: number;
   style?: StyleProp<ViewStyle>;
   children?: ReactNode;
   renderGlassSurface?: (props: GlassSurfaceProps) => ReactNode;
-  shadowStyle?: StyleProp<ViewStyle>;
   showShadow?: boolean;
 }) {
   const radius = glass.cornerRadius ?? cornerRadius;
   const tint = resolveTint(glass.tint, colors);
-  const fillOpacity = reduceTransparency ? 1 : glassOpacity(glass.intensity);
-  const sweep = useRef(new Animated.Value(0)).current;
-  const isDark = colors.scheme === 'dark';
-  const shadowOn = showShadow === true;
-
-  useEffect(() => {
-    if (reduceMotion || reduceTransparency) {
-      sweep.setValue(0);
-      return;
-    }
-    sweep.setValue(0);
-    Animated.timing(sweep, {
-      toValue: 1,
-      duration: 860,
-      useNativeDriver: true,
-    }).start();
-  }, [reduceMotion, reduceTransparency, sweep, sweepKey]);
-
-  const surfaceProps: GlassSurfaceProps = {
-    intensity: glass.intensity,
-    tint,
-    cornerRadius: radius,
-    style: [{ borderRadius: radius, overflow: 'hidden' }, style],
-    children,
-  };
-
-  // iOS can soft-shadow translucent views. Android elevation cannot —
-  // it paints an opaque grey oval under glass (the “big shadow” bug).
-  const iosLift: ViewStyle | null =
-    shadowOn && Platform.OS === 'ios'
-      ? {
-          shadowColor: '#000',
-          shadowOpacity: isDark ? 0.4 : 0.1,
-          shadowRadius: isDark ? 12 : 8,
-          shadowOffset: { width: 0, height: isDark ? 5 : 3 },
-        }
-      : null;
+  const lift = showShadow ? liftStyle(colors.scheme === 'dark') : null;
 
   if (renderGlassSurface && !reduceTransparency) {
     return (
-      <View style={[{ borderRadius: radius }, iosLift]}>
-        {renderGlassSurface(surfaceProps)}
+      <View style={[{ borderRadius: radius }, lift]}>
+        {renderGlassSurface({
+          intensity: glass.intensity,
+          tint,
+          cornerRadius: radius,
+          style: [{ borderRadius: radius, overflow: 'hidden' }, style],
+          children,
+        })}
       </View>
     );
   }
 
-  const solid = reduceTransparency
+  const fill = reduceTransparency
     ? colors.bar
     : isHexOrNamedColor(tint)
       ? tint
       : colors.glassTint;
 
   return (
-    <View style={[styles.outer, { borderRadius: radius }, iosLift]}>
-      {/*
-        Android cannot elevation-shadow translucent glass (grey oval blob).
-        Light: no under-shade — user QA flagged any bottom plate as a big issue.
-        Dark: tiny contact shade only (invisible as a blob on black).
-      */}
-      {shadowOn && Platform.OS === 'android' && isDark ? (
-        <View
-          pointerEvents="none"
-          style={[
-            styles.androidSoftShade,
-            {
-              borderRadius: radius,
-              backgroundColor: 'rgba(0,0,0,0.4)',
-            },
-          ]}
-        />
-      ) : null}
-
-      {/*
-        No stroke rim — hairline borders on a capsule read as a hard top/bottom
-        “view line” on device (especially dark). Edge definition comes from frost.
-      */}
+    <View style={[{ borderRadius: radius }, lift]}>
       <View
         style={[
           styles.shell,
-          {
-            borderRadius: radius,
-            overflow: 'hidden',
-          },
+          { borderRadius: radius, borderColor: colors.border },
           style,
         ]}
       >
@@ -156,65 +118,20 @@ export function GlassSurface({
           style={[
             StyleSheet.absoluteFill,
             {
-              borderRadius: radius,
-              backgroundColor: solid,
-              opacity: fillOpacity,
+              backgroundColor: fill,
+              opacity: reduceTransparency ? 1 : glassOpacity(glass.intensity),
             },
           ]}
         />
-        {!reduceTransparency && !reduceMotion ? (
-          <Animated.View
-            pointerEvents="none"
-            style={[
-              styles.sweep,
-              {
-                backgroundColor: isDark
-                  ? 'rgba(255,255,255,0.08)'
-                  : 'rgba(255,255,255,0.22)',
-                opacity: sweep.interpolate({
-                  inputRange: [0, 0.28, 1],
-                  outputRange: [0, 0.18, 0],
-                }),
-                transform: [
-                  {
-                    translateX: sweep.interpolate({
-                      inputRange: [0, 1],
-                      outputRange: [-100, 320],
-                    }),
-                  },
-                ],
-              },
-            ]}
-          />
-        ) : null}
-        <View style={styles.content}>{children}</View>
+        {children}
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  outer: {
-    position: 'relative',
-  },
-  androidSoftShade: {
-    position: 'absolute',
-    left: 10,
-    right: 10,
-    bottom: -3,
-    height: 6,
-    opacity: 0.55,
-  },
   shell: {
-    backgroundColor: 'transparent',
-  },
-  sweep: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    width: 40,
-  },
-  content: {
-    zIndex: 2,
+    overflow: 'hidden',
+    borderWidth: StyleSheet.hairlineWidth,
   },
 });

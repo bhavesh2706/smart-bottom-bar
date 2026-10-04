@@ -221,9 +221,14 @@ For nested stacks that hide the tab bar, keep it mounted:
 
 ### Liquid Glass
 
-The built-in `liquidGlass` variant is a **zero-dependency approximation** (frosted stack, specular rim, soft blob highlight, light sweep on tab change). It is not Apple's refractive `UIGlassEffect`. Use `shadow` to lift the pill; combine with a center FAB via `fabKey` or `item.fab` — the same **2 left + FAB + 2 right** chrome is available on every horizontal variant.
+The built-in `liquidGlass` variant is a **zero-dependency approximation**: a floating frosted capsule with a uniform hairline edge and a **selection lens** that springs between tabs on the native driver (instant under Reduce Motion). It is not Apple's refractive `UIGlassEffect` — there is no backdrop blur without a host surface, so the fill is tuned for label legibility over content.
 
-Respects **Reduce Transparency** automatically (solid bar, no sweep), including when you pass a native surface.
+- **Center FAB** (`fabKey` / `item.fab`) is embedded in the capsule — **2 left + FAB + 2 right**, no raised overlap.
+- **`shadow`** lifts the capsule with `boxShadow` on the New Architecture (drawn only outside the shape, so it never shows through the glass). On the old architecture iOS uses layer shadows and Android draws none, because Android `elevation` paints a grey slab under translucent views.
+- Float it over content with `placement="overlay"` and pad your scroll content by the capsule footprint (62 + ~12 float gap + bottom inset).
+- The lens has `testID` `` `${testID}-lens` `` and is hidden from accessibility.
+
+Respects **Reduce Transparency** automatically (opaque bar), including when you pass a native surface.
 
 ```tsx
 import { isGlassEffectAPIAvailable, GlassView } from 'expo-glass-effect';

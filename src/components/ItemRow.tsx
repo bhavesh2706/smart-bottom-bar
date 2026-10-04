@@ -9,12 +9,15 @@ export function ItemRow({
   compact,
   vertical,
   noShrink,
+  onItemLayout,
 }: {
   engine: BarEngine;
   items: readonly BottomBarItem[];
   compact?: boolean;
   vertical?: boolean;
   noShrink?: boolean;
+  /** Reports each item's x/width relative to the row it is laid out in. */
+  onItemLayout?: (key: string, x: number, width: number) => void;
 }) {
   const ordered = maybeReverse(items, engine.rtl && !vertical);
 
@@ -37,6 +40,16 @@ export function ItemRow({
             onLongPress={() => engine.handleLongPress(item.key)}
             style={engine.style}
             renderItem={engine.renderItem}
+            onLayout={
+              onItemLayout
+                ? (event) =>
+                    onItemLayout(
+                      item.key,
+                      event.nativeEvent.layout.x,
+                      event.nativeEvent.layout.width
+                    )
+                : undefined
+            }
           />
         );
       })}

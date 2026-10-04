@@ -23,8 +23,9 @@ export function defaultBarHeight(variant: BottomBarVariant): number {
     case 'flat':
       return IOS_TAB_HEIGHT;
     case 'floating':
-    case 'liquidGlass':
       return 58;
+    case 'liquidGlass':
+      return 62;
     case 'curved':
     case 'notchedFab':
     case 'wave':
@@ -120,28 +121,35 @@ const dark: ResolvedPalette = {
   fabIcon: '#FFFFFF',
 };
 
-/** Liquid-glass tuned palette — higher label contrast on frosted fills. */
+/**
+ * Liquid-glass palette. `indicator` is the selection lens fill; `bar` is the
+ * opaque fallback used when the OS asks to reduce transparency.
+ */
 const liquidLight: ResolvedPalette = {
   ...light,
-  inactive: '#3A3A3C',
-  inactiveLabel: '#1C1C1E',
+  active: '#007AFF',
   label: '#007AFF',
-  glassTint: 'rgba(255, 255, 255, 0.42)',
+  inactive: '#3C3C43',
+  inactiveLabel: '#3C3C43',
+  indicator: 'rgba(0, 122, 255, 0.12)',
+  border: 'rgba(0, 0, 0, 0.08)',
+  glassTint: 'rgba(255, 255, 255, 0.86)',
   glassHighlight: 'rgba(255, 255, 255, 0.95)',
-  bar: 'rgba(255, 255, 255, 0.55)',
+  bar: '#FFFFFF',
 };
 
 const liquidDark: ResolvedPalette = {
   ...dark,
-  // Readable inactive on dark frost; selected uses brighter cyan-blue
-  inactive: '#C7C7CC',
-  inactiveLabel: '#E5E5EA',
-  active: '#64D2FF',
-  label: '#64D2FF',
-  indicator: '#64D2FF',
-  glassTint: 'rgba(48, 48, 52, 0.55)',
+  // #409CFF is the accessible dark-mode system blue (~5:1 on the dark lens).
+  active: '#409CFF',
+  label: '#409CFF',
+  inactive: '#D1D1D6',
+  inactiveLabel: '#D1D1D6',
+  indicator: 'rgba(255, 255, 255, 0.14)',
+  border: 'rgba(255, 255, 255, 0.12)',
+  glassTint: 'rgba(28, 28, 30, 0.84)',
   glassHighlight: 'rgba(255, 255, 255, 0.35)',
-  bar: 'rgba(44, 44, 46, 0.62)',
+  bar: '#1C1C1E',
 };
 
 const materialLight: ResolvedPalette = {

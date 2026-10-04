@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, type ComponentProps } from 'react';
 import {
   LogBox,
   Pressable,
@@ -10,6 +10,7 @@ import {
   View,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
@@ -36,16 +37,10 @@ const VARIANTS: BottomBarVariant[] = [
   'sidebar',
 ];
 
-function Glyph({
-  char,
-  color,
-}: {
-  char: string;
-  color?: string;
-}) {
-  return (
-    <Text style={{ fontSize: 18, color: color ?? undefined }}>{char}</Text>
-  );
+type IconName = ComponentProps<typeof Ionicons>['name'];
+
+function TabIcon({ name, color }: { name: IconName; color: string }) {
+  return <Ionicons name={name} size={24} color={color} />;
 }
 
 function Demo() {
@@ -62,71 +57,57 @@ function Demo() {
     scheme === 'dark' || (scheme === 'auto' && systemScheme === 'dark');
   const scene = dark ? '#000000' : '#F2F2F7';
 
-  const iconColor = (key: string) => {
-    if (activeKey === key) {
-      return dark ? '#64D2FF' : '#007AFF';
-    }
-    return dark ? '#E5E5EA' : '#3A3A3C';
-  };
+  const activeTint = dark ? '#409CFF' : '#007AFF';
+  const inactiveTint = dark ? '#D1D1D6' : '#3C3C43';
+
+  // Outline when idle, filled when selected — the iOS tab convention.
+  const tab = (
+    key: string,
+    label: string,
+    icon: IconName,
+    activeIcon: IconName,
+    extra?: Partial<BottomBarItem>
+  ): BottomBarItem => ({
+    key,
+    label,
+    icon: <TabIcon name={icon} color={inactiveTint} />,
+    activeIcon: <TabIcon name={activeIcon} color={activeTint} />,
+    ...extra,
+  });
 
   const items: BottomBarItem[] = useMemo(
     () => [
-      {
-        key: 'home',
-        label: 'Home',
-        icon: <Glyph char="⌂" color={iconColor('home')} />,
-        activeIcon: <Glyph char="⌂" color={dark ? '#64D2FF' : '#007AFF'} />,
-        badge: 3,
-      },
-      {
-        key: 'search',
-        label: 'Search',
-        icon: <Glyph char="⌕" color={iconColor('search')} />,
-        activeIcon: <Glyph char="⌕" color={dark ? '#64D2FF' : '#007AFF'} />,
-      },
-      ...(fabOn
-        ? [
-            {
-              key: 'add',
-              label: 'Add',
-              icon: <Glyph char="＋" color="#FFFFFF" />,
-              fab: true as const,
-            },
-          ]
-        : [
-            {
-              key: 'add',
-              label: 'Add',
-              icon: <Glyph char="＋" color={iconColor('add')} />,
-              activeIcon: (
-                <Glyph char="＋" color={dark ? '#64D2FF' : '#007AFF'} />
-              ),
-            },
-          ]),
-      {
-        key: 'alerts',
-        label: 'Alerts',
-        icon: <Glyph char="◉" color={iconColor('alerts')} />,
-        activeIcon: <Glyph char="◉" color={dark ? '#64D2FF' : '#007AFF'} />,
+      tab('home', 'Home', 'home-outline', 'home', { badge: 3 }),
+      tab('search', 'Search', 'search-outline', 'search'),
+      fabOn
+        ? {
+            key: 'add',
+            label: 'Add',
+            icon: <Ionicons name="add" size={28} color="#FFFFFF" />,
+            fab: true,
+          }
+        : tab('add', 'Add', 'add-circle-outline', 'add-circle'),
+      tab('alerts', 'Alerts', 'notifications-outline', 'notifications', {
         badge: true,
-      },
-      {
-        key: 'profile',
-        label: 'Profile',
-        icon: <Glyph char="☺" color={iconColor('profile')} />,
-        activeIcon: <Glyph char="☺" color={dark ? '#64D2FF' : '#007AFF'} />,
-      },
+      }),
+      tab('profile', 'Profile', 'person-circle-outline', 'person-circle'),
     ],
-    // iconColor closes over activeKey + dark
+    // `tab` only closes over the tints, which derive from `dark`.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [activeKey, dark, fabOn]
+    [dark, fabOn]
   );
 
   const shadowLabel =
     shadow === undefined ? 'auto' : shadow ? 'on' : 'off';
 
+  // Glass floats over content so translucency is real; pad the scroll content
+  // by the capsule footprint (62 bar + ~12 float gap) so nothing is trapped.
+  const overlay = variant === 'liquidGlass';
+  const contentBottom = overlay ? insets.bottom + 62 + 12 + 24 : 24;
+
   const bar = (
     <SmartBottomBar
+      placement={overlay ? 'overlay' : 'docked'}
       variant={variant === 'sidebar' ? 'sidebar' : variant}
       items={items}
       activeKey={activeKey}
@@ -141,12 +122,6 @@ function Demo() {
   return (
     <View style={[styles.screen, { backgroundColor: scene }]}>
       <StatusBar style={dark ? 'light' : 'dark'} />
-      {/* Always-on backdrop behind the bar so liquidGlass translucency is obvious */}
-      <View pointerEvents="none" style={styles.backdrop}>
-        <View style={[styles.backdropBlob, { backgroundColor: '#64D2FF', left: -20 }]} />
-        <View style={[styles.backdropBlob, { backgroundColor: '#BF5AF2', right: -10, left: undefined, bottom: 40 }]} />
-        <View style={[styles.backdropBlob, { backgroundColor: '#FF9F0A', left: 80, bottom: 8, width: 160 }]} />
-      </View>
       {variant === 'sidebar' ? (
         <View style={styles.rowScreen}>
           {bar}
@@ -184,7 +159,7 @@ function Demo() {
           <ScrollView
             contentContainerStyle={[
               styles.body,
-              { paddingTop: insets.top + 16 },
+              { paddingTop: insets.top + 16, paddingBottom: contentBottom },
             ]}
             keyboardShouldPersistTaps="handled"
           >
@@ -230,6 +205,16 @@ function Demo() {
               <View style={[styles.wash, { backgroundColor: '#BF5AF2' }]} />
               <View style={[styles.wash, { backgroundColor: '#FF375F' }]} />
               <View style={[styles.wash, { backgroundColor: '#0A84FF' }]} />
+            </View>
+            <View style={styles.washRow}>
+              <View style={[styles.wash, { backgroundColor: '#FFD60A' }]} />
+              <View style={[styles.wash, { backgroundColor: '#5E5CE6' }]} />
+              <View style={[styles.wash, { backgroundColor: '#FF453A' }]} />
+            </View>
+            <View style={styles.washRow}>
+              <View style={[styles.wash, { backgroundColor: '#32ADE6' }]} />
+              <View style={[styles.wash, { backgroundColor: '#FF9F0A' }]} />
+              <View style={[styles.wash, { backgroundColor: '#30D158' }]} />
             </View>
             <Text style={[styles.hint, dark && styles.subDark]}>
               Scroll color blocks under the bar to judge glass translucency.
@@ -334,19 +319,6 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     backgroundColor: '#F2F2F7',
-  },
-  backdrop: {
-    ...StyleSheet.absoluteFillObject,
-    justifyContent: 'flex-end',
-    zIndex: 0,
-  },
-  backdropBlob: {
-    position: 'absolute',
-    bottom: 24,
-    width: 200,
-    height: 120,
-    borderRadius: 60,
-    opacity: 0.55,
   },
   rowScreen: {
     flex: 1,

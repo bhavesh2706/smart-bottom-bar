@@ -1,5 +1,12 @@
 import { useMemo, type ReactNode } from 'react';
-import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import {
+  Platform,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+  type LayoutChangeEvent,
+} from 'react-native';
 import type {
   BottomBarItem,
   BottomBarStyle,
@@ -30,6 +37,7 @@ export function BarItem({
   style,
   renderItem,
   testID,
+  onLayout,
 }: {
   item: BottomBarItem;
   index: number;
@@ -45,6 +53,7 @@ export function BarItem({
   style?: BottomBarStyle;
   renderItem?: (params: RenderItemParams) => ReactNode;
   testID?: string;
+  onLayout?: (event: LayoutChangeEvent) => void;
 }) {
   const labelColor = active
     ? (item.activeColor ?? colors.label)
@@ -55,14 +64,6 @@ export function BarItem({
 
   const icon = active && item.activeIcon != null ? item.activeIcon : item.icon;
 
-  const isDark = colors.scheme === 'dark';
-  const haloColor = isDark
-    ? 'rgba(100, 210, 255, 0.28)'
-    : 'rgba(0, 122, 255, 0.14)';
-  const activePillBg = isDark
-    ? 'rgba(100, 210, 255, 0.18)'
-    : 'rgba(0, 122, 255, 0.1)';
-
   const defaultItem = useMemo(
     () => (
       <View
@@ -70,19 +71,10 @@ export function BarItem({
           styles.body,
           beside ? styles.beside : styles.below,
           vertical ? styles.vertical : null,
-          active && !beside && !vertical
-            ? [styles.activePill, { backgroundColor: activePillBg }]
-            : null,
         ]}
       >
         <View style={[styles.iconWrap, style?.icon]}>
-          {active ? (
-            <View
-              pointerEvents="none"
-              style={[styles.activeHalo, { backgroundColor: haloColor }]}
-            />
-          ) : null}
-          <View style={styles.iconFront}>{icon}</View>
+          {icon}
           <Badge item={item} colors={colors} style={style} />
         </View>
         {showLabel ? (
@@ -94,9 +86,7 @@ export function BarItem({
               styles.label,
               {
                 color: labelColor,
-                fontWeight: active ? '700' : '500',
-                // Keep inactive labels fully opaque — dimming kills dark contrast
-                opacity: 1,
+                fontWeight: active ? '600' : '500',
               },
               beside ? styles.labelBeside : null,
               style?.label,
@@ -105,27 +95,9 @@ export function BarItem({
             {item.label}
           </Text>
         ) : null}
-        {active && !beside && !vertical ? (
-          <View
-            pointerEvents="none"
-            style={[styles.activeUnderline, { backgroundColor: labelColor }]}
-          />
-        ) : null}
       </View>
     ),
-    [
-      active,
-      activePillBg,
-      beside,
-      colors,
-      haloColor,
-      icon,
-      item,
-      labelColor,
-      showLabel,
-      style,
-      vertical,
-    ]
+    [active, beside, colors, icon, item, labelColor, showLabel, style, vertical]
   );
 
   const content =
@@ -154,6 +126,7 @@ export function BarItem({
       onPress={onPress}
       onLongPress={onLongPress}
       testID={testID ?? item.testID ?? `smart-bottom-bar-item-${item.key}`}
+      onLayout={onLayout}
       style={({ pressed }) => [
         styles.hit,
         vertical
@@ -200,12 +173,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  activePill: {
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: 14,
-    minWidth: 52,
-  },
   below: {
     flexDirection: 'column',
   },
@@ -221,24 +188,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     minWidth: 28,
     minHeight: 28,
-  },
-  activeHalo: {
-    position: 'absolute',
-    width: 34,
-    height: 34,
-    borderRadius: 17,
-    zIndex: 0,
-  },
-  iconFront: {
-    zIndex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  activeUnderline: {
-    marginTop: 2,
-    width: 18,
-    height: 2.5,
-    borderRadius: 2,
   },
   label: {
     fontSize: Platform.OS === 'ios' ? 10 : 11,
