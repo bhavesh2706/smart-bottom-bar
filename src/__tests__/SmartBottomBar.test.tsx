@@ -363,6 +363,155 @@ describe('SmartBottomBar', () => {
     });
   });
 
+  describe('customization', () => {
+    const tinted = () => {
+      const tabIcon = jest.fn((p: BarIconProps) => <Text>{p.color}</Text>);
+      const fabIcon = jest.fn((p: BarIconProps) => <Text>{p.color}</Text>);
+      const list: BottomBarItem[] = [
+        { key: 'home', label: 'Home', icon: tabIcon, badge: 2 },
+        { key: 'search', label: 'Search', icon: tabIcon },
+        { key: 'plus', label: 'Add', icon: fabIcon, fab: true },
+        { key: 'alerts', label: 'Alerts', icon: tabIcon },
+        { key: 'profile', label: 'Profile', icon: tabIcon },
+      ];
+      return { list, tabIcon, fabIcon };
+    };
+    const badgeColor = (node: ReactTestInstance) =>
+      node.findAll(
+        (n) =>
+          typeof n.type === 'string' &&
+          StyleSheet.flatten(n.props.style)?.backgroundColor === '#00AA55'
+      ).length;
+
+    it('applies shared color overrides to tabs, FAB and badge', () => {
+      const { list, tabIcon, fabIcon } = tinted();
+      const { getByLabelText } = render(
+        <SmartBottomBar
+          items={list}
+          activeKey="home"
+          colors={{
+            active: '#E91E63',
+            inactive: '#999999',
+            fabIcon: '#111111',
+            badge: '#00AA55',
+          }}
+        />
+      );
+      expect(tabIcon).toHaveBeenCalledWith(
+        expect.objectContaining({ color: '#E91E63', focused: true })
+      );
+      expect(tabIcon).toHaveBeenCalledWith(
+        expect.objectContaining({ color: '#999999', focused: false })
+      );
+      expect(fabIcon).toHaveBeenCalledWith(
+        expect.objectContaining({ color: '#111111' })
+      );
+      expect(badgeColor(getByLabelText('Home, 2 notifications'))).toBe(1);
+    });
+
+    it('applies per-scheme overrides only to that scheme', () => {
+      const { list, tabIcon } = tinted();
+      const colors = { active: '#E91E63', dark: { active: '#FFC107' } };
+      const light = render(
+        <SmartBottomBar
+          items={list}
+          activeKey="home"
+          colorScheme="light"
+          colors={colors}
+        />
+      );
+      expect(tabIcon).toHaveBeenCalledWith(
+        expect.objectContaining({ color: '#E91E63', focused: true })
+      );
+      light.unmount();
+      tabIcon.mockClear();
+      render(
+        <SmartBottomBar
+          items={list}
+          activeKey="home"
+          colorScheme="dark"
+          colors={colors}
+        />
+      );
+      const calls = tabIcon.mock.calls.map(([p]) => p);
+      expect(calls).toContainEqual(
+        expect.objectContaining({ color: '#FFC107', focused: true })
+      );
+      expect(calls).not.toContainEqual(
+        expect.objectContaining({ color: '#E91E63' })
+      );
+    });
+
+    it('keeps the variant palette when colors is empty or omitted', () => {
+      const { list, tabIcon } = tinted();
+      render(
+        <SmartBottomBar
+          variant="material"
+          items={list}
+          activeKey="home"
+          colorScheme="light"
+          colors={{}}
+        />
+      );
+      expect(tabIcon).toHaveBeenCalledWith(
+        expect.objectContaining({ color: '#6750A4', focused: true })
+      );
+    });
+
+    it('passes iconSize to function icons', () => {
+      const { list, tabIcon } = tinted();
+      render(<SmartBottomBar items={list} iconSize={30} />);
+      expect(tabIcon).toHaveBeenCalledWith(
+        expect.objectContaining({ size: 30 })
+      );
+    });
+
+    it('applies activeLabel / activeItem styles to the selected tab only', () => {
+      const { getByLabelText, getByText } = renderBar({
+        variant: 'floating',
+        activeKey: 'search',
+        style: {
+          activeLabel: { fontSize: 15 },
+          activeItem: { borderRadius: 13 },
+        },
+      });
+      const flat = (style: unknown) =>
+        StyleSheet.flatten(style as never) as Record<string, unknown>;
+      expect(flat(getByText('Search').props.style).fontSize).toBe(15);
+      expect(flat(getByText('Profile').props.style).fontSize).not.toBe(15);
+      expect(flat(getByLabelText('Search').props.style).borderRadius).toBe(13);
+      expect(
+        flat(getByLabelText('Profile').props.style).borderRadius
+      ).toBeUndefined();
+    });
+
+    it('does not subscribe to the keyboard when keyboardBehavior is none', () => {
+      const { Keyboard } = require('react-native');
+      const spy = jest.spyOn(Keyboard, 'addListener');
+      renderBar({ keyboardBehavior: 'none' });
+      expect(spy).not.toHaveBeenCalled();
+      renderBar({ keyboardBehavior: 'hide' });
+      expect(spy).toHaveBeenCalled();
+      spy.mockRestore();
+    });
+
+    it('renders the lens with a custom timing animation without crashing', () => {
+      const { getByLabelText, queryByTestId } = renderBar({
+        variant: 'liquidGlass',
+        animation: { type: 'timing', duration: 120 },
+      });
+      const layout = (x: number) => ({
+        nativeEvent: { layout: { x, y: 0, width: 60, height: 50 } },
+      });
+      fireEvent(getByLabelText('Home, 3 notifications'), 'layout', layout(0));
+      fireEvent(getByLabelText('Search'), 'layout', layout(60));
+      fireEvent.press(getByLabelText('Search'));
+      expect(
+        queryByTestId('bar-lens', { includeHiddenElements: true })
+      ).toBeTruthy();
+    });
+  });
+
   describe('sidebar FAB', () => {
     it('leads the rail with the FAB and keeps it pressable', () => {
       const onChange = jest.fn();

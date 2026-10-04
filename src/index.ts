@@ -29,6 +29,8 @@ export type {
   EdgeInsets,
   ResolvedInsets,
   ResolvedPalette,
+  BarColors,
+  BarColorOverrides,
   AnimationConfig,
   GlassConfig,
   GlassSurfaceProps,

@@ -102,6 +102,8 @@ Curves and waves are layered `View`s, not SVG. They will not match a true Bézie
 | `insets` | platform fallback | `{ top, right, bottom, left }` — pass `useSafeAreaInsets()` |
 | `safeArea` | `true` | Set `false` to skip fallback insets |
 | `colorScheme` | `'auto'` | `'auto' \| 'light' \| 'dark'` via `useColorScheme()` |
+| `colors` | variant palette | Brand colors — see [Theming](#theming) |
+| `iconSize` | `24` | `size` passed to function icons |
 | `rtl` | `'auto'` | `'auto'` reads `I18nManager.isRTL` |
 | `hapticFeedback` | — | `(key, event) => void` — you supply haptics |
 | `animation` | spring | `{ type: 'spring' \| 'timing', duration, config }` |
@@ -116,7 +118,7 @@ Curves and waves are layered `View`s, not SVG. They will not match a true Bézie
 | `fabKey` / `fabSize` | middle item / `56` | Center FAB — when set (or `item.fab`), **every** horizontal variant uses 2+2 sides + raised center FAB |
 | `shadow` | per-variant | `true` \| `false` — elevation under the bar. Defaults: on for floating / liquidGlass / material / curved / notchedFab / wave; off for flat / segmented / sidebar |
 | `sceneColor` | theme scene | Match the screen for notched cutouts |
-| `style` | — | `{ container, bar, item, icon, label, badge, badgeText, indicator, fab }` |
+| `style` | — | `{ container, bar, item, icon, label, badge, badgeText, indicator, fab, activeItem, activeLabel }` |
 | `renderItem` | — | Override every item |
 
 Tabs are `accessibilityRole="tab"` with `accessibilityState={{ selected, disabled }}` and a **44×44** minimum hit target.
@@ -228,6 +230,26 @@ For nested stacks that hide the tab bar, keep it mounted:
 ```tsx
 <SmartBottomBar visible={!hideTabBar} translateOnHide placement="overlay" />
 ```
+
+### Theming
+
+Every color is overridable with `colors`. Top-level keys apply to both schemes; `light` / `dark` refine one scheme. Anything you leave out keeps the variant's palette, so Material and Liquid Glass stay on-spec.
+
+```tsx
+<SmartBottomBar
+  items={items}
+  colors={{
+    active: '#E91E63', // active icon
+    label: '#E91E63', // active label
+    fab: '#E91E63',
+    fabIcon: '#FFFFFF',
+    dark: { active: '#FF6090', label: '#FF6090', fab: '#FF6090' },
+  }}
+  style={{ activeLabel: { fontWeight: '700' } }}
+/>
+```
+
+Keys: `bar`, `background`, `scene`, `active`, `inactive`, `label`, `inactiveLabel`, `badge`, `badgeText`, `indicator`, `border`, `glassTint`, `glassHighlight`, `fab`, `fabIcon`. Inline objects are fine — the palette is memoized by content, not identity.
 
 ### Liquid Glass
 

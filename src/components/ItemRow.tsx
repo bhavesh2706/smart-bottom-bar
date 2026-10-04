@@ -44,6 +44,7 @@ export function ItemRow({
             onLongPress={() => engine.handleLongPress(item.key)}
             style={engine.style}
             renderItem={engine.renderItem}
+            iconSize={engine.iconSize}
             pill={pill}
             ghost={item.key === ghostKey}
             onLayout={

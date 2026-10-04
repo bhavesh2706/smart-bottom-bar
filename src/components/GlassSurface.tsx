@@ -7,7 +7,7 @@ import {
   type ViewStyle,
 } from 'react-native';
 import type { GlassConfig, GlassSurfaceProps, ResolvedPalette } from '../types';
-import { glassOpacity, isFabric, isHexOrNamedColor } from '../utils';
+import { glassOpacity, isHexOrNamedColor, supportsBoxShadow } from '../utils';
 
 function resolveTint(
   tint: GlassConfig['tint'],
@@ -34,7 +34,7 @@ function resolveTint(
  * gets no shadow rather than a broken one.
  */
 function liftStyle(isDark: boolean): ViewStyle | null {
-  if (isFabric()) {
+  if (supportsBoxShadow()) {
     return {
       boxShadow: isDark
         ? '0px 12px 32px rgba(0, 0, 0, 0.55)'

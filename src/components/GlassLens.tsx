@@ -5,6 +5,8 @@ import {
   type StyleProp,
   type ViewStyle,
 } from 'react-native';
+import type { AnimationConfig } from '../types';
+import { NATIVE_DRIVER, runBarAnimation } from '../utils';
 
 export interface ItemFrame {
   x: number;
@@ -25,6 +27,7 @@ export function GlassLens({
   reduceMotion,
   style,
   testID,
+  animation,
 }: {
   frames: Record<string, ItemFrame>;
   activeKey: string;
@@ -33,6 +36,8 @@ export function GlassLens({
   reduceMotion: boolean;
   style?: StyleProp<ViewStyle>;
   testID?: string;
+  /** Host `animation` prop; omitted = the lens's tuned spring. */
+  animation?: AnimationConfig;
 }) {
   const translateX = useRef(new Animated.Value(0)).current;
   const opacity = useRef(new Animated.Value(0)).current;
@@ -50,7 +55,7 @@ export function GlassLens({
       Animated.timing(opacity, {
         toValue: 0,
         duration: 140,
-        useNativeDriver: true,
+        useNativeDriver: NATIVE_DRIVER,
       }).start();
       return;
     }
@@ -65,9 +70,13 @@ export function GlassLens({
         Animated.timing(opacity, {
           toValue: 1,
           duration: 160,
-          useNativeDriver: true,
+          useNativeDriver: NATIVE_DRIVER,
         }).start();
       }
+      return;
+    }
+    if (animation) {
+      runBarAnimation(translateX, target, animation, false).start();
       return;
     }
     Animated.spring(translateX, {
@@ -75,9 +84,9 @@ export function GlassLens({
       damping: 20,
       stiffness: 260,
       mass: 0.9,
-      useNativeDriver: true,
+      useNativeDriver: NATIVE_DRIVER,
     }).start();
-  }, [target, reduceMotion, translateX, opacity]);
+  }, [target, reduceMotion, translateX, opacity, animation]);
 
   if (lensWidth <= 0) {
     return null;

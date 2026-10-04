@@ -7,6 +7,7 @@ export const DEFAULT_BAR_HEIGHT = 56;
 export const MATERIAL_BAR_HEIGHT = 80;
 export const SEGMENTED_HEIGHT = 44;
 export const DEFAULT_FAB_SIZE = 56;
+export const DEFAULT_ICON_SIZE = 24;
 export const DEFAULT_SIDEBAR_WIDTH = 80;
 export const FLOATING_MARGIN = 12;
 export const WAVE_BUBBLE = 64;

@@ -147,6 +147,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                     "flexShrink": 1,
                   },
                   undefined,
+                  undefined,
                   null,
                   null,
                   null,
@@ -252,6 +253,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                       },
                       null,
                       undefined,
+                      undefined,
                     ]
                   }
                 >
@@ -311,6 +313,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                   null,
                   null,
                   null,
+                  null,
                 ]
               }
               testID="smart-bottom-bar-item-search"
@@ -367,6 +370,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                       },
                       null,
                       undefined,
+                      null,
                     ]
                   }
                 >
@@ -446,6 +450,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                     "flexShrink": 1,
                   },
                   undefined,
+                  null,
                   null,
                   null,
                   null,
@@ -532,6 +537,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                       },
                       null,
                       undefined,
+                      null,
                     ]
                   }
                 >
@@ -591,6 +597,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                   null,
                   null,
                   null,
+                  null,
                 ]
               }
               testID="smart-bottom-bar-item-profile"
@@ -647,6 +654,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                       },
                       null,
                       undefined,
+                      null,
                     ]
                   }
                 >
@@ -886,6 +894,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
                     "flexShrink": 1,
                   },
                   undefined,
+                  undefined,
                   null,
                   null,
                   null,
@@ -991,6 +1000,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
                       },
                       null,
                       undefined,
+                      undefined,
                     ]
                   }
                 >
@@ -1050,6 +1060,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
                   null,
                   null,
                   null,
+                  null,
                 ]
               }
               testID="smart-bottom-bar-item-search"
@@ -1106,6 +1117,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
                       },
                       null,
                       undefined,
+                      null,
                     ]
                   }
                 >
@@ -1185,6 +1197,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
                     "flexShrink": 1,
                   },
                   undefined,
+                  null,
                   null,
                   null,
                   null,
@@ -1271,6 +1284,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
                       },
                       null,
                       undefined,
+                      null,
                     ]
                   }
                 >
@@ -1330,6 +1344,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
                   null,
                   null,
                   null,
+                  null,
                 ]
               }
               testID="smart-bottom-bar-item-profile"
@@ -1386,6 +1401,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
                       },
                       null,
                       undefined,
+                      null,
                     ]
                   }
                 >
@@ -1623,6 +1639,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
                   "flexShrink": 1,
                 },
                 undefined,
+                undefined,
                 null,
                 null,
                 null,
@@ -1728,6 +1745,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
                     },
                     null,
                     undefined,
+                    undefined,
                   ]
                 }
               >
@@ -1787,6 +1805,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
                 null,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-search"
@@ -1843,6 +1862,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
                     },
                     null,
                     undefined,
+                    null,
                   ]
                 }
               >
@@ -1922,6 +1942,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
                   "flexShrink": 1,
                 },
                 undefined,
+                null,
                 null,
                 null,
                 null,
@@ -2008,6 +2029,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
                     },
                     null,
                     undefined,
+                    null,
                   ]
                 }
               >
@@ -2067,6 +2089,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
                 null,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-profile"
@@ -2123,6 +2146,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
                     },
                     null,
                     undefined,
+                    null,
                   ]
                 }
               >
@@ -2398,6 +2422,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                         "flexShrink": 1,
                       },
                       undefined,
+                      undefined,
                       null,
                       null,
                       null,
@@ -2503,6 +2528,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                           },
                           null,
                           undefined,
+                          undefined,
                         ]
                       }
                     >
@@ -2563,6 +2589,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                       null,
                       null,
                       null,
+                      null,
                     ]
                   }
                   testID="smart-bottom-bar-item-search"
@@ -2619,6 +2646,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                           },
                           null,
                           undefined,
+                          null,
                         ]
                       }
                     >
@@ -2700,6 +2728,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                         "flexShrink": 1,
                       },
                       undefined,
+                      null,
                       null,
                       null,
                       null,
@@ -2786,6 +2815,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                           },
                           null,
                           undefined,
+                          null,
                         ]
                       }
                     >
@@ -2846,6 +2876,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                       null,
                       null,
                       null,
+                      null,
                     ]
                   }
                   testID="smart-bottom-bar-item-profile"
@@ -2902,6 +2933,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                           },
                           null,
                           undefined,
+                          null,
                         ]
                       }
                     >
@@ -3147,6 +3179,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
                   "flexShrink": 1,
                 },
                 undefined,
+                undefined,
                 null,
                 null,
                 null,
@@ -3270,6 +3303,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
                     },
                     null,
                     undefined,
+                    undefined,
                   ]
                 }
               >
@@ -3326,6 +3360,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
                   "flexShrink": 1,
                 },
                 undefined,
+                null,
                 null,
                 null,
                 null,
@@ -3388,6 +3423,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
                     },
                     null,
                     undefined,
+                    null,
                   ]
                 }
               >
@@ -3467,6 +3503,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
                   "flexShrink": 1,
                 },
                 undefined,
+                null,
                 null,
                 null,
                 null,
@@ -3556,6 +3593,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
                     },
                     null,
                     undefined,
+                    null,
                   ]
                 }
               >
@@ -3612,6 +3650,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
                   "flexShrink": 1,
                 },
                 undefined,
+                null,
                 null,
                 null,
                 null,
@@ -3674,6 +3713,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
                     },
                     null,
                     undefined,
+                    null,
                   ]
                 }
               >
@@ -3943,6 +3983,7 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                       "flexShrink": 1,
                     },
                     undefined,
+                    undefined,
                     null,
                     null,
                     null,
@@ -4048,6 +4089,7 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                         },
                         null,
                         undefined,
+                        undefined,
                       ]
                     }
                   >
@@ -4107,6 +4149,7 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                     null,
                     null,
                     null,
+                    null,
                   ]
                 }
                 testID="smart-bottom-bar-item-search"
@@ -4163,6 +4206,7 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                         },
                         null,
                         undefined,
+                        null,
                       ]
                     }
                   >
@@ -4242,6 +4286,7 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                       "flexShrink": 1,
                     },
                     undefined,
+                    null,
                     null,
                     null,
                     null,
@@ -4328,6 +4373,7 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                         },
                         null,
                         undefined,
+                        null,
                       ]
                     }
                   >
@@ -4387,6 +4433,7 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                     null,
                     null,
                     null,
+                    null,
                   ]
                 }
                 testID="smart-bottom-bar-item-profile"
@@ -4443,6 +4490,7 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                         },
                         null,
                         undefined,
+                        null,
                       ]
                     }
                   >
@@ -4678,6 +4726,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
                   "flexShrink": 1,
                 },
                 undefined,
+                undefined,
                 null,
                 null,
                 null,
@@ -4783,6 +4832,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
                     },
                     null,
                     undefined,
+                    undefined,
                   ]
                 }
               >
@@ -4839,6 +4889,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
                   "flexShrink": 1,
                 },
                 undefined,
+                null,
                 null,
                 null,
                 null,
@@ -4953,6 +5004,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
                   "flexShrink": 1,
                 },
                 undefined,
+                null,
                 null,
                 null,
                 null,
@@ -5071,6 +5123,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
                   "flexShrink": 1,
                 },
                 undefined,
+                null,
                 null,
                 null,
                 null,
@@ -5381,6 +5434,7 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
           "width": "100%",
         },
         undefined,
+        undefined,
         null,
         null,
         null,
@@ -5493,6 +5547,7 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
               "maxWidth": 140,
             },
             undefined,
+            undefined,
           ]
         }
       >
@@ -5550,6 +5605,7 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
           "width": "100%",
         },
         undefined,
+        null,
         null,
         null,
         null,
@@ -5616,6 +5672,7 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
               "maxWidth": 140,
             },
             undefined,
+            null,
           ]
         }
       >
@@ -5673,6 +5730,7 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
           "width": "100%",
         },
         undefined,
+        null,
         null,
         null,
         null,
@@ -5766,6 +5824,7 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
               "maxWidth": 140,
             },
             undefined,
+            null,
           ]
         }
       >
@@ -5823,6 +5882,7 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
           "width": "100%",
         },
         undefined,
+        null,
         null,
         null,
         null,
@@ -5889,6 +5949,7 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
               "maxWidth": 140,
             },
             undefined,
+            null,
           ]
         }
       >
@@ -6020,6 +6081,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
                   "flexShrink": 1,
                 },
                 undefined,
+                undefined,
                 null,
                 null,
                 null,
@@ -6125,6 +6187,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
                     },
                     null,
                     undefined,
+                    undefined,
                   ]
                 }
               >
@@ -6184,6 +6247,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
                 null,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-search"
@@ -6240,6 +6304,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
                     },
                     null,
                     undefined,
+                    null,
                   ]
                 }
               >
@@ -6319,6 +6384,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
                   "flexShrink": 1,
                 },
                 undefined,
+                null,
                 null,
                 null,
                 null,
@@ -6405,6 +6471,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
                     },
                     null,
                     undefined,
+                    null,
                   ]
                 }
               >
@@ -6464,6 +6531,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
                 null,
                 null,
                 null,
+                null,
               ]
             }
             testID="smart-bottom-bar-item-profile"
@@ -6520,6 +6588,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
                     },
                     null,
                     undefined,
+                    null,
                   ]
                 }
               >

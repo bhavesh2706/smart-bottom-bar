@@ -86,6 +86,10 @@ export interface BottomBarStyle {
   icon?: StyleProp<ViewStyle>;
   badge?: StyleProp<ViewStyle>;
   badgeText?: StyleProp<TextStyle>;
+  /** Merged over `item` for the selected tab only. */
+  activeItem?: StyleProp<ViewStyle>;
+  /** Merged over `label` for the selected tab only. */
+  activeLabel?: StyleProp<TextStyle>;
   indicator?: StyleProp<ViewStyle>;
   fab?: StyleProp<ViewStyle>;
 }
@@ -159,6 +163,18 @@ export interface ResolvedPalette {
   fabIcon: string;
 }
 
+/** Every palette slot a host can override (all but the resolved `scheme`). */
+export type BarColors = Omit<ResolvedPalette, 'scheme'>;
+
+/**
+ * Brand the bar. Top-level keys apply to both schemes; `light` / `dark`
+ * override per scheme on top of them. Unset keys keep the variant palette.
+ */
+export type BarColorOverrides = Partial<BarColors> & {
+  light?: Partial<BarColors>;
+  dark?: Partial<BarColors>;
+};
+
 export type HapticFeedback = (key: string, event: HapticEvent) => void;
 
 export interface SmartBottomBarProps {
@@ -183,6 +199,10 @@ export interface SmartBottomBarProps {
   /** When false, fallback insets are 0 unless `insets` is passed. Default true. */
   safeArea?: boolean;
   colorScheme?: ColorSchemePreference;
+  /** Palette overrides, e.g. `{ active: '#E91E63', dark: { bar: '#111' } }`. */
+  colors?: BarColorOverrides;
+  /** `size` passed to function icons in tabs. Default `24`. */
+  iconSize?: number;
   rtl?: RtlMode;
   hapticFeedback?: HapticFeedback;
   animation?: AnimationConfig;

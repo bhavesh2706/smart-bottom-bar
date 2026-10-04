@@ -154,6 +154,9 @@ export function mergeInsets(
   };
 }
 
+/** react-native-web has no native animated module (Expo web would warn). */
+export const NATIVE_DRIVER = Platform.OS !== 'web';
+
 export function runBarAnimation(
   value: Animated.Value,
   toValue: number,
@@ -164,11 +167,11 @@ export function runBarAnimation(
     return Animated.timing(value, {
       toValue,
       duration: 0,
-      useNativeDriver: true,
+      useNativeDriver: NATIVE_DRIVER,
     });
   }
 
-  const useNativeDriver = animation?.config?.useNativeDriver ?? true;
+  const useNativeDriver = animation?.config?.useNativeDriver ?? NATIVE_DRIVER;
 
   if (animation?.type === 'timing') {
     return Animated.timing(value, {
@@ -196,11 +199,21 @@ export function glassOpacity(intensity: 'clear' | 'regular'): number {
   return intensity === 'clear' ? 0.62 : 1;
 }
 
-/** Fabric renders `boxShadow` (clipped outside the shape); Paper ignores it. */
-export function isFabric(): boolean {
+/**
+ * `boxShadow` (drawn outside the shape only) needs Fabric and RN >= 0.76;
+ * older versions warn on the unknown style key.
+ */
+export function supportsBoxShadow(): boolean {
+  const version = (
+    Platform.constants as {
+      reactNativeVersion?: { major: number; minor: number };
+    }
+  ).reactNativeVersion;
+  const recent = !version || version.major > 0 || version.minor >= 76;
   return (
+    recent &&
     (globalThis as { nativeFabricUIManager?: unknown }).nativeFabricUIManager !=
-    null
+      null
   );
 }
 

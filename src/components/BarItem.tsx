@@ -14,7 +14,7 @@ import type {
   RenderItemParams,
   ResolvedPalette,
 } from '../types';
-import { MIN_HIT } from '../theme';
+import { DEFAULT_ICON_SIZE, MIN_HIT } from '../theme';
 import { renderItemIcon } from '../utils';
 import { Badge } from './Badge';
 
@@ -41,6 +41,7 @@ export function BarItem({
   onLayout,
   pill,
   ghost,
+  iconSize = DEFAULT_ICON_SIZE,
 }: {
   item: BottomBarItem;
   index: number;
@@ -61,6 +62,7 @@ export function BarItem({
   pill?: string;
   /** Keep the slot (layout + touch) but hide it — another view draws this item. */
   ghost?: boolean;
+  iconSize?: number;
 }) {
   const labelColor = active
     ? (item.activeColor ?? colors.label)
@@ -72,7 +74,7 @@ export function BarItem({
   const iconColor = active
     ? (item.activeColor ?? colors.active)
     : (item.color ?? colors.inactive);
-  const icon = renderItemIcon(item, active, iconColor, ICON_SIZE);
+  const icon = renderItemIcon(item, active, iconColor, iconSize);
 
   const defaultItem = useMemo(
     () => (
@@ -105,6 +107,7 @@ export function BarItem({
               },
               beside ? styles.labelBeside : null,
               style?.label,
+              active ? style?.activeLabel : null,
             ]}
           >
             {item.label}
@@ -163,6 +166,7 @@ export function BarItem({
             ? styles.hitHorizontalFixed
             : styles.hitHorizontal,
         style?.item,
+        active ? style?.activeItem : null,
         item.disabled ? styles.disabled : null,
         pressed && !item.disabled ? styles.pressed : null,
         ghost ? styles.ghost : null,
@@ -172,8 +176,6 @@ export function BarItem({
     </Pressable>
   );
 }
-
-const ICON_SIZE = 24;
 
 const styles = StyleSheet.create({
   hit: {

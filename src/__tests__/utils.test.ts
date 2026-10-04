@@ -9,6 +9,7 @@ import {
   toNativeTabConfig,
   visibleItems,
   glassOpacity,
+  supportsBoxShadow,
 } from '../utils';
 import type { BottomBarItem } from '../types';
 
@@ -178,5 +179,35 @@ describe('fallbackInsets / mergeInsets', () => {
       height: 844,
     });
     expect(live.bottom).toBeGreaterThanOrEqual(0);
+  });
+});
+
+describe('supportsBoxShadow', () => {
+  const g = globalThis as { nativeFabricUIManager?: unknown };
+  const constants = Platform.constants as {
+    reactNativeVersion?: { major: number; minor: number };
+  };
+  const original = constants.reactNativeVersion;
+
+  afterEach(() => {
+    delete g.nativeFabricUIManager;
+    constants.reactNativeVersion = original;
+  });
+
+  it('is true on Fabric with RN >= 0.76', () => {
+    g.nativeFabricUIManager = {};
+    constants.reactNativeVersion = { major: 0, minor: 86 };
+    expect(supportsBoxShadow()).toBe(true);
+  });
+
+  it('is false on the old architecture', () => {
+    constants.reactNativeVersion = { major: 0, minor: 86 };
+    expect(supportsBoxShadow()).toBe(false);
+  });
+
+  it('is false on Fabric before RN 0.76', () => {
+    g.nativeFabricUIManager = {};
+    constants.reactNativeVersion = { major: 0, minor: 75 };
+    expect(supportsBoxShadow()).toBe(false);
   });
 });

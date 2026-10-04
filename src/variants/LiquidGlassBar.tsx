@@ -101,6 +101,7 @@ export function LiquidGlassLayout({ engine }: { engine: BarEngine }) {
                 reduceMotion={engine.reduceMotion}
                 style={engine.style?.indicator}
                 testID={`${engine.testID}-lens`}
+                animation={engine.animation}
               />
               {withFab && fab ? (
                 <FabSplitRow

@@ -17,6 +17,7 @@ import {
 } from 'react-native-safe-area-context';
 import {
   SmartBottomBar,
+  type BarColorOverrides,
   type BarIconProps,
   type BottomBarItem,
   type BottomBarVariant,
@@ -45,6 +46,15 @@ const FAB_MODES: Record<FabMode, FabMode> = {
   off: 'raised',
   raised: 'embedded',
   embedded: 'off',
+};
+
+// `colors` brands any variant; per-scheme keys refine light / dark.
+const BRAND: BarColorOverrides = {
+  active: '#E91E63',
+  label: '#E91E63',
+  fab: '#E91E63',
+  fabIcon: '#FFFFFF',
+  dark: { active: '#FF6090', label: '#FF6090', fab: '#FF6090' },
 };
 
 // Function icons let the bar pick the tint (row, FAB, wave bubble, rail).
@@ -77,6 +87,7 @@ function Demo() {
   const [keyboardProbe, setKeyboardProbe] = useState('');
   const [shadow, setShadow] = useState<boolean | undefined>(undefined);
   const [fabMode, setFabMode] = useState<FabMode>('raised');
+  const [brand, setBrand] = useState(false);
   const fabOn = fabMode !== 'off';
   const [scheme, setScheme] = useState<ColorSchemePreference>('light');
 
@@ -125,6 +136,7 @@ function Demo() {
       shadow={shadow}
       colorScheme={scheme === 'auto' ? 'auto' : scheme}
       glass={fabMode === 'embedded' ? { fabPlacement: 'embedded' } : undefined}
+      colors={brand ? BRAND : undefined}
     />
   );
 
@@ -154,6 +166,8 @@ function Demo() {
               }
               fabMode={fabMode}
               setFabMode={setFabMode}
+              brand={brand}
+              setBrand={setBrand}
               scheme={scheme}
               cycleScheme={() =>
                 setScheme((s) =>
@@ -185,6 +199,8 @@ function Demo() {
               }
               fabMode={fabMode}
               setFabMode={setFabMode}
+              brand={brand}
+              setBrand={setBrand}
               scheme={scheme}
               cycleScheme={() =>
                 setScheme((s) =>
@@ -243,6 +259,8 @@ function DemoControls({
   cycleShadow,
   fabMode,
   setFabMode,
+  brand,
+  setBrand,
   scheme,
   cycleScheme,
 }: {
@@ -254,6 +272,8 @@ function DemoControls({
   cycleShadow: () => void;
   fabMode: FabMode;
   setFabMode: (v: FabMode) => void;
+  brand: boolean;
+  setBrand: (v: boolean) => void;
   scheme: ColorSchemePreference;
   cycleScheme: () => void;
 }) {
@@ -311,6 +331,14 @@ function DemoControls({
         >
           <Text style={[styles.toggleText, dark && styles.toggleTextDark]}>
             center FAB: {fabMode}
+          </Text>
+        </Pressable>
+        <Pressable
+          onPress={() => setBrand(!brand)}
+          style={[styles.toggle, dark && styles.toggleDark]}
+        >
+          <Text style={[styles.toggleText, dark && styles.toggleTextDark]}>
+            colors: {brand ? 'brand' : 'default'}
           </Text>
         </Pressable>
       </View>

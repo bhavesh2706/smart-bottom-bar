@@ -1,6 +1,11 @@
 import { useCallback, useMemo } from 'react';
 import type { SmartBottomBarProps } from '../types';
-import { DEFAULT_FAB_SIZE, defaultBarHeight, defaultShadow } from '../theme';
+import {
+  DEFAULT_FAB_SIZE,
+  DEFAULT_ICON_SIZE,
+  defaultBarHeight,
+  defaultShadow,
+} from '../theme';
 import {
   resolveFabItem,
   resolveRtl,
@@ -17,9 +22,14 @@ import { useResolvedVariant } from './useResolvedVariant';
 export function useBarEngine(props: SmartBottomBarProps) {
   const variant = props.variant ?? 'flat';
   const resolvedVariant = useResolvedVariant(variant, props.breakpoint);
-  const colors = useResolvedPalette(props.colorScheme, resolvedVariant);
+  const colors = useResolvedPalette(
+    props.colorScheme,
+    resolvedVariant,
+    props.colors
+  );
   const insets = useInsets(props.insets, props.safeArea !== false);
-  const keyboard = useKeyboard();
+  const keyboardBehavior = props.keyboardBehavior ?? 'hide';
+  const keyboard = useKeyboard(keyboardBehavior !== 'none');
   const reduceTransparency = useReduceTransparency();
   const reduceMotion = useReduceMotion();
   const rtl = resolveRtl(props.rtl);
@@ -84,10 +94,8 @@ export function useBarEngine(props: SmartBottomBarProps) {
     [props]
   );
 
-  const hiddenByKeyboard =
-    keyboard.visible && (props.keyboardBehavior ?? 'hide') === 'hide';
-  const offsetByKeyboard =
-    keyboard.visible && props.keyboardBehavior === 'offset';
+  const hiddenByKeyboard = keyboard.visible && keyboardBehavior === 'hide';
+  const offsetByKeyboard = keyboard.visible && keyboardBehavior === 'offset';
   const visible = (props.visible ?? true) && !hiddenByKeyboard;
 
   return {
@@ -103,6 +111,7 @@ export function useBarEngine(props: SmartBottomBarProps) {
     active,
     barHeight,
     fabSize,
+    iconSize: props.iconSize ?? DEFAULT_ICON_SIZE,
     fab,
     wantsFab,
     split,
