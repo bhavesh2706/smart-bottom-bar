@@ -10,7 +10,8 @@
     "web"
   ],
   "ios": {
-    "supportsTablet": true
+    "supportsTablet": true,
+    "bundleIdentifier": "com.anonymous.smartbottombarsexample"
   },
   "android": {
     "softwareKeyboardLayoutMode": "resize",

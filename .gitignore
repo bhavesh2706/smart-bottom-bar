@@ -66,3 +66,6 @@ AGENTS.md
 PROJECT_STATE.md
 react-native-bottom-bar-package-requirements.md
 *.pdf
+
+# Demo video is for YouTube upload only; the GIF in media/ is committed for the README
+media/*.mp4

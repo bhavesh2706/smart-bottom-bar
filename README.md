@@ -2,6 +2,10 @@
 
 One bottom bar. Nine visual styles. **Zero runtime dependencies.**
 
+| Android | iOS |
+| :---: | :---: |
+| <img src="https://raw.githubusercontent.com/bhavesh2706/smart-bottom-bar/main/media/demo.gif" alt="Android: all nine variants, then Liquid Glass in dark mode" width="280" /> | <img src="https://raw.githubusercontent.com/bhavesh2706/smart-bottom-bar/main/media/demo-ios.gif" alt="iOS: all nine variants, then Liquid Glass in dark mode" width="280" /> |
+
 Works unmodified in **React Native CLI**, **Expo Go**, **Expo Dev Client**, and the **New Architecture (Fabric)**. No native linking, no config plugin, no `react-native-svg`, no Reanimated, no Gesture Handler.
 
 ```tsx
