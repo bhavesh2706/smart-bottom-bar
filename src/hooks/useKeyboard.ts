@@ -14,7 +14,6 @@ export function useKeyboard(enabled = true): KeyboardState {
 
   useEffect(() => {
     if (!enabled) {
-      setState(HIDDEN);
       return;
     }
     // iOS fires both Will and Did events — keep the same object when nothing changed.
@@ -40,8 +39,9 @@ export function useKeyboard(enabled = true): KeyboardState {
       hideEvent.remove();
       showWill.remove();
       hideWill.remove();
+      setState(HIDDEN);
     };
   }, [enabled]);
 
-  return state;
+  return enabled ? state : HIDDEN;
 }

@@ -121,6 +121,8 @@ export function LiquidGlassLayout({ engine }: { engine: BarEngine }) {
                         style={fabStyle}
                         pressFeedback={engine.pressFeedback}
                         renderFab={engine.renderFab}
+                        focusProps={engine.roving.itemProps(fab.key)}
+                        badgeMax={engine.badgeMax}
                       />
                     )
                   }

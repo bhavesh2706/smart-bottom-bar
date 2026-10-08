@@ -1,4 +1,4 @@
-import { useMemo, type ReactNode } from 'react';
+import { useMemo, useState, type ReactNode } from 'react';
 import {
   Platform,
   Pressable,
@@ -17,14 +17,14 @@ import type {
   ResolvedPalette,
 } from '../types';
 import { DEFAULT_ICON_SIZE, MIN_HIT } from '../theme';
-import { pressedStyle, renderItemIcon, rippleFor } from '../utils';
+import {
+  itemA11yLabel,
+  pressedStyle,
+  renderItemIcon,
+  rippleFor,
+} from '../utils';
 import { Badge } from './Badge';
-
-function hasBadge(
-  badge: BottomBarItem['badge']
-): badge is number | string | true {
-  return badge !== undefined && badge !== false;
-}
+import type { RovingItemProps } from '../hooks/useRovingFocus';
 
 export function BarItem({
   item,
@@ -47,6 +47,7 @@ export function BarItem({
   pressFeedback,
   labelProps,
   badgeMax,
+  focusProps,
 }: {
   item: BottomBarItem;
   index: number;
@@ -65,12 +66,17 @@ export function BarItem({
   onLayout?: (event: LayoutChangeEvent) => void;
   /** Material-style active indicator color drawn behind the icon. */
   pill?: string;
-  /** Keep the slot (layout + touch) but hide it — another view draws this item. */
+  /**
+   * Keep the slot (layout + touch) but hide it — another view draws this item.
+   * A ghost leaves the focus order unless it still holds focus: native can't
+   * move focus imperatively, so dropping it would lose keyboard focus.
+   */
   ghost?: boolean;
   iconSize?: number;
   pressFeedback?: PressFeedback;
   labelProps?: LabelProps;
   badgeMax?: number;
+  focusProps?: RovingItemProps;
 }) {
   const labelColor = active
     ? (item.activeColor ?? colors.label)
@@ -146,25 +152,29 @@ export function BarItem({
     renderItem?.({ item, index, active, defaultItem }) ??
     defaultItem;
 
-  const a11yLabel =
-    item.accessibilityLabel ??
-    (item.label
-      ? hasBadge(item.badge)
-        ? `${item.label}, ${item.badge === true ? 'new' : String(item.badge)} notifications`
-        : item.label
-      : item.key);
+  const [hasFocus, setHasFocus] = useState(false);
+  const unfocusable = ghost && !hasFocus;
 
   return (
     <Pressable
-      accessibilityRole="tab"
-      accessibilityLabel={a11yLabel}
-      accessibilityHint={item.accessibilityHint}
-      accessibilityState={{
-        selected: active,
-        disabled: Boolean(item.disabled),
+      {...focusProps}
+      onFocus={() => {
+        setHasFocus(true);
+        focusProps?.onFocus?.();
       }}
-      accessibilityElementsHidden={ghost || undefined}
-      importantForAccessibility={ghost ? 'no-hide-descendants' : undefined}
+      onBlur={() => {
+        setHasFocus(false);
+        focusProps?.onBlur?.();
+      }}
+      focusable={unfocusable ? false : undefined}
+      tabIndex={unfocusable ? -1 : focusProps?.tabIndex}
+      accessible={unfocusable ? false : undefined}
+      accessibilityRole="tab"
+      accessibilityLabel={itemA11yLabel(item)}
+      accessibilityHint={item.accessibilityHint}
+      aria-selected={active}
+      aria-disabled={Boolean(item.disabled)}
+      aria-hidden={ghost || undefined}
       disabled={item.disabled}
       onPress={onPress}
       onLongPress={onLongPress}

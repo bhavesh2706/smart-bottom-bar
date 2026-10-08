@@ -29,6 +29,8 @@ export function ItemRow({
     <>
       {ordered.map((item, visualIndex) => {
         const sourceIndex = engine.shown.findIndex((it) => it.key === item.key);
+        const ghost = item.key === ghostKey;
+        const focusProps = engine.roving.itemProps(item.key);
         return (
           <BarItem
             key={item.key}
@@ -48,8 +50,13 @@ export function ItemRow({
             pressFeedback={engine.pressFeedback}
             labelProps={engine.labelProps}
             badgeMax={engine.badgeMax}
+            focusProps={
+              ghost
+                ? { onFocus: focusProps.onFocus, onBlur: focusProps.onBlur }
+                : focusProps
+            }
             pill={pill}
-            ghost={item.key === ghostKey}
+            ghost={ghost}
             onLayout={
               onItemLayout
                 ? (event) =>

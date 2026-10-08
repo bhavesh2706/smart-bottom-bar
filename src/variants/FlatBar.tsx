@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Animated, StyleSheet, View } from 'react-native';
 import type { BarEngine } from '../hooks/useBarEngine';
 import { BarShell } from '../components/BarShell';
@@ -9,7 +9,7 @@ import { runBarAnimation } from '../utils';
 
 export function FlatLayout({ engine }: { engine: BarEngine }) {
   const [width, setWidth] = useState(0);
-  const tx = useRef(new Animated.Value(0)).current;
+  const [tx] = useState(() => new Animated.Value(0));
   const withFab = engine.wantsFab && Boolean(engine.fab);
   const count = Math.max(
     withFab ? engine.split.left.length + engine.split.right.length + 1 : engine.shown.length,

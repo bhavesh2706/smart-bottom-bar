@@ -48,6 +48,7 @@ From the **repo root** (not `example/`):
 
 ```sh
 npm run typecheck    # tsc --noEmit
+npm run lint         # eslint (typescript-eslint + react-hooks)
 npm test             # jest (update snapshots only after reviewing the diff: npx jest -u)
 npm run build        # bob build — the example type-checks against lib/
 ```

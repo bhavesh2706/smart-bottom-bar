@@ -19,6 +19,7 @@ import { useInsets } from './useInsets';
 import { useKeyboard } from './useKeyboard';
 import { useResolvedPalette } from './useResolvedPalette';
 import { useResolvedVariant } from './useResolvedVariant';
+import { useRovingFocus } from './useRovingFocus';
 
 export function useBarEngine(props: SmartBottomBarProps) {
   const variant = props.variant ?? 'flat';
@@ -95,6 +96,23 @@ export function useBarEngine(props: SmartBottomBarProps) {
     [props]
   );
 
+  const vertical = resolvedVariant === 'sidebar';
+  const focusOrder = useMemo(() => {
+    const visual =
+      vertical && wantsFab && fab
+        ? [fab, ...split.left, ...split.right]
+        : shown;
+    return visual.filter((item) => !item.disabled).map((item) => item.key);
+  }, [vertical, wantsFab, fab, split, shown]);
+  const roving = useRovingFocus({
+    config: props.rovingFocus,
+    order: focusOrder,
+    activeKey: active.activeKey,
+    vertical,
+    rtl,
+    onSelect: handlePress,
+  });
+
   const hiddenByKeyboard = keyboard.visible && keyboardBehavior === 'hide';
   const offsetByKeyboard = keyboard.visible && keyboardBehavior === 'offset';
   const visible = (props.visible ?? true) && !hiddenByKeyboard;
@@ -126,6 +144,7 @@ export function useBarEngine(props: SmartBottomBarProps) {
     fabExtra,
     handlePress,
     handleLongPress,
+    roving,
     visible,
     translateOnHide: props.translateOnHide !== false,
     offsetByKeyboard,

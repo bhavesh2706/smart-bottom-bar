@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   Animated,
   StyleSheet,
@@ -39,8 +39,8 @@ export function GlassLens({
   /** Host `animation` prop; omitted = the lens's tuned spring. */
   animation?: AnimationConfig;
 }) {
-  const translateX = useRef(new Animated.Value(0)).current;
-  const opacity = useRef(new Animated.Value(0)).current;
+  const [translateX] = useState(() => new Animated.Value(0));
+  const [opacity] = useState(() => new Animated.Value(0));
   const shown = useRef(false);
 
   const widths = Object.values(frames).map((frame) => frame.width);

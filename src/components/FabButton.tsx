@@ -8,7 +8,14 @@ import type {
   ResolvedPalette,
 } from '../types';
 import { MIN_HIT } from '../theme';
-import { pressedStyle, renderItemIcon, rippleFor } from '../utils';
+import {
+  itemA11yLabel,
+  pressedStyle,
+  renderItemIcon,
+  rippleFor,
+} from '../utils';
+import type { RovingItemProps } from '../hooks/useRovingFocus';
+import { Badge } from './Badge';
 
 export function FabButton({
   item,
@@ -21,6 +28,8 @@ export function FabButton({
   raised = true,
   pressFeedback,
   renderFab,
+  focusProps,
+  badgeMax,
 }: {
   item: BottomBarItem;
   active: boolean;
@@ -33,6 +42,8 @@ export function FabButton({
   pressFeedback?: PressFeedback;
   /** Custom FAB visual; the Pressable (a11y, press, hit size) stays ours. */
   renderFab?: (params: RenderFabParams) => ReactNode;
+  focusProps?: RovingItemProps;
+  badgeMax?: number;
 }) {
   const icon = renderItemIcon(
     item,
@@ -52,12 +63,11 @@ export function FabButton({
 
   return (
     <Pressable
+      {...focusProps}
       accessibilityRole="tab"
-      accessibilityLabel={item.accessibilityLabel ?? item.label ?? item.key}
-      accessibilityState={{
-        selected: active,
-        disabled: Boolean(item.disabled),
-      }}
+      accessibilityLabel={itemA11yLabel(item)}
+      aria-selected={active}
+      aria-disabled={Boolean(item.disabled)}
       disabled={item.disabled}
       onPress={onPress}
       onLongPress={onLongPress}
@@ -84,6 +94,13 @@ export function FabButton({
       ]}
     >
       {custom ?? <View style={styles.icon}>{icon}</View>}
+      <Badge
+        item={item}
+        colors={colors}
+        style={style}
+        max={badgeMax}
+        position={styles.badge}
+      />
     </Pressable>
   );
 }
@@ -106,6 +123,10 @@ const styles = StyleSheet.create({
   },
   disabled: {
     opacity: 0.4,
+  },
+  badge: {
+    top: 0,
+    right: 0,
   },
   pressed: {
     transform: [{ scale: 0.94 }],

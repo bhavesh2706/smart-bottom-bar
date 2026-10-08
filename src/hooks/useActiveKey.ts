@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import type { BottomBarItem } from '../types';
 import { indexInSource, visibleItems } from '../utils';
 
@@ -45,7 +45,9 @@ export function useActiveKey(
   );
 
   const onChangeRef = useRef(onChange);
-  onChangeRef.current = onChange;
+  useLayoutEffect(() => {
+    onChangeRef.current = onChange;
+  });
 
   const setActive = useCallback(
     (key: string) => {

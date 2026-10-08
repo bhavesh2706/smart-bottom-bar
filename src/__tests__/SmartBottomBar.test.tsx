@@ -1,7 +1,13 @@
 import type { ComponentProps } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Keyboard, Platform, StyleSheet, Text, View } from 'react-native';
 import type { ReactTestInstance } from 'react-test-renderer';
-import { fireEvent, render } from '@testing-library/react-native';
+import {
+  act,
+  fireEvent,
+  render,
+  renderHook,
+} from '@testing-library/react-native';
+import { useRovingFocus } from '../hooks/useRovingFocus';
 import { SmartBottomBar } from '../SmartBottomBar';
 import { FlatBottomBar } from '../flat';
 import { CurvedBottomBar } from '../curved';
@@ -501,7 +507,6 @@ describe('SmartBottomBar', () => {
     });
 
     it('does not subscribe to the keyboard when keyboardBehavior is none', () => {
-      const { Keyboard } = require('react-native');
       const spy = jest.spyOn(Keyboard, 'addListener');
       renderBar({ keyboardBehavior: 'none' });
       expect(spy).not.toHaveBeenCalled();
@@ -794,6 +799,57 @@ describe('SmartBottomBar', () => {
       expect(fill('B, 2 notifications', '#123456')).toBe(1);
     });
 
+    it('keeps the badge on the wave bubble while its tab is active', () => {
+      const hidden = { includeHiddenElements: true };
+      const bar = renderBar({
+        variant: 'wave',
+        items: items.filter((i) => !i.fab),
+        activeKey: 'home',
+        badgeMax: 2,
+      });
+      // ghost row slot + floating bubble
+      expect(bar.getAllByText('2+', hidden).length).toBe(2);
+      // only the bubble is announced, with its badge
+      expect(bar.getAllByLabelText('Home, 3 notifications')).toHaveLength(1);
+    });
+
+    it('draws a badge on the center FAB and none without one', () => {
+      const hidden = { includeHiddenElements: true };
+      const withBadge = render(
+        <SmartBottomBar
+          items={items.map((i) => (i.fab ? { ...i, badge: 7 } : i))}
+        />
+      );
+      expect(withBadge.getByText('7', hidden)).toBeTruthy();
+      withBadge.unmount();
+      const plain = render(<SmartBottomBar items={items} />);
+      expect(plain.queryByText('7', hidden)).toBeNull();
+    });
+
+    it('renders liquidGlass without Platform.constants (react-native-web)', () => {
+      const constants = Object.getOwnPropertyDescriptor(Platform, 'constants');
+      const os = Platform.OS;
+      Object.defineProperty(Platform, 'constants', {
+        configurable: true,
+        get: () => undefined,
+      });
+      Object.defineProperty(Platform, 'OS', {
+        value: 'web',
+        configurable: true,
+      });
+      try {
+        expect(() =>
+          renderBar({ variant: 'liquidGlass', shadow: true })
+        ).not.toThrow();
+      } finally {
+        if (constants) Object.defineProperty(Platform, 'constants', constants);
+        Object.defineProperty(Platform, 'OS', {
+          value: os,
+          configurable: true,
+        });
+      }
+    });
+
     it('moves liquidGlass style.bar shadows outside the clipped glass', () => {
       const shadow = '0px 4px 12px rgba(255, 0, 0, 0.4)';
       const { getByTestId } = renderBar({
@@ -814,6 +870,210 @@ describe('SmartBottomBar', () => {
       expect(
         StyleSheet.flatten(shell[0]!.props.style).boxShadow
       ).toBeUndefined();
+    });
+  });
+
+  describe('rovingFocus (keyboard)', () => {
+    const press = (
+      result: ReturnType<typeof render>,
+      key: string,
+      testID = 'bar'
+    ) => {
+      const preventDefault = jest.fn();
+      fireEvent(result.getByTestId(testID), 'keyDown', {
+        nativeEvent: { key },
+        preventDefault,
+      });
+      return preventDefault;
+    };
+
+    it('is off by default', () => {
+      const { getByTestId } = renderBar();
+      expect(getByTestId('bar').props.onKeyDown).toBeUndefined();
+    });
+
+    it('manual: arrows move focus without selecting, Space selects', () => {
+      const onChange = jest.fn();
+      const bar = renderBar({ rovingFocus: true, activeKey: 'home', onChange });
+      expect(press(bar, 'ArrowRight')).toHaveBeenCalled();
+      expect(onChange).not.toHaveBeenCalled();
+      press(bar, ' ');
+      expect(onChange).toHaveBeenCalledWith('search', 1);
+    });
+
+    it('automatic: selection follows arrows, Home and End', () => {
+      const onChange = jest.fn();
+      const bar = renderBar({
+        rovingFocus: { activation: 'automatic' },
+        defaultActiveKey: 'home',
+        onChange,
+      });
+      press(bar, 'ArrowRight');
+      expect(onChange).toHaveBeenLastCalledWith('search', 1);
+      press(bar, 'End');
+      expect(onChange).toHaveBeenLastCalledWith('profile', 4);
+      press(bar, 'Home');
+      expect(onChange).toHaveBeenLastCalledWith('home', 0);
+    });
+
+    it('loops by default and stops at the edges with loop: false', () => {
+      const looped = jest.fn();
+      const a = renderBar({
+        rovingFocus: { activation: 'automatic' },
+        activeKey: 'home',
+        onChange: looped,
+      });
+      press(a, 'ArrowLeft');
+      expect(looped).toHaveBeenLastCalledWith('profile', 4);
+      a.unmount();
+
+      const clamped = jest.fn();
+      const b = renderBar({
+        rovingFocus: { activation: 'automatic', loop: false },
+        activeKey: 'home',
+        onChange: clamped,
+      });
+      press(b, 'ArrowLeft');
+      expect(clamped).not.toHaveBeenCalled();
+    });
+
+    it('skips disabled tabs and the FAB stays in visual order', () => {
+      const onChange = jest.fn();
+      const bar = render(
+        <SmartBottomBar
+          testID="bar"
+          items={items.map((i) =>
+            i.key === 'search' ? { ...i, disabled: true } : i
+          )}
+          activeKey="home"
+          onChange={onChange}
+          rovingFocus={{ activation: 'automatic' }}
+        />
+      );
+      press(bar, 'ArrowRight');
+      expect(onChange).toHaveBeenLastCalledWith('plus', 2);
+    });
+
+    it('mirrors left/right in RTL', () => {
+      const onChange = jest.fn();
+      const bar = renderBar({
+        rtl: true,
+        rovingFocus: { activation: 'automatic' },
+        activeKey: 'home',
+        onChange,
+      });
+      press(bar, 'ArrowLeft');
+      expect(onChange).toHaveBeenLastCalledWith('search', 1);
+    });
+
+    it('uses up/down on the sidebar rail, FAB first', () => {
+      const onChange = jest.fn();
+      const bar = renderBar({
+        variant: 'sidebar',
+        rovingFocus: { activation: 'automatic' },
+        defaultActiveKey: 'plus',
+        onChange,
+      });
+      expect(press(bar, 'ArrowRight')).not.toHaveBeenCalled();
+      expect(onChange).not.toHaveBeenCalled();
+      press(bar, 'ArrowDown');
+      expect(onChange).toHaveBeenLastCalledWith('home', 0);
+      press(bar, 'ArrowUp');
+      expect(onChange).toHaveBeenLastCalledWith('plus', 2);
+    });
+
+    it('starts from the focused tab, not the active one', () => {
+      const onChange = jest.fn();
+      const bar = renderBar({
+        rovingFocus: { activation: 'automatic' },
+        activeKey: 'home',
+        onChange,
+      });
+      fireEvent(bar.getByLabelText('Alerts, new notifications'), 'focus');
+      press(bar, 'ArrowRight');
+      expect(onChange).toHaveBeenLastCalledWith('profile', 4);
+    });
+
+    it('does not re-fire selection when arrowing onto the active tab', () => {
+      const onChange = jest.fn();
+      const onDoubleTap = jest.fn();
+      const bar = renderBar({
+        rovingFocus: { activation: 'automatic' },
+        activeKey: 'home',
+        onChange,
+        onDoubleTap,
+      });
+      fireEvent(bar.getByLabelText('Search'), 'focus');
+      press(bar, 'ArrowLeft');
+      expect(onChange).not.toHaveBeenCalled();
+      expect(onDoubleTap).not.toHaveBeenCalled();
+    });
+
+    it('refocuses whichever node owns a focused tab once it is selected', () => {
+      const props = {
+        config: undefined,
+        order: ['home', 'search'],
+        activeKey: 'home',
+        vertical: false,
+        rtl: false,
+        onSelect: jest.fn(),
+      };
+      const hook = renderHook((p: typeof props) => useRovingFocus(p), {
+        initialProps: props,
+      });
+      const row = { focus: jest.fn() };
+      const bubble = { focus: jest.fn() };
+      act(() => {
+        hook.result.current.itemProps('search').ref?.(row);
+        hook.result.current.itemProps('search').onFocus?.();
+      });
+      // wave: the row slot turns into the ghost and the bubble takes the key
+      act(() => {
+        hook.result.current.itemProps('search').ref?.(null);
+        hook.result.current.itemProps('search').ref?.(bubble);
+      });
+      hook.rerender({ ...props, activeKey: 'search' });
+      expect(bubble.focus).toHaveBeenCalledTimes(1);
+      expect(row.focus).not.toHaveBeenCalled();
+
+      const idle = { focus: jest.fn() };
+      act(() => {
+        hook.result.current.itemProps('home').ref?.(idle);
+      });
+      hook.rerender({ ...props, activeKey: 'home' });
+      expect(idle.focus).not.toHaveBeenCalled();
+    });
+
+    it('ignores unrelated keys and Enter (Pressable handles Enter)', () => {
+      const onChange = jest.fn();
+      const bar = renderBar({ rovingFocus: true, onChange });
+      expect(press(bar, 'a')).not.toHaveBeenCalled();
+      expect(press(bar, 'Enter')).not.toHaveBeenCalled();
+      expect(onChange).not.toHaveBeenCalled();
+    });
+
+    it('makes the bar a single Tab stop on web only', () => {
+      const tabbable = () =>
+        renderBar({ rovingFocus: true, activeKey: 'search' })
+          .getAllByRole('tab')
+          .map((t) => [t.props.accessibilityLabel, t.props.tabIndex]);
+      const native = tabbable();
+      expect(native.every(([, i]) => i === undefined)).toBe(true);
+
+      const os = Platform.OS;
+      Object.defineProperty(Platform, 'OS', {
+        value: 'web',
+        configurable: true,
+      });
+      try {
+        const web = tabbable();
+        expect(web.filter(([, i]) => i !== -1)).toEqual([['Search', 0]]);
+      } finally {
+        Object.defineProperty(Platform, 'OS', {
+          value: os,
+          configurable: true,
+        });
+      }
     });
   });
 

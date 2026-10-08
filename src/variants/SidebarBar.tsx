@@ -13,6 +13,7 @@ export function SidebarLayout({ engine }: { engine: BarEngine }) {
     <View
       testID={engine.testID}
       accessibilityRole="tablist"
+      onKeyDown={engine.roving.onKeyDown}
       pointerEvents={engine.visible ? 'auto' : 'none'}
       style={[
         styles.rail,
@@ -42,6 +43,8 @@ export function SidebarLayout({ engine }: { engine: BarEngine }) {
             style={engine.style}
             pressFeedback={engine.pressFeedback}
             renderFab={engine.renderFab}
+            focusProps={engine.roving.itemProps(fab.key)}
+            badgeMax={engine.badgeMax}
           />
         </View>
       ) : null}

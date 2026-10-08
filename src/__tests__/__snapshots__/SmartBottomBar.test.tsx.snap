@@ -212,6 +212,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                           "backgroundColor": "#FF3B30",
                         },
                         undefined,
+                        undefined,
                       ]
                     }
                   >
@@ -513,6 +514,7 @@ exports[`variants matches a snapshot per variant: curved 1`] = `
                         {
                           "backgroundColor": "#FF3B30",
                         },
+                        undefined,
                         undefined,
                       ]
                     }
@@ -961,6 +963,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
                           "backgroundColor": "#FF3B30",
                         },
                         undefined,
+                        undefined,
                       ]
                     }
                   >
@@ -1262,6 +1265,7 @@ exports[`variants matches a snapshot per variant: flat 1`] = `
                         {
                           "backgroundColor": "#FF3B30",
                         },
+                        undefined,
                         undefined,
                       ]
                     }
@@ -1708,6 +1712,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
                         "backgroundColor": "#FF3B30",
                       },
                       undefined,
+                      undefined,
                     ]
                   }
                 >
@@ -2009,6 +2014,7 @@ exports[`variants matches a snapshot per variant: floating 1`] = `
                       {
                         "backgroundColor": "#FF3B30",
                       },
+                      undefined,
                       undefined,
                     ]
                   }
@@ -2490,6 +2496,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                               "backgroundColor": "#FF3B30",
                             },
                             undefined,
+                            undefined,
                           ]
                         }
                       >
@@ -2794,6 +2801,7 @@ exports[`variants matches a snapshot per variant: liquidGlass 1`] = `
                             {
                               "backgroundColor": "#FF3B30",
                             },
+                            undefined,
                             undefined,
                           ]
                         }
@@ -3268,6 +3276,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
                         "backgroundColor": "#FF3B30",
                       },
                       undefined,
+                      undefined,
                     ]
                   }
                 >
@@ -3575,6 +3584,7 @@ exports[`variants matches a snapshot per variant: material 1`] = `
                       {
                         "backgroundColor": "#FF3B30",
                       },
+                      undefined,
                       undefined,
                     ]
                   }
@@ -4056,6 +4066,7 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                             "backgroundColor": "#FF3B30",
                           },
                           undefined,
+                          undefined,
                         ]
                       }
                     >
@@ -4357,6 +4368,7 @@ exports[`variants matches a snapshot per variant: notchedFab 1`] = `
                           {
                             "backgroundColor": "#FF3B30",
                           },
+                          undefined,
                           undefined,
                         ]
                       }
@@ -4801,6 +4813,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
                         "backgroundColor": "#FF3B30",
                       },
                       undefined,
+                      undefined,
                     ]
                   }
                 >
@@ -5077,6 +5090,7 @@ exports[`variants matches a snapshot per variant: segmented 1`] = `
                       {
                         "backgroundColor": "#FF3B30",
                       },
+                      undefined,
                       undefined,
                     ]
                   }
@@ -5515,6 +5529,7 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
                 "backgroundColor": "#FF3B30",
               },
               undefined,
+              undefined,
             ]
           }
         >
@@ -5810,6 +5825,7 @@ exports[`variants matches a snapshot per variant: sidebar 1`] = `
                 "backgroundColor": "#FF3B30",
               },
               undefined,
+              undefined,
             ]
           }
         />
@@ -5995,6 +6011,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
   testID="snap-wave"
 >
   <View
+    onLayout={[Function]}
     style={
       {
         "height": 79.52,
@@ -6159,6 +6176,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
                       {
                         "backgroundColor": "#FF3B30",
                       },
+                      undefined,
                       undefined,
                     ]
                   }
@@ -6461,6 +6479,7 @@ exports[`variants matches a snapshot per variant: wave 1`] = `
                       {
                         "backgroundColor": "#FF3B30",
                       },
+                      undefined,
                       undefined,
                     ]
                   }

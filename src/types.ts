@@ -174,6 +174,14 @@ export interface ResolvedPalette {
 export type PressFeedback =
   'none' | { opacity?: number; scale?: number; rippleColor?: string };
 
+/** Keyboard model for hardware keyboards (WAI-ARIA tabs pattern). */
+export interface RovingFocus {
+  /** `'manual'` (default): arrows move focus, Enter / Space selects. `'automatic'`: selection follows focus. */
+  activation?: 'manual' | 'automatic';
+  /** Wrap from the last tab to the first. Default `true`. */
+  loop?: boolean;
+}
+
 /** Text props for tab labels (style them with `style.label`). */
 export interface LabelProps {
   numberOfLines?: number;
@@ -247,6 +255,12 @@ export interface SmartBottomBarProps {
    * handling, selected state and accessibility around it.
    */
   renderFab?: (params: RenderFabParams) => ReactNode;
+  /**
+   * Arrow keys / Home / End move focus between tabs (↑/↓ on `sidebar`,
+   * ←/→ otherwise, mirrored in RTL); Enter / Space selects. On web the bar
+   * becomes a single Tab stop. Off by default.
+   */
+  rovingFocus?: boolean | RovingFocus;
   rtl?: RtlMode;
   hapticFeedback?: HapticFeedback;
   animation?: AnimationConfig;

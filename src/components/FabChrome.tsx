@@ -45,45 +45,65 @@ export function FabSplitRow({
     [onItemLayout]
   );
 
-  const sideLayout = (side: Side) =>
-    onItemLayout
-      ? (event: LayoutChangeEvent) => {
-          sideX.current[side] = event.nativeEvent.layout.x;
-          Object.keys(frames.current).forEach((key) => {
-            if (frames.current[key]?.side === side) {
-              emit(key);
-            }
-          });
-        }
-      : undefined;
-
-  const itemLayout = (side: Side) =>
-    onItemLayout
-      ? (key: string, x: number, width: number) => {
-          frames.current[key] = { side, x, width };
+  const podLayout = useCallback(
+    (side: Side, event: LayoutChangeEvent) => {
+      sideX.current[side] = event.nativeEvent.layout.x;
+      Object.keys(frames.current).forEach((key) => {
+        if (frames.current[key]?.side === side) {
           emit(key);
         }
-      : undefined;
+      });
+    },
+    [emit]
+  );
+
+  const itemLayout = useCallback(
+    (side: Side, key: string, x: number, width: number) => {
+      frames.current[key] = { side, x, width };
+      emit(key);
+    },
+    [emit]
+  );
+
+  const leftPod = useCallback(
+    (event: LayoutChangeEvent) => podLayout('left', event),
+    [podLayout]
+  );
+  const rightPod = useCallback(
+    (event: LayoutChangeEvent) => podLayout('right', event),
+    [podLayout]
+  );
+  const leftItem = useCallback(
+    (key: string, x: number, width: number) =>
+      itemLayout('left', key, x, width),
+    [itemLayout]
+  );
+  const rightItem = useCallback(
+    (key: string, x: number, width: number) =>
+      itemLayout('right', key, x, width),
+    [itemLayout]
+  );
+  const tracked = Boolean(onItemLayout);
 
   return (
     <View style={styles.row}>
-      <View style={styles.side} onLayout={sideLayout('left')}>
+      <View style={styles.side} onLayout={tracked ? leftPod : undefined}>
         <ItemRow
           engine={engine}
           items={engine.split.left}
           compact={compact}
           pill={pill}
-          onItemLayout={itemLayout('left')}
+          onItemLayout={tracked ? leftItem : undefined}
         />
       </View>
       <View style={[styles.center, { width: gapWidth }]}>{center}</View>
-      <View style={styles.side} onLayout={sideLayout('right')}>
+      <View style={styles.side} onLayout={tracked ? rightPod : undefined}>
         <ItemRow
           engine={engine}
           items={engine.split.right}
           compact={compact}
           pill={pill}
-          onItemLayout={itemLayout('right')}
+          onItemLayout={tracked ? rightItem : undefined}
         />
       </View>
     </View>
@@ -118,6 +138,8 @@ export function FabSlot({
         style={style}
         pressFeedback={engine.pressFeedback}
         renderFab={engine.renderFab}
+        focusProps={engine.roving.itemProps(engine.fab.key)}
+        badgeMax={engine.badgeMax}
       />
     </View>
   );

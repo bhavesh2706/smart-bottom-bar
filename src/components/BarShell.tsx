@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { Animated, StyleSheet, type ViewStyle } from 'react-native';
 import type { BarEngine } from '../hooks/useBarEngine';
 import { runBarAnimation } from '../utils';
@@ -16,7 +16,7 @@ export function BarShell({
 }) {
   const hiddenOffset =
     engine.barHeight + engine.insets.bottom + extraHeight + 24;
-  const translateY = useRef(new Animated.Value(0)).current;
+  const [translateY] = useState(() => new Animated.Value(0));
 
   const target =
     !engine.visible && engine.translateOnHide
@@ -42,6 +42,7 @@ export function BarShell({
       pointerEvents={hidden ? 'none' : 'auto'}
       testID={engine.testID}
       accessibilityRole="tablist"
+      onKeyDown={engine.roving.onKeyDown}
       style={[
         overlay ? styles.overlay : styles.docked,
         {

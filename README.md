@@ -30,7 +30,7 @@ Recorded on real devices: every variant with the center FAB on and off, then Liq
 - **Smart icons** — pass a function icon and the bar tints it correctly in rows, FABs, the wave bubble and the sidebar rail.
 - **Navigation-agnostic** — plain `useState`, React Navigation v6/v7 or Expo Router.
 - **Production details** — safe-area aware, hides on keyboard, scroll-to-top on re-tap, haptics hook, RTL, tablet sidebar breakpoint.
-- **Accessible** — `tab` roles, selected / disabled state, badge announcements, 44×44 touch targets, Reduce Motion and Reduce Transparency.
+- **Accessible** — `tab` roles, selected / disabled state, badge announcements, 44×44 touch targets, keyboard navigation, Reduce Motion and Reduce Transparency.
 - **Light & fast** — native-driver animations, memoized rendering, no SVG, no Reanimated, no Gesture Handler. Fabric (New Architecture) ready.
 
 ## Install
@@ -327,6 +327,24 @@ Without `insets` the bar falls back to 34pt on notched iPhones, 20pt on iPad, an
 <SmartBottomBar items={ITEMS} visible={!hideTabBar} placement="overlay" />
 ```
 
+### Keyboard navigation (web, hardware keyboards)
+
+```tsx
+<SmartBottomBar items={ITEMS} rovingFocus />
+// selection follows the arrows, no wrap at the ends
+<SmartBottomBar items={ITEMS} rovingFocus={{ activation: 'automatic', loop: false }} />
+```
+
+`rovingFocus` follows the WAI-ARIA tabs pattern: **Arrow keys** move focus (Up / Down on `sidebar`, mirrored in RTL), **Home / End** jump to the first / last tab, **Enter / Space** select. Focus and selection are independent by default (`activation: 'manual'`); disabled tabs are skipped.
+
+| Platform | Behavior |
+| --- | --- |
+| Web | One Tab stop for the whole bar (the focused or active tab); arrows / Home / End / Space handled by the bar. |
+| Android | OS focus: Tab and D-pad move, Enter selects. Every tab stays reachable. |
+| iOS | Handled by the OS. On iOS 26, Full Keyboard Access doesn't reach React Native `Pressable`s, so use touch or VoiceOver. |
+
+On web and Android, selecting a focused tab keeps keyboard focus (including wave's floating bubble).
+
 ### Haptics
 
 ```tsx
@@ -447,6 +465,7 @@ Every prop on `<SmartBottomBar>` (and each `<XxxBottomBar>`), grouped. All optio
 | Prop | Type | Notes |
 | --- | --- | --- |
 | `testID` | `string` | bar root; the glass lens is `${testID}-lens` |
+| `rovingFocus` | `boolean \| { activation?: 'manual' \| 'automatic'; loop?: boolean }` | opt-in arrow / Home / End keyboard model — see [Keyboard navigation](#keyboard-navigation-web-hardware-keyboards) |
 
 Each tab gets `testID` `smart-bottom-bar-item-<key>` unless `item.testID` is set; badges get `<item.testID>-badge`.
 
@@ -522,7 +541,7 @@ lightPalette, darkPalette, paletteFor, defaultShadow, barShadowStyle
 // Types
 SmartBottomBarProps, VariantBarProps, BottomBarItem, BottomBarVariant, BottomBarStyle,
 BarIcon, BarIconProps, BarColors, BarColorOverrides, ResolvedPalette,
-PressFeedback, LabelProps, RenderFabParams, RenderItemParams,
+PressFeedback, LabelProps, RenderFabParams, RenderItemParams, RovingFocus,
 GlassConfig, GlassSurfaceProps, AnimationConfig, EdgeInsets, ResolvedInsets, NativeTabConfig,
 LabelPosition, ColorSchemePreference, KeyboardBehavior, MaterialMode, HapticEvent,
 HapticFeedback, BarPlacement, RtlMode
@@ -534,6 +553,7 @@ HapticFeedback, BarPlacement, RtlMode
 - Labels include badges ("Home, 3 notifications"); decorative layers (glass lens, wave copy) are hidden from screen readers.
 - 44×44 minimum touch targets, Dynamic Type up to 1.35× by default (`labelProps` to change).
 - Reduce Motion → instant transitions. Reduce Transparency → opaque Liquid Glass.
+- Keyboard: tabs are focusable everywhere; `rovingFocus` adds arrows / Home / End and a single Tab stop on web.
 
 ## Troubleshooting
 

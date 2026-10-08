@@ -206,17 +206,26 @@ export function glassOpacity(intensity: 'clear' | 'regular'): number {
  * older versions warn on the unknown style key.
  */
 export function supportsBoxShadow(): boolean {
+  // react-native-web has no Platform.constants
   const version = (
-    Platform.constants as {
-      reactNativeVersion?: { major: number; minor: number };
-    }
-  ).reactNativeVersion;
+    Platform.constants as
+      { reactNativeVersion?: { major: number; minor: number } } | undefined
+  )?.reactNativeVersion;
   const recent = !version || version.major > 0 || version.minor >= 76;
   return (
     recent &&
     (globalThis as { nativeFabricUIManager?: unknown }).nativeFabricUIManager !=
       null
   );
+}
+
+/** "Home, 3 notifications" — the badge is part of the tab's spoken label. */
+export function itemA11yLabel(item: BottomBarItem): string {
+  if (item.accessibilityLabel != null) return item.accessibilityLabel;
+  if (!item.label) return item.key;
+  if (item.badge === undefined || item.badge === false) return item.label;
+  const count = item.badge === true ? 'new' : String(item.badge);
+  return `${item.label}, ${count} notifications`;
 }
 
 export function formatBadge(

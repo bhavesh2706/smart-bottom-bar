@@ -1,5 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
-import { Animated, StyleSheet, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import {
+  Animated,
+  StyleSheet,
+  View,
+  type LayoutChangeEvent,
+} from 'react-native';
 import type { BarEngine } from '../hooks/useBarEngine';
 import { BarShell } from '../components/BarShell';
 import { FabButton } from '../components/FabButton';
@@ -10,7 +15,7 @@ import { runBarAnimation } from '../utils';
 
 export function WaveLayout({ engine }: { engine: BarEngine }) {
   const [width, setWidth] = useState(0);
-  const tx = useRef(new Animated.Value(0)).current;
+  const [tx] = useState(() => new Animated.Value(0));
   const withFab = engine.wantsFab && Boolean(engine.fab);
   const bubble = engine.bubbleSize;
   const extra = withFab ? engine.fabExtra : bubble * 0.38;
@@ -30,11 +35,15 @@ export function WaveLayout({ engine }: { engine: BarEngine }) {
 
   const activeItem =
     engine.shown[engine.active.visibleIndex] ?? engine.shown[0];
+  const onLayout = (e: LayoutChangeEvent) =>
+    setWidth(e.nativeEvent.layout.width);
 
   if (withFab) {
+    // Measured here too: web never reports layout for an onLayout added to a
+    // reused View, so dropping the FAB at runtime would leave width at 0.
     return (
       <BarShell engine={engine} extraHeight={extra}>
-        <View style={{ height: engine.barHeight + extra }}>
+        <View onLayout={onLayout} style={{ height: engine.barHeight + extra }}>
           <View
             style={[
               styles.bar,
@@ -57,10 +66,7 @@ export function WaveLayout({ engine }: { engine: BarEngine }) {
 
   return (
     <BarShell engine={engine} extraHeight={extra}>
-      <View
-        onLayout={(e) => setWidth(e.nativeEvent.layout.width)}
-        style={{ height: engine.barHeight + extra }}
-      >
+      <View onLayout={onLayout} style={{ height: engine.barHeight + extra }}>
         <View
           style={[
             styles.bar,
@@ -116,6 +122,8 @@ export function WaveLayout({ engine }: { engine: BarEngine }) {
               onLongPress={() => engine.handleLongPress(activeItem.key)}
               style={engine.style}
               pressFeedback={engine.pressFeedback}
+              focusProps={engine.roving.itemProps(activeItem.key)}
+              badgeMax={engine.badgeMax}
             />
           </Animated.View>
         ) : null}

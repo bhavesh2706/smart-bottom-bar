@@ -34,6 +34,7 @@ export type {
   PressFeedback,
   LabelProps,
   RenderFabParams,
+  RovingFocus,
   AnimationConfig,
   GlassConfig,
   GlassSurfaceProps,

@@ -59,6 +59,13 @@ const BRAND: BarColorOverrides = {
 };
 
 // Every fine-grained knob at once; all optional on top of the defaults.
+type KeysMode = 'off' | 'manual' | 'automatic';
+const KEYS_MODES: Record<KeysMode, KeysMode> = {
+  off: 'manual',
+  manual: 'automatic',
+  automatic: 'off',
+};
+
 const CUSTOM: Partial<SmartBottomBarProps> = {
   colors: BRAND,
   pressFeedback: { scale: 0.92, rippleColor: 'rgba(233, 30, 99, 0.18)' },
@@ -115,6 +122,7 @@ function Demo() {
   const [shadow, setShadow] = useState<boolean | undefined>(undefined);
   const [fabMode, setFabMode] = useState<FabMode>('raised');
   const [custom, setCustom] = useState(false);
+  const [keys, setKeys] = useState<KeysMode>('off');
   const fabOn = fabMode !== 'off';
   const [scheme, setScheme] = useState<ColorSchemePreference>('light');
 
@@ -164,6 +172,7 @@ function Demo() {
       shadow={shadow}
       colorScheme={scheme === 'auto' ? 'auto' : scheme}
       glass={fabMode === 'embedded' ? { fabPlacement: 'embedded' } : undefined}
+      rovingFocus={keys === 'off' ? undefined : { activation: keys }}
       {...(custom ? CUSTOM : null)}
     />
   );
@@ -196,6 +205,8 @@ function Demo() {
               setFabMode={setFabMode}
               custom={custom}
               setCustom={setCustom}
+              keys={keys}
+              cycleKeys={() => setKeys((k) => KEYS_MODES[k])}
               scheme={scheme}
               cycleScheme={() =>
                 setScheme((s) =>
@@ -229,6 +240,8 @@ function Demo() {
               setFabMode={setFabMode}
               custom={custom}
               setCustom={setCustom}
+              keys={keys}
+              cycleKeys={() => setKeys((k) => KEYS_MODES[k])}
               scheme={scheme}
               cycleScheme={() =>
                 setScheme((s) =>
@@ -289,6 +302,8 @@ function DemoControls({
   setFabMode,
   custom,
   setCustom,
+  keys,
+  cycleKeys,
   scheme,
   cycleScheme,
 }: {
@@ -302,6 +317,8 @@ function DemoControls({
   setFabMode: (v: FabMode) => void;
   custom: boolean;
   setCustom: (v: boolean) => void;
+  keys: KeysMode;
+  cycleKeys: () => void;
   scheme: ColorSchemePreference;
   cycleScheme: () => void;
 }) {
@@ -367,6 +384,14 @@ function DemoControls({
         >
           <Text style={[styles.toggleText, dark && styles.toggleTextDark]}>
             custom: {custom ? 'on' : 'off'}
+          </Text>
+        </Pressable>
+        <Pressable
+          onPress={cycleKeys}
+          style={[styles.toggle, dark && styles.toggleDark]}
+        >
+          <Text style={[styles.toggleText, dark && styles.toggleTextDark]}>
+            keys: {keys}
           </Text>
         </Pressable>
       </View>

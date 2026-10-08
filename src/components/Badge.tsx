@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, type ViewStyle } from 'react-native';
 import type { BottomBarItem, BottomBarStyle, ResolvedPalette } from '../types';
 import { formatBadge } from '../utils';
 
@@ -7,11 +7,14 @@ export function Badge({
   colors,
   style,
   max,
+  position,
 }: {
   item: BottomBarItem;
   colors: ResolvedPalette;
   style?: BottomBarStyle;
   max?: number;
+  /** Overrides the default top-right offset (before `style.badge`). */
+  position?: ViewStyle;
 }) {
   if (item.badge === undefined || item.badge === false) {
     return null;
@@ -27,6 +30,7 @@ export function Badge({
         styles.badge,
         isDot ? styles.dot : styles.pill,
         { backgroundColor: item.badgeColor ?? colors.badge },
+        position,
         style?.badge,
       ]}
       testID={item.testID ? `${item.testID}-badge` : undefined}
